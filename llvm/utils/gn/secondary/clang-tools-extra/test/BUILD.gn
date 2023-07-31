@@ -1,3 +1,5 @@
+import("//build_overrides/llvm.gni")
+
 import("//clang-tools-extra/clang-tidy/enable.gni")
 import("//clang/lib/StaticAnalyzer/Frontend/enable.gni")
 import("//llvm/triples.gni")

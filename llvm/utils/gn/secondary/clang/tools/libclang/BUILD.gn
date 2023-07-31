@@ -1,3 +1,5 @@
+import("//build_overrides/llvm.gni")
+
 import("//clang/lib/ARCMigrate/enable.gni")
 import("//llvm/utils/gn/build/symbol_exports.gni")
 import("//llvm/version.gni")

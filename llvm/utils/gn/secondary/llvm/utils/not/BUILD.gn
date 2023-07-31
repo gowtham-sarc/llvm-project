@@ -1,3 +1,5 @@
+import("//build_overrides/llvm.gni")
+
 executable("not") {
   deps = [ "//llvm/lib/Support" ]
   sources = [ "not.cpp" ]

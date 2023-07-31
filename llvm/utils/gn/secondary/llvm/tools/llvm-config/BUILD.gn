@@ -1,3 +1,5 @@
+import("//build_overrides/llvm.gni")
+
 import("//llvm/lib/Target/targets_string.gni")
 import("//llvm/utils/gn/build/buildflags.gni")
 import("//llvm/utils/gn/build/libs/pthread/enable.gni")

@@ -1,3 +1,5 @@
+import("//build_overrides/llvm.gni")
+
 import("//third-party/unittest/unittest.gni")
 
 # This test is currently not referenced by anything, it only exists

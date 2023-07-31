@@ -1,3 +1,5 @@
+import("//build_overrides/llvm.gni")
+
 import("//llvm/utils/gn/build/libs/pthread/enable.gni")
 
 # Used to push the gtest include directories to things depending on :googletest.

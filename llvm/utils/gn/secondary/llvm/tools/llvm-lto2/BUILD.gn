@@ -1,3 +1,5 @@
+import("//build_overrides/llvm.gni")
+
 executable("llvm-lto2") {
   deps = [
     "//llvm/lib/Bitcode/Reader",

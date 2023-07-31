@@ -1,3 +1,5 @@
+import("//build_overrides/llvm.gni")
+
 # The LLDB_IN_LIBLLDB setup requires that liblldb is a shared_library
 # on Windows.
 # FIXME: Consider making it a shared_library everywhere like in cmake?

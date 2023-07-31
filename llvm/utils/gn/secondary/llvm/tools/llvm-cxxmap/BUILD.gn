@@ -1,3 +1,5 @@
+import("//build_overrides/llvm.gni")
+
 executable("llvm-cxxmap") {
   deps = [
     "//llvm/lib/IR",

@@ -1,3 +1,5 @@
+import("//build_overrides/llvm.gni")
+
 # source_set instead of static_library so that all test cpp files are loaded.
 source_set("X86") {
   testonly = true

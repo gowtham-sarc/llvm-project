@@ -1,3 +1,5 @@
+import("//build_overrides/llvm.gni")
+
 static_library("utils") {
   output_name = "clangTidyUtils"
   configs += [ "//llvm/utils/gn/build:clang_code" ]

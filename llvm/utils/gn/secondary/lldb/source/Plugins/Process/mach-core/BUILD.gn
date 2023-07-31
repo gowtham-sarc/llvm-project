@@ -1,3 +1,5 @@
+import("//build_overrides/llvm.gni")
+
 static_library("mach-core") {
   output_name = "lldbPluginProcessMachCore"
   configs += [ "//llvm/utils/gn/build:lldb_code" ]

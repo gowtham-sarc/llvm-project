@@ -1,3 +1,5 @@
+import("//build_overrides/llvm.gni")
+
 # This file introduces a templates for calling write_cmake_config.py.
 #
 # write_cmake_config behaves like CMake's configure_file(), but runs at build

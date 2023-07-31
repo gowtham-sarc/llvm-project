@@ -1,3 +1,5 @@
+import("//build_overrides/llvm.gni")
+
 import("//libcxx/config.gni")
 import("//llvm/utils/gn/build/write_cmake_config.gni")
 

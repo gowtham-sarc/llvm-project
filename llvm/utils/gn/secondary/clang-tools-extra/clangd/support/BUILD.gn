@@ -1,3 +1,5 @@
+import("//build_overrides/llvm.gni")
+
 # clangd/support contains low-level support libraries that do not depend
 # on clang either programmatically or conceptually.
 static_library("support") {

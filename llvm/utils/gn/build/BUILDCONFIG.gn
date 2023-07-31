@@ -1,3 +1,5 @@
+import("//build_overrides/llvm.gni")
+
 # All targets will get this list of configs by default.
 # Targets can opt out of a config by removing it from their local configs list.
 # If you're adding global flags and don't need targets to be able to opt out,

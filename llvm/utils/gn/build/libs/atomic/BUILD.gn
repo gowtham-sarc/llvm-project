@@ -1,3 +1,5 @@
+import("//build_overrides/llvm.gni")
+
 config("atomic_config") {
   visibility = [ ":atomic" ]
   libs = [ "atomic" ]

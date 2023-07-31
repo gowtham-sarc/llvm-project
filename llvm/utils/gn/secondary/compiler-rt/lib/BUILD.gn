@@ -1,3 +1,5 @@
+import("//build_overrides/llvm.gni")
+
 group("lib") {
   deps = [
     "//compiler-rt/lib/asan:ignorelist($host_toolchain)",

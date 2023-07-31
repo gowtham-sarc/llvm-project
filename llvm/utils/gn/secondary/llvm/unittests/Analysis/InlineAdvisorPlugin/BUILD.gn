@@ -1,3 +1,5 @@
+import("//build_overrides/llvm.gni")
+
 # Keyed off LLVM_ENABLE_PLUGINS in the CMake build, which is usually false
 # on Windows and true elsewhere.
 if (host_os != "win") {

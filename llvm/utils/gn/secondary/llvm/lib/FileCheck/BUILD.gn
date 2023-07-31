@@ -1,3 +1,5 @@
+import("//build_overrides/llvm.gni")
+
 static_library("FileCheck") {
   output_name = "LLVMFileCheck"
   deps = [ "//llvm/lib/Support" ]

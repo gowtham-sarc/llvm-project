@@ -1,3 +1,5 @@
+import("//build_overrides/llvm.gni")
+
 if (host_os != "win") {
   loadable_module("InlineOrderPlugin") {
     # Put plugin next to the unit test executable.

@@ -1,3 +1,5 @@
+import("//build_overrides/llvm.gni")
+
 clangd_lit_site_cfg_file =
     "$root_gen_dir/clang-tools-extra/clangd/test/lit.site.cfg.py"
 clangd_lit_unit_site_cfg_file =

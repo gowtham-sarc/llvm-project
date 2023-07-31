@@ -1,3 +1,5 @@
+import("//build_overrides/llvm.gni")
+
 declare_args() {
   if (host_os == "win") {
     # On Windows, path to a directory containing zlib headers and zlib.lib.

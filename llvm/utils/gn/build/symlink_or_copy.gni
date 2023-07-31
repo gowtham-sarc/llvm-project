@@ -1,3 +1,5 @@
+import("//build_overrides/llvm.gni")
+
 # Creates a symlink (or, on Windows, copies).
 # Args:
 #   source: Path to link to.

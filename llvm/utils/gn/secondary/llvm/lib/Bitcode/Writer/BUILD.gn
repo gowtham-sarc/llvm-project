@@ -1,3 +1,5 @@
+import("//build_overrides/llvm.gni")
+
 static_library("Writer") {
   output_name = "LLVMBitWriter"
   deps = [

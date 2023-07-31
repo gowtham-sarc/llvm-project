@@ -1,3 +1,5 @@
+import("//build_overrides/llvm.gni")
+
 static_library("Core") {
   output_name = "LLVMBOLTCore"
   configs += [ "//llvm/utils/gn/build:bolt_code" ]

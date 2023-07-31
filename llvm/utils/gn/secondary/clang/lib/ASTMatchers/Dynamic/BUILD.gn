@@ -1,3 +1,5 @@
+import("//build_overrides/llvm.gni")
+
 static_library("Dynamic") {
   output_name = "clangDynamicASTMatchers"
   configs += [ "//llvm/utils/gn/build:clang_code" ]

@@ -1,3 +1,5 @@
+import("//build_overrides/llvm.gni")
+
 # This file introduces a templates for defining fuzzers.
 #
 # All parameters valid for executable() targets are valid (cflags, defines,

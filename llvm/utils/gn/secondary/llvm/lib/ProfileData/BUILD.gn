@@ -1,3 +1,5 @@
+import("//build_overrides/llvm.gni")
+
 static_library("ProfileData") {
   output_name = "LLVMProfileData"
   deps = [

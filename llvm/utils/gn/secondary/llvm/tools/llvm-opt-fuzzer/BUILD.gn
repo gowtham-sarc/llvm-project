@@ -1,3 +1,5 @@
+import("//build_overrides/llvm.gni")
+
 import("//llvm/utils/gn/build/fuzzer.gni")
 
 fuzzer("llvm-opt-fuzzer") {

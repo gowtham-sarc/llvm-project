@@ -1,3 +1,5 @@
+import("//build_overrides/llvm.gni")
+
 # FIXME: The cmake build runs DumpTool:clang-ast-dump to generate a json
 # file and feeds it into this step in non-debug builds or if an option is set.
 action("node_introspection_inc") {

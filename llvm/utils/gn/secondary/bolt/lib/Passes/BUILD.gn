@@ -1,3 +1,5 @@
+import("//build_overrides/llvm.gni")
+
 static_library("Passes") {
   output_name = "LLVMBOLTPasses"
   configs += [ "//llvm/utils/gn/build:bolt_code" ]

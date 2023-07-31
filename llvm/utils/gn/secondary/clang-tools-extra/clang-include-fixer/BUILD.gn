@@ -1,3 +1,5 @@
+import("//build_overrides/llvm.gni")
+
 static_library("clang-include-fixer") {
   output_name = "clangIncludeFixer"
   configs += [ "//llvm/utils/gn/build:clang_code" ]

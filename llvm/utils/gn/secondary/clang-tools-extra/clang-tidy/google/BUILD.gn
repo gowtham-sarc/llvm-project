@@ -1,3 +1,5 @@
+import("//build_overrides/llvm.gni")
+
 static_library("google") {
   output_name = "clangTidyGoogleModule"
   configs += [ "//llvm/utils/gn/build:clang_code" ]

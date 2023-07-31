@@ -1,0 +1,6 @@
+# House the overrides vars that will be used when setting up llvm from another
+# repository.
+
+# Path with trailing /
+llvm_root = ""
+llvm_build_root = "llvm/utils/gn/"

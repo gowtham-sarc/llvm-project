@@ -1,3 +1,5 @@
+import("//build_overrides/llvm.gni")
+
 declare_args() {
   # Whether lldb links against libedit. Set to `true` or `false`, or to
   # `"default"` to get the platform default.

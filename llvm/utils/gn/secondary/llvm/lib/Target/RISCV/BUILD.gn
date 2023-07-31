@@ -1,3 +1,5 @@
+import("//build_overrides/llvm.gni")
+
 import("//llvm/utils/TableGen/tablegen.gni")
 
 # RISCV is the only target that has a "compress instr emitter", and it's

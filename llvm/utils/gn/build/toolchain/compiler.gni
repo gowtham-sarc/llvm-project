@@ -1,3 +1,5 @@
+import("//build_overrides/llvm.gni")
+
 declare_args() {
   # Whether to use goma (https://chromium.googlesource.com/infra/goma/client/)
   use_goma = false

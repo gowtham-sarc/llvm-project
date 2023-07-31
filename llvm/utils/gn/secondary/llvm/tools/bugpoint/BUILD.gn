@@ -1,3 +1,5 @@
+import("//build_overrides/llvm.gni")
+
 executable("bugpoint") {
   deps = [
     "//llvm/include/llvm/Config:config",

@@ -1,3 +1,5 @@
+import("//build_overrides/llvm.gni")
+
 static_library("linuxkernel") {
   output_name = "clangTidyLinuxKernelModule"
   configs += [ "//llvm/utils/gn/build:clang_code" ]

@@ -1,3 +1,5 @@
+import("//build_overrides/llvm.gni")
+
 import("//llvm/tools/cctools_symlinks.gni")
 import("//llvm/utils/TableGen/tablegen.gni")
 import("//llvm/utils/gn/build/driver_executable.gni")

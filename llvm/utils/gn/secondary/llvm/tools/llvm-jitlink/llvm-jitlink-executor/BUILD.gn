@@ -1,3 +1,5 @@
+import("//build_overrides/llvm.gni")
+
 executable("llvm-jitlink-executor") {
   deps = [
     "//llvm/lib/ExecutionEngine/Orc/TargetProcess",

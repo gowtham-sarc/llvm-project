@@ -1,3 +1,5 @@
+import("//build_overrides/llvm.gni")
+
 # This file introduces a template for running lldb-tblgen.
 #
 # Parameters:

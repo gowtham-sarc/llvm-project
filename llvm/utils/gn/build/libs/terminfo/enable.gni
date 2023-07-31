@@ -1,3 +1,5 @@
+import("//build_overrides/llvm.gni")
+
 declare_args() {
   # Whether to link against terminfo.
   llvm_enable_terminfo = false

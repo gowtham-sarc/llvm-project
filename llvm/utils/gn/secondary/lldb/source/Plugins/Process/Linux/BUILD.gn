@@ -1,3 +1,5 @@
+import("//build_overrides/llvm.gni")
+
 static_library("Linux") {
   output_name = "lldbPluginProcessLinux"
   configs += [ "//llvm/utils/gn/build:lldb_code" ]

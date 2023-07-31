@@ -1,3 +1,5 @@
+import("//build_overrides/llvm.gni")
+
 static_library("BTF") {
   output_name = "LLVMDebugInfoBTF"
   deps = [ "//llvm/lib/Support" ]

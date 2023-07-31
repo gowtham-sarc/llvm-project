@@ -1,3 +1,5 @@
+import("//build_overrides/llvm.gni")
+
 static_library("Debuginfod") {
   output_name = "LLVMDebuginfod"
   deps = [

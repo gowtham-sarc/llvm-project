@@ -1,3 +1,5 @@
+import("//build_overrides/llvm.gni")
+
 static_library("DWP") {
   output_name = "LLVMDWP"
   deps = [

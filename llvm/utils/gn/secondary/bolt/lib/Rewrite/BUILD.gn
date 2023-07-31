@@ -1,3 +1,5 @@
+import("//build_overrides/llvm.gni")
+
 import("//llvm/lib/Target/targets.gni")
 
 static_library("Rewrite") {

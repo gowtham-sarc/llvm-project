@@ -1,3 +1,5 @@
+import("//build_overrides/llvm.gni")
+
 static_library("Initialization") {
   output_name = "lldbInitialization"
   configs += [ "//llvm/utils/gn/build:lldb_code" ]

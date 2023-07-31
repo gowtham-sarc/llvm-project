@@ -1,3 +1,5 @@
+import("//build_overrides/llvm.gni")
+
 import("//llvm/utils/gn/build/write_cmake_config.gni")
 
 # Corresponds to GENERATE_DRIVER in cmake (see add_llvm_executable in

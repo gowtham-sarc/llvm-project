@@ -1,3 +1,5 @@
+import("//build_overrides/llvm.gni")
+
 source_set("UnitTestMain") {
   deps = [ "//llvm/lib/Support" ]
 
