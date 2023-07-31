@@ -1,6 +1,6 @@
 import("//build_overrides/llvm.gni")
 
-import("//llvm/utils/gn/build/libs/pthread/enable.gni")
+import("//${llvm_build_root}build/libs/pthread/enable.gni")
 
 # Used to push the gtest include directories to things depending on :googletest.
 config("googletest_config") {
@@ -26,8 +26,8 @@ static_library("gtest") {
     "googlemock",  # For including src/gmock.cc
   ]
   public_configs = [ ":googletest_config" ]
-  configs -= [ "//llvm/utils/gn/build:warn_covered_switch_default" ]
-  configs -= [ "//llvm/utils/gn/build:no_rtti" ]
+  configs -= [ "//${llvm_build_root}build:warn_covered_switch_default" ]
+  configs -= [ "//${llvm_build_root}build:no_rtti" ]
   sources = [
     "googlemock/src/gmock-all.cc",
     "googletest/src/gtest-all.cc",

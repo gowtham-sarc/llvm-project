@@ -23,8 +23,8 @@ gen_version_script("version_script") {
 }
 
 source_set("sources") {
-  configs -= [ "//llvm/utils/gn/build:llvm_code" ]
-  configs += [ "//llvm/utils/gn/build:crt_code" ]
+  configs -= [ "//${llvm_build_root}build:llvm_code" ]
+  configs += [ "//${llvm_build_root}build:crt_code" ]
   defines = [ "HWASAN_WITH_INTERCEPTORS=1" ]
   if (current_cpu == "x64") {
     defines += [ "HWASAN_ALIASING_MODE" ]
@@ -73,8 +73,8 @@ source_set("sources") {
 }
 
 source_set("cxx_sources") {
-  configs -= [ "//llvm/utils/gn/build:llvm_code" ]
-  configs += [ "//llvm/utils/gn/build:crt_code" ]
+  configs -= [ "//${llvm_build_root}build:llvm_code" ]
+  configs += [ "//${llvm_build_root}build:crt_code" ]
   defines = [ "HWASAN_WITH_INTERCEPTORS=1" ]
   deps = [ "//compiler-rt/lib/ubsan:cxx_sources" ]
   sources = [ "hwasan_new_delete.cpp" ]
@@ -85,10 +85,10 @@ static_library("hwasan") {
   output_name = "clang_rt.$hwasan_name$crt_current_target_suffix"
   complete_static_lib = true
   configs -= [
-    "//llvm/utils/gn/build:llvm_code",
-    "//llvm/utils/gn/build:thin_archive",
+    "//${llvm_build_root}build:llvm_code",
+    "//${llvm_build_root}build:thin_archive",
   ]
-  configs += [ "//llvm/utils/gn/build:crt_code" ]
+  configs += [ "//${llvm_build_root}build:crt_code" ]
   deps = [ ":sources" ]
 }
 
@@ -97,18 +97,18 @@ static_library("hwasan_cxx") {
   output_name = "clang_rt.${hwasan_name}_cxx$crt_current_target_suffix"
   complete_static_lib = true
   configs -= [
-    "//llvm/utils/gn/build:llvm_code",
-    "//llvm/utils/gn/build:thin_archive",
+    "//${llvm_build_root}build:llvm_code",
+    "//${llvm_build_root}build:thin_archive",
   ]
-  configs += [ "//llvm/utils/gn/build:crt_code" ]
+  configs += [ "//${llvm_build_root}build:crt_code" ]
   deps = [ ":cxx_sources" ]
 }
 
 shared_library("hwasan_shared") {
   output_dir = crt_current_out_dir
   output_name = "clang_rt.$hwasan_name$crt_current_target_suffix"
-  configs -= [ "//llvm/utils/gn/build:llvm_code" ]
-  configs += [ "//llvm/utils/gn/build:crt_code" ]
+  configs -= [ "//${llvm_build_root}build:llvm_code" ]
+  configs += [ "//${llvm_build_root}build:crt_code" ]
   deps = [
     ":cxx_sources",
     ":sources",
@@ -126,9 +126,9 @@ static_library("hwasan_preinit") {
   output_name = "clang_rt.${hwasan_name}_preinit$crt_current_target_suffix"
   complete_static_lib = true
   configs -= [
-    "//llvm/utils/gn/build:llvm_code",
-    "//llvm/utils/gn/build:thin_archive",
+    "//${llvm_build_root}build:llvm_code",
+    "//${llvm_build_root}build:thin_archive",
   ]
-  configs += [ "//llvm/utils/gn/build:crt_code" ]
+  configs += [ "//${llvm_build_root}build:crt_code" ]
   sources = [ "hwasan_preinit.cpp" ]
 }

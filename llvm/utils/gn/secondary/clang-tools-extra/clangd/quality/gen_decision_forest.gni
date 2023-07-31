@@ -38,7 +38,7 @@ template("gen_decision_forest") {
 
   source_set(target_name) {
     configs += [
-      "//llvm/utils/gn/build:clang_code",
+      "//${llvm_build_root}build:clang_code",
       ":${target_name}Config",
     ]
     deps = [ ":${target_name}Cpp" ] + extra_deps

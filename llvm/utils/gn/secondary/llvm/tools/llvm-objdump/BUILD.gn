@@ -3,7 +3,7 @@ import("//build_overrides/llvm.gni")
 import("//llvm/tools/binutils_symlinks.gni")
 import("//llvm/tools/cctools_symlinks.gni")
 import("//llvm/utils/TableGen/tablegen.gni")
-import("//llvm/utils/gn/build/symlink_or_copy.gni")
+import("//${llvm_build_root}build/symlink_or_copy.gni")
 
 tablegen("ObjdumpOpts") {
   visibility = [ ":llvm-objdump" ]
@@ -59,7 +59,7 @@ executable("llvm-objdump") {
     "//llvm/lib/Target:AllTargetsDisassemblers",
     "//llvm/lib/Target:AllTargetsInfos",
     "//llvm/lib/TargetParser",
-    "//llvm/utils/gn/build/libs/xar",
+    "//${llvm_build_root}build/libs/xar",
   ]
   sources = [
     "COFFDump.cpp",

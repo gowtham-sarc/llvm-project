@@ -14,7 +14,7 @@ action("HTMLLogger") {
 
 static_library("FlowSensitive") {
   output_name = "clangAnalysisFlowSensitive"
-  configs += [ "//llvm/utils/gn/build:clang_code" ]
+  configs += [ "//${llvm_build_root}build:clang_code" ]
   deps = [
     ":HTMLLogger",
     "//clang/lib/AST",

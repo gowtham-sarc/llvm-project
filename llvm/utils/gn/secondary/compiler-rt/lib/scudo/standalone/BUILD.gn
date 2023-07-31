@@ -8,8 +8,8 @@ scudo_cflags = [
 ]
 
 source_set("sources") {
-  configs -= [ "//llvm/utils/gn/build:llvm_code" ]
-  configs += [ "//llvm/utils/gn/build:crt_code" ]
+  configs -= [ "//${llvm_build_root}build:llvm_code" ]
+  configs += [ "//${llvm_build_root}build:crt_code" ]
   cflags = scudo_cflags
   sources = [
     "allocator_config.h",
@@ -79,8 +79,8 @@ source_set("sources") {
 }
 
 source_set("c_wrapper_sources") {
-  configs -= [ "//llvm/utils/gn/build:llvm_code" ]
-  configs += [ "//llvm/utils/gn/build:crt_code" ]
+  configs -= [ "//${llvm_build_root}build:llvm_code" ]
+  configs += [ "//${llvm_build_root}build:crt_code" ]
   cflags = scudo_cflags
   sources = [ "wrappers_c.cpp" ]
 
@@ -88,8 +88,8 @@ source_set("c_wrapper_sources") {
 }
 
 source_set("cxx_wrapper_sources") {
-  configs -= [ "//llvm/utils/gn/build:llvm_code" ]
-  configs += [ "//llvm/utils/gn/build:crt_code" ]
+  configs -= [ "//${llvm_build_root}build:llvm_code" ]
+  configs += [ "//${llvm_build_root}build:crt_code" ]
   cflags = scudo_cflags
   sources = [ "wrappers_cpp.cpp" ]
 

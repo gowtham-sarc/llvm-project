@@ -1,12 +1,12 @@
 import("//build_overrides/llvm.gni")
 
-import("//llvm/utils/gn/build/toolchain/compiler.gni")
+import("//${llvm_build_root}build/toolchain/compiler.gni")
 import("//third-party/unittest/unittest.gni")
 
 test_cflags = [ "-DSCUDO_DEBUG=1" ]
 
 unittest("ScudoUnitTest") {
-  configs += [ "//llvm/utils/gn/build:crt_code" ]
+  configs += [ "//${llvm_build_root}build:crt_code" ]
   cflags = test_cflags
   deps = [ "//compiler-rt/lib/scudo/standalone:sources" ]
   sources = [
@@ -39,7 +39,7 @@ unittest("ScudoUnitTest") {
 }
 
 unittest("ScudoCUnitTest") {
-  configs += [ "//llvm/utils/gn/build:crt_code" ]
+  configs += [ "//${llvm_build_root}build:crt_code" ]
   cflags = test_cflags
   deps = [
     "//compiler-rt/lib/scudo/standalone:c_wrapper_sources",
@@ -53,7 +53,7 @@ unittest("ScudoCUnitTest") {
 }
 
 unittest("ScudoCxxUnitTest") {
-  configs += [ "//llvm/utils/gn/build:crt_code" ]
+  configs += [ "//${llvm_build_root}build:crt_code" ]
   cflags = test_cflags
   deps = [
     "//compiler-rt/lib/scudo/standalone:c_wrapper_sources",
@@ -71,7 +71,7 @@ unittest("ScudoCxxUnitTest") {
 }
 
 unittest("ScudoHooksUnitTest") {
-  configs += [ "//llvm/utils/gn/build:crt_code" ]
+  configs += [ "//${llvm_build_root}build:crt_code" ]
   cflags = test_cflags
   deps = [
     "//compiler-rt/lib/scudo/standalone:c_wrapper_sources",

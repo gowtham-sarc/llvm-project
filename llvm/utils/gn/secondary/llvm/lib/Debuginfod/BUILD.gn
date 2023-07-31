@@ -5,7 +5,7 @@ static_library("Debuginfod") {
   deps = [
     "//llvm/lib/DebugInfo/Symbolize",
     "//llvm/lib/Support",
-    "//llvm/utils/gn/build/libs/curl",
+    "//${llvm_build_root}build/libs/curl",
   ]
   sources = [
     "BuildIDFetcher.cpp",

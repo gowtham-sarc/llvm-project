@@ -8,7 +8,7 @@ import("//clang/test/clang_lit_site_cfg_files.gni")
 import("//lld/test/lld_lit_site_cfg_files.gni")
 import("//lldb/test/lldb_lit_site_cfg_files.gni")
 import("//llvm/test/llvm_lit_site_cfg_files.gni")
-import("//llvm/utils/gn/build/write_cmake_config.gni")
+import("//${llvm_build_root}build/write_cmake_config.gni")
 import("//llvm/utils/llvm-lit/lit_path_function.gni")
 
 write_cmake_config("llvm-lit") {

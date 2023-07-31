@@ -16,7 +16,7 @@ clang_tablegen("AttrDocTable") {
 
 static_library("AST") {
   output_name = "clangAST"
-  configs += [ "//llvm/utils/gn/build:clang_code" ]
+  configs += [ "//${llvm_build_root}build:clang_code" ]
   deps = [
     ":AttrDocTable",
     ":Opcodes",

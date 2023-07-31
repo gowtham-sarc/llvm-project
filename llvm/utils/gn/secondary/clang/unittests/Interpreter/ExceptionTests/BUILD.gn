@@ -3,10 +3,10 @@ import("//build_overrides/llvm.gni")
 import("//third-party/unittest/unittest.gni")
 
 unittest("ClangReplInterpreterExceptionTests") {
-  configs += [ "//llvm/utils/gn/build:clang_code" ]
+  configs += [ "//${llvm_build_root}build:clang_code" ]
   configs -= [
-    "//llvm/utils/gn/build:no_exceptions",
-    "//llvm/utils/gn/build:no_rtti",
+    "//${llvm_build_root}build:no_exceptions",
+    "//${llvm_build_root}build:no_rtti",
   ]
   deps = [
     "//clang/lib/AST",

@@ -13,7 +13,7 @@ lldb_tablegen("TargetPropertiesEnum") {
 
 static_library("Target") {
   output_name = "lldbTarget"
-  configs += [ "//llvm/utils/gn/build:lldb_code" ]
+  configs += [ "//${llvm_build_root}build:lldb_code" ]
   deps = [
     ":TargetProperties",
     ":TargetPropertiesEnum",

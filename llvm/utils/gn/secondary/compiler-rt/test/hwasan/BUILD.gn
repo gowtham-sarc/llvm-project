@@ -3,8 +3,8 @@ import("//build_overrides/llvm.gni")
 import("//compiler-rt/target.gni")
 import("//compiler-rt/test/test.gni")
 import("//llvm/lib/Target/targets.gni")
-import("//llvm/utils/gn/build/toolchain/compiler.gni")
-import("//llvm/utils/gn/build/write_cmake_config.gni")
+import("//${llvm_build_root}build/toolchain/compiler.gni")
+import("//${llvm_build_root}build/write_cmake_config.gni")
 import("//llvm/version.gni")
 
 write_cmake_config("lit_site_cfg") {
@@ -60,11 +60,11 @@ if (current_toolchain != host_toolchain) {
 
 supported_toolchains = []
 if (host_os == "linux" && host_cpu == "x64") {
-  supported_toolchains += [ "//llvm/utils/gn/build/toolchain:stage2_unix" ]
+  supported_toolchains += [ "//${llvm_build_root}build/toolchain:stage2_unix" ]
 }
 if (llvm_build_AArch64 && android_ndk_path != "") {
   supported_toolchains +=
-      [ "//llvm/utils/gn/build/toolchain:stage2_android_aarch64" ]
+      [ "//${llvm_build_root}build/toolchain:stage2_android_aarch64" ]
 }
 
 group("hwasan") {

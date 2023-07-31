@@ -11,7 +11,7 @@ static_library("profile") {
   }
 
   complete_static_lib = true
-  configs -= [ "//llvm/utils/gn/build:thin_archive" ]
+  configs -= [ "//${llvm_build_root}build:thin_archive" ]
 
   cflags = []
   if (current_os != "win") {

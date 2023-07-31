@@ -1,6 +1,6 @@
 import("//build_overrides/llvm.gni")
 
-import("//llvm/utils/gn/build/toolchain/compiler.gni")
+import("//${llvm_build_root}build/toolchain/compiler.gni")
 
 declare_args() {
   # The target archs LLVM should support. Defaults to the host arch.
@@ -114,16 +114,16 @@ supported_android_toolchains = []
 if (android_ndk_path != "") {
   if (llvm_build_AArch64) {
     supported_android_toolchains +=
-        [ "//llvm/utils/gn/build/toolchain:stage2_android_aarch64" ]
+        [ "//${llvm_build_root}build/toolchain:stage2_android_aarch64" ]
   }
   if (llvm_build_ARM) {
     supported_android_toolchains +=
-        [ "//llvm/utils/gn/build/toolchain:stage2_android_arm" ]
+        [ "//${llvm_build_root}build/toolchain:stage2_android_arm" ]
   }
   if (llvm_build_X86) {
     supported_android_toolchains += [
-      "//llvm/utils/gn/build/toolchain:stage2_android_x64",
-      "//llvm/utils/gn/build/toolchain:stage2_android_x86",
+      "//${llvm_build_root}build/toolchain:stage2_android_x64",
+      "//${llvm_build_root}build/toolchain:stage2_android_x86",
     ]
   }
 }

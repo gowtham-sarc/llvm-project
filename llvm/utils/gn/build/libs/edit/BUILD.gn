@@ -1,6 +1,6 @@
 import("//build_overrides/llvm.gni")
 
-import("//llvm/utils/gn/build/libs/edit/enable.gni")
+import("//${llvm_build_root}build/libs/edit/enable.gni")
 
 config("edit_config") {
   visibility = [ ":edit" ]

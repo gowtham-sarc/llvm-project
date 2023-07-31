@@ -103,8 +103,8 @@ if (libunwind_enable_shared && current_os != "android") {
     deps = [ "//compiler-rt/lib/builtins" ]
     configs += [ ":unwind_config" ]
     configs -= [
-      "//llvm/utils/gn/build:no_exceptions",
-      "//llvm/utils/gn/build:no_rtti",
+      "//${llvm_build_root}build:no_exceptions",
+      "//${llvm_build_root}build:no_rtti",
     ]
   }
 }
@@ -115,7 +115,7 @@ if (libunwind_enable_static) {
       output_dir = unwind_output_dir
       output_name = invoker.output_name
       complete_static_lib = true
-      configs -= [ "//llvm/utils/gn/build:thin_archive" ]
+      configs -= [ "//${llvm_build_root}build:thin_archive" ]
       sources = unwind_sources
       public = unwind_headers
       if (!invoker.export) {
@@ -126,8 +126,8 @@ if (libunwind_enable_static) {
       deps = [ "//compiler-rt/lib/builtins" ]
       configs += [ ":unwind_config" ]
       configs -= [
-        "//llvm/utils/gn/build:no_exceptions",
-        "//llvm/utils/gn/build:no_rtti",
+        "//${llvm_build_root}build:no_exceptions",
+        "//${llvm_build_root}build:no_rtti",
       ]
     }
   }

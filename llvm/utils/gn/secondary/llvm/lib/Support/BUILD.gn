@@ -6,9 +6,9 @@ static_library("Support") {
     "BLAKE3",
     "//llvm/include/llvm/Config:config",
     "//llvm/lib/Demangle",
-    "//llvm/utils/gn/build/libs/pthread",
-    "//llvm/utils/gn/build/libs/terminfo",
-    "//llvm/utils/gn/build/libs/zlib",
+    "//${llvm_build_root}build/libs/pthread",
+    "//${llvm_build_root}build/libs/terminfo",
+    "//${llvm_build_root}build/libs/zlib",
   ]
 
   # public_deps are used for depending on targets that generate headers

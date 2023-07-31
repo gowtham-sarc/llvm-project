@@ -4,10 +4,10 @@ import("//build_overrides/llvm.gni")
 # on clang either programmatically or conceptually.
 static_library("support") {
   output_name = "clangdSupport"
-  configs += [ "//llvm/utils/gn/build:clang_code" ]
+  configs += [ "//${llvm_build_root}build:clang_code" ]
   deps = [
     "//llvm/lib/Support",
-    "//llvm/utils/gn/build/libs/atomic",
+    "//${llvm_build_root}build/libs/atomic",
   ]
   include_dirs = [ ".." ]
   sources = [

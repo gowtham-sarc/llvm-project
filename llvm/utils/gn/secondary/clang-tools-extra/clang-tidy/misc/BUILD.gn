@@ -1,6 +1,6 @@
 import("//build_overrides/llvm.gni")
 
-import("//llvm/utils/gn/build/compiled_action.gni")
+import("//${llvm_build_root}build/compiled_action.gni")
 
 compiled_action("Confusables.inc") {
   tool = "ConfusableTable:clang-tidy-confusable-chars-gen"
@@ -14,7 +14,7 @@ compiled_action("Confusables.inc") {
 
 static_library("misc") {
   output_name = "clangTidyMiscModule"
-  configs += [ "//llvm/utils/gn/build:clang_code" ]
+  configs += [ "//${llvm_build_root}build:clang_code" ]
   include_dirs = [
     target_gen_dir,
     "//clang-tools-extra/include-cleaner/include",

@@ -1,24 +1,24 @@
 import("//build_overrides/llvm.gni")
 
 import("//llvm/lib/Target/targets.gni")
-import("//llvm/utils/gn/build/mac_sdk.gni")
-import("//llvm/utils/gn/build/toolchain/compiler.gni")
+import("//${llvm_build_root}build/mac_sdk.gni")
+import("//${llvm_build_root}build/toolchain/compiler.gni")
 
 # In the GN build, compiler-rt is always built by just-built clang and lld.
 # FIXME: For macOS and iOS builds, depend on lib in all needed target arch
 # toolchains and then lipo them together for the final output.
 supported_toolchains = []
 if (current_os == "win" || win_sysroot != "") {
-  supported_toolchains += [ "//llvm/utils/gn/build/toolchain:stage2_win_x64" ]
-  supported_toolchains += [ "//llvm/utils/gn/build/toolchain:stage2_win_x86" ]
+  supported_toolchains += [ "//${llvm_build_root}build/toolchain:stage2_win_x64" ]
+  supported_toolchains += [ "//${llvm_build_root}build/toolchain:stage2_win_x86" ]
 }
 if (current_os != "win") {
-  supported_toolchains += [ "//llvm/utils/gn/build/toolchain:stage2_unix" ]
+  supported_toolchains += [ "//${llvm_build_root}build/toolchain:stage2_unix" ]
 }
 supported_toolchains += supported_android_toolchains
 if (llvm_build_AArch64) {
   supported_toolchains +=
-      [ "//llvm/utils/gn/build/toolchain:stage2_baremetal_aarch64" ]
+      [ "//${llvm_build_root}build/toolchain:stage2_baremetal_aarch64" ]
 }
 group("compiler-rt") {
   deps = [ "//compiler-rt/include($host_toolchain)" ]
@@ -30,10 +30,10 @@ group("compiler-rt") {
   # That would match the cmake build.
   if (host_os == "mac" && have_ios_sdks) {
     if (llvm_build_AArch64) {
-      deps += [ "//compiler-rt/lib/builtins(//llvm/utils/gn/build/toolchain:stage2_ios_aarch64)" ]
+      deps += [ "//compiler-rt/lib/builtins(//${llvm_build_root}build/toolchain:stage2_ios_aarch64)" ]
     }
     if (llvm_build_X86) {
-      deps += [ "//compiler-rt/lib/builtins(//llvm/utils/gn/build/toolchain:stage2_iossim_x64)" ]
+      deps += [ "//compiler-rt/lib/builtins(//${llvm_build_root}build/toolchain:stage2_iossim_x64)" ]
     }
   }
 }

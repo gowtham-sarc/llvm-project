@@ -22,7 +22,7 @@ static_library("benchmark") {
     "src/sysinfo.cc",
     "src/timers.cc",
   ]
-  deps = [ "//llvm/utils/gn/build/libs/pthread" ]
+  deps = [ "//${llvm_build_root}build/libs/pthread" ]
   public_configs = [ ":benchmark_config" ]
 }
 

@@ -1,7 +1,7 @@
 import("//build_overrides/llvm.gni")
 
 import("//llvm/utils/TableGen/tablegen.gni")
-import("//llvm/utils/gn/build/write_cmake_config.gni")
+import("//${llvm_build_root}build/write_cmake_config.gni")
 import("//llvm/version.gni")
 
 tablegen("Options") {
@@ -18,7 +18,7 @@ if (host_os == "mac") {
 }
 
 executable("lldb-vscode") {
-  configs += [ "//llvm/utils/gn/build:lldb_code" ]
+  configs += [ "//${llvm_build_root}build:lldb_code" ]
   deps = [
     ":Options",
     "//lldb/source/API:liblldb",

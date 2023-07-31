@@ -13,7 +13,7 @@ lldb_tablegen("ProcessGDBRemotePropertiesEnum") {
 
 static_library("gdb-remote") {
   output_name = "lldbPluginProcessGDBRemote"
-  configs += [ "//llvm/utils/gn/build:lldb_code" ]
+  configs += [ "//${llvm_build_root}build:lldb_code" ]
   deps = [
     ":ProcessGDBRemoteProperties",
     ":ProcessGDBRemotePropertiesEnum",

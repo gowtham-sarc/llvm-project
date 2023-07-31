@@ -1,9 +1,9 @@
 import("//build_overrides/llvm.gni")
 
 source_set("sources") {
-  configs -= [ "//llvm/utils/gn/build:llvm_code" ]
-  configs += [ "//llvm/utils/gn/build:crt_code" ]
-  deps = [ "//llvm/utils/gn/build/libs/pthread" ]
+  configs -= [ "//${llvm_build_root}build:llvm_code" ]
+  configs += [ "//${llvm_build_root}build:crt_code" ]
+  deps = [ "//${llvm_build_root}build/libs/pthread" ]
   libs = []
   if (current_os == "linux" || current_os == "android") {
     libs += [ "dl" ]
@@ -174,8 +174,8 @@ source_set("sources") {
 }
 
 source_set("weak_interception") {
-  configs -= [ "//llvm/utils/gn/build:llvm_code" ]
-  configs += [ "//llvm/utils/gn/build:crt_code" ]
+  configs -= [ "//${llvm_build_root}build:llvm_code" ]
+  configs += [ "//${llvm_build_root}build:crt_code" ]
   sources = [
     "sanitizer_coverage_win_weak_interception.cpp",
     "sanitizer_win_weak_interception.cpp",
@@ -184,8 +184,8 @@ source_set("weak_interception") {
 }
 
 source_set("dll_thunk") {
-  configs -= [ "//llvm/utils/gn/build:llvm_code" ]
-  configs += [ "//llvm/utils/gn/build:crt_code" ]
+  configs -= [ "//${llvm_build_root}build:llvm_code" ]
+  configs += [ "//${llvm_build_root}build:crt_code" ]
   sources = [
     "sanitizer_coverage_win_dll_thunk.cpp",
     "sanitizer_coverage_win_sections.cpp",
@@ -195,8 +195,8 @@ source_set("dll_thunk") {
 }
 
 source_set("dynamic_runtime_thunk") {
-  configs -= [ "//llvm/utils/gn/build:llvm_code" ]
-  configs += [ "//llvm/utils/gn/build:crt_code" ]
+  configs -= [ "//${llvm_build_root}build:llvm_code" ]
+  configs += [ "//${llvm_build_root}build:crt_code" ]
   sources = [
     "sanitizer_coverage_win_dynamic_runtime_thunk.cpp",
     "sanitizer_coverage_win_sections.cpp",
@@ -214,8 +214,8 @@ source_set("dynamic_runtime_thunk") {
 # libc. This is currently unreferenced and exists to make
 # sync_source_lists_from_cmake happy.
 source_set("nolibc_sources") {
-  configs -= [ "//llvm/utils/gn/build:llvm_code" ]
-  configs += [ "//llvm/utils/gn/build:crt_code" ]
-  deps = [ "//llvm/utils/gn/build/libs/pthread" ]
+  configs -= [ "//${llvm_build_root}build:llvm_code" ]
+  configs += [ "//${llvm_build_root}build:crt_code" ]
+  deps = [ "//${llvm_build_root}build/libs/pthread" ]
   sources = [ "sanitizer_common_nolibc.cpp" ]
 }

@@ -1,7 +1,7 @@
 import("//build_overrides/llvm.gni")
 
 executable("apinotes-test") {
-  configs += [ "//llvm/utils/gn/build:clang_code" ]
+  configs += [ "//${llvm_build_root}build:clang_code" ]
   deps = [
     "//clang/lib/APINotes",
     "//llvm/lib/Support",

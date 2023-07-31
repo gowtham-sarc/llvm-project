@@ -1,7 +1,7 @@
 import("//build_overrides/llvm.gni")
 
 import("//llvm/lib/DebugInfo/PDB/enable_dia.gni")
-import("//llvm/utils/gn/build/sysroot.gni")
+import("//${llvm_build_root}build/sysroot.gni")
 
 static_library("PDB") {
   output_name = "LLVMDebugInfoPDB"

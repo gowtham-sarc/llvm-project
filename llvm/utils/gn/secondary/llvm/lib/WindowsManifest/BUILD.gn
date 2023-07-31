@@ -5,7 +5,7 @@ static_library("WindowsManifest") {
   deps = [
     "//llvm/include/llvm/Config:config",
     "//llvm/lib/Support",
-    "//llvm/utils/gn/build/libs/xml",
+    "//${llvm_build_root}build/libs/xml",
   ]
   sources = [ "WindowsManifestMerger.cpp" ]
 }

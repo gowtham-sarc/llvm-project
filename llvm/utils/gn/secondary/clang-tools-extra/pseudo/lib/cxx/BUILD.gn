@@ -2,7 +2,7 @@ import("//build_overrides/llvm.gni")
 
 static_library("cxx") {
   output_name = "clangPseudoCXX"
-  configs += [ "//llvm/utils/gn/build:clang_code" ]
+  configs += [ "//${llvm_build_root}build:clang_code" ]
   deps = [
     "//clang-tools-extra/pseudo/lib/grammar",
     "//llvm/lib/Support",

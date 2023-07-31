@@ -3,8 +3,8 @@ import("//build_overrides/llvm.gni")
 import("//compiler-rt/target.gni")
 
 source_set("sources") {
-  configs -= [ "//llvm/utils/gn/build:llvm_code" ]
-  configs += [ "//llvm/utils/gn/build:crt_code" ]
+  configs -= [ "//${llvm_build_root}build:llvm_code" ]
+  configs += [ "//${llvm_build_root}build:crt_code" ]
 }
 
 static_library("ubsan_minimal") {
@@ -12,9 +12,9 @@ static_library("ubsan_minimal") {
   output_name = "clang_rt.ubsan_minimal$crt_current_target_suffix"
   complete_static_lib = true
   configs -= [
-    "//llvm/utils/gn/build:llvm_code",
-    "//llvm/utils/gn/build:thin_archive",
+    "//${llvm_build_root}build:llvm_code",
+    "//${llvm_build_root}build:thin_archive",
   ]
-  configs += [ "//llvm/utils/gn/build:crt_code" ]
+  configs += [ "//${llvm_build_root}build:crt_code" ]
   sources = [ "ubsan_minimal_handlers.cpp" ]
 }

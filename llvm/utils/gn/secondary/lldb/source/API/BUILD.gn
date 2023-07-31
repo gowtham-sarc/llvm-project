@@ -18,7 +18,7 @@ target(liblldb_type, "liblldb") {
   # XXX LLDB_ENABLE_LUA
 
   output_name = "liblldb"  # XXX lib prefix?
-  configs += [ "//llvm/utils/gn/build:lldb_code" ]
+  configs += [ "//${llvm_build_root}build:lldb_code" ]
   deps = [
     "//lldb/include/lldb/Host:Config",
     "//lldb/source/Breakpoint",

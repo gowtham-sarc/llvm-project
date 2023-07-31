@@ -13,7 +13,7 @@ lldb_tablegen("ObjectFilePECOFFPropertiesEnum") {
 
 static_library("PECOFF") {
   output_name = "lldbPluginObjectFilePECOFF"
-  configs += [ "//llvm/utils/gn/build:lldb_code" ]
+  configs += [ "//${llvm_build_root}build:lldb_code" ]
   deps = [
     ":ObjectFilePECOFFProperties",
     ":ObjectFilePECOFFPropertiesEnum",

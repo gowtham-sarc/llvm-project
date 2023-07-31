@@ -1,7 +1,7 @@
 import("//build_overrides/llvm.gni")
 
 import("//clang/lib/ARCMigrate/enable.gni")
-import("//llvm/utils/gn/build/symbol_exports.gni")
+import("//${llvm_build_root}build/symbol_exports.gni")
 import("//llvm/version.gni")
 
 # This build file is just enough to get check-clang to pass, it's missing
@@ -25,7 +25,7 @@ symbol_exports("exports") {
 }
 
 shared_library("libclang") {
-  configs += [ "//llvm/utils/gn/build:clang_code" ]
+  configs += [ "//${llvm_build_root}build:clang_code" ]
   deps = [
     "//clang/include/clang/Config",
     "//clang/lib/AST",

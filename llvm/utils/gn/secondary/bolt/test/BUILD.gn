@@ -2,7 +2,7 @@ import("//build_overrides/llvm.gni")
 
 import("//llvm/lib/Target/targets_string.gni")
 import("//llvm/triples.gni")
-import("//llvm/utils/gn/build/write_cmake_config.gni")
+import("//${llvm_build_root}build/write_cmake_config.gni")
 import("bolt_lit_site_cfg_files.gni")
 
 template("write_lit_config") {
@@ -53,7 +53,7 @@ write_lit_config("lit_site_cfg") {
   ]
 
   if (host_os == "win") {
-    # See comment for Windows solink in llvm/utils/gn/build/toolchain/BUILD.gn
+    # See comment for Windows solink in ${llvm_build_root}build/toolchain/BUILD.gn
     extra_values += [ "SHLIBDIR=" + rebase_path("$root_out_dir/bin", dir) ]
   } else {
     extra_values += [ "SHLIBDIR=" + rebase_path("$root_out_dir/lib", dir) ]

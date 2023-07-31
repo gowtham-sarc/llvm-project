@@ -2,7 +2,7 @@ import("//build_overrides/llvm.gni")
 
 import("//clang/runtimes.gni")
 import("//libcxx/config.gni")
-import("//llvm/utils/gn/build/symlink_or_copy.gni")
+import("//${llvm_build_root}build/symlink_or_copy.gni")
 
 declare_args() {
   # Build libc++ with definitions for operator new/delete.
@@ -245,8 +245,8 @@ if (libcxx_enable_shared) {
     ]
     configs += [ ":cxx_config" ]
     configs -= [
-      "//llvm/utils/gn/build:no_exceptions",
-      "//llvm/utils/gn/build:no_rtti",
+      "//${llvm_build_root}build:no_exceptions",
+      "//${llvm_build_root}build:no_rtti",
     ]
   }
 
@@ -258,7 +258,7 @@ if (libcxx_enable_shared) {
 
   if (libcxx_enable_abi_linker_script) {
     action("cxx_linker_script") {
-      script = "//llvm/utils/gn/secondary/libcxx/utils/gen_link_script.py"
+      script = "//${llvm_build_root}secondary/libcxx/utils/gen_link_script.py"
       outputs = [ "$runtimes_dir/libc++.so" ]
       args = [
         "--input",
@@ -278,7 +278,7 @@ if (libcxx_enable_static) {
     output_dir = runtimes_dir
     output_name = "c++"
     complete_static_lib = true
-    configs -= [ "//llvm/utils/gn/build:thin_archive" ]
+    configs -= [ "//${llvm_build_root}build:thin_archive" ]
     sources = cxx_sources
     include_dirs = [ "." ]
     if (libcxx_hermetic_static_library) {
@@ -296,8 +296,8 @@ if (libcxx_enable_static) {
     ]
     configs += [ ":cxx_config" ]
     configs -= [
-      "//llvm/utils/gn/build:no_exceptions",
-      "//llvm/utils/gn/build:no_rtti",
+      "//${llvm_build_root}build:no_exceptions",
+      "//${llvm_build_root}build:no_rtti",
     ]
   }
 }
@@ -310,8 +310,8 @@ if (libcxx_enable_experimental) {
     deps = [ "//libcxx/include" ]
     configs += [ ":cxx_config" ]
     configs -= [
-      "//llvm/utils/gn/build:no_exceptions",
-      "//llvm/utils/gn/build:no_rtti",
+      "//${llvm_build_root}build:no_exceptions",
+      "//${llvm_build_root}build:no_rtti",
     ]
   }
 }

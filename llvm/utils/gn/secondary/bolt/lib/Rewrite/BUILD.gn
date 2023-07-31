@@ -4,7 +4,7 @@ import("//llvm/lib/Target/targets.gni")
 
 static_library("Rewrite") {
   output_name = "LLVMBOLTRewrite"
-  configs += [ "//llvm/utils/gn/build:bolt_code" ]
+  configs += [ "//${llvm_build_root}build:bolt_code" ]
   deps = [
     "//bolt/lib/Core",
     "//bolt/lib/Passes",
@@ -20,7 +20,7 @@ static_library("Rewrite") {
     "//llvm/lib/Object",
     "//llvm/lib/Support",
     "//llvm/lib/TargetParser",
-    "//llvm/utils/gn/build/libs/pthread",
+    "//${llvm_build_root}build/libs/pthread",
   ]
   sources = [
     "BinaryPassManager.cpp",

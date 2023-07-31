@@ -4,7 +4,7 @@ import("//llvm/lib/Target/targets.gni")
 import("//third-party/unittest/unittest.gni")
 
 unittest("CoreTests") {
-  configs += [ "//llvm/utils/gn/build:bolt_code" ]
+  configs += [ "//${llvm_build_root}build:bolt_code" ]
   deps = [
     "//bolt/lib/Core",
     "//bolt/lib/Rewrite",

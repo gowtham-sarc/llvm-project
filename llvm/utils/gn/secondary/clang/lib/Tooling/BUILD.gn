@@ -15,7 +15,7 @@ action("node_introspection_inc") {
 
 static_library("Tooling") {
   output_name = "clangTooling"
-  configs += [ "//llvm/utils/gn/build:clang_code" ]
+  configs += [ "//${llvm_build_root}build:clang_code" ]
   deps = [
     ":node_introspection_inc",
     "//clang/include/clang/Driver:Options",

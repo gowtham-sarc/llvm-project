@@ -3,8 +3,8 @@ import("//build_overrides/llvm.gni")
 import("//compiler-rt/target.gni")
 import("//compiler-rt/test/test.gni")
 import("//llvm/lib/Target/targets.gni")
-import("//llvm/utils/gn/build/toolchain/compiler.gni")
-import("//llvm/utils/gn/build/write_cmake_config.gni")
+import("//${llvm_build_root}build/toolchain/compiler.gni")
+import("//${llvm_build_root}build/write_cmake_config.gni")
 import("//llvm/version.gni")
 
 write_cmake_config("asan_mode_cfg") {
@@ -43,7 +43,7 @@ if (current_toolchain != host_toolchain) {
 
 supported_toolchains = []
 if (host_os == "linux" || host_os == "mac") {
-  supported_toolchains += [ "//llvm/utils/gn/build/toolchain:stage2_unix" ]
+  supported_toolchains += [ "//${llvm_build_root}build/toolchain:stage2_unix" ]
 }
 
 group("lsan") {

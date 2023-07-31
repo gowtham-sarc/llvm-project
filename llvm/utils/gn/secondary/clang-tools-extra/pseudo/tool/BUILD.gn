@@ -13,7 +13,7 @@ action("HTMLForestResources") {
 }
 
 executable("clang-pseudo") {
-  configs += [ "//llvm/utils/gn/build:clang_code" ]
+  configs += [ "//${llvm_build_root}build:clang_code" ]
   deps = [
     ":HTMLForestResources",
     "//clang-tools-extra/pseudo/lib",

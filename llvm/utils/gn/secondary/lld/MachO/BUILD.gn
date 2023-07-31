@@ -9,7 +9,7 @@ tablegen("Options") {
 
 static_library("MachO") {
   output_name = "lldMachO"
-  configs += [ "//llvm/utils/gn/build:lld_code" ]
+  configs += [ "//${llvm_build_root}build:lld_code" ]
   deps = [
     ":Options",
     "//lld/Common",

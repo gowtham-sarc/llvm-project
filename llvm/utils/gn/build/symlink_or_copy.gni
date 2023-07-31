@@ -13,7 +13,7 @@ template("symlink_or_copy") {
     stamp =
         "$target_gen_dir/" + get_path_info(invoker.output, "file") + ".stamp"
     outputs = [ stamp ]
-    script = "//llvm/utils/gn/build/symlink_or_copy.py"
+    script = "//${llvm_build_root}build/symlink_or_copy.py"
     args = [
       "--stamp",
       rebase_path(stamp, root_build_dir),

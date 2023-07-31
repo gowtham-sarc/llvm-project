@@ -1,7 +1,7 @@
 import("//build_overrides/llvm.gni")
 
 import("//llvm/lib/Target/targets.gni")
-import("//llvm/utils/gn/build/write_cmake_config.gni")
+import("//${llvm_build_root}build/write_cmake_config.gni")
 
 # In the CMake build, each plugin calls `add_lldb_library(name PLUGIN ...)`,
 # which implicitly adds the plugin name to the LLDB_PLUGINS list.

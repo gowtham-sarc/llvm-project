@@ -1,9 +1,9 @@
 import("//build_overrides/llvm.gni")
 
 import("//llvm/lib/Target/targets.gni")
-import("//llvm/utils/gn/build/toolchain/compiler.gni")
+import("//${llvm_build_root}build/toolchain/compiler.gni")
 
-supported_toolchains = [ "//llvm/utils/gn/build/toolchain:stage2_unix" ] +
+supported_toolchains = [ "//${llvm_build_root}build/toolchain:stage2_unix" ] +
                        supported_android_toolchains
 
 group("libunwind") {

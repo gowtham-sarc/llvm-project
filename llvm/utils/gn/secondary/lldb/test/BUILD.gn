@@ -2,10 +2,10 @@ import("//build_overrides/llvm.gni")
 
 import("//llvm/triples.gni")
 
-#import("//llvm/utils/gn/build/libs/xar/enable.gni")
-import("//llvm/utils/gn/build/libs/xml/enable.gni")
-import("//llvm/utils/gn/build/libs/zlib/enable.gni")
-import("//llvm/utils/gn/build/write_cmake_config.gni")
+#import("//${llvm_build_root}build/libs/xar/enable.gni")
+import("//${llvm_build_root}build/libs/xml/enable.gni")
+import("//${llvm_build_root}build/libs/zlib/enable.gni")
+import("//${llvm_build_root}build/write_cmake_config.gni")
 import("lldb_lit_site_cfg_files.gni")
 
 # The bits common to writing lit.site.cfg.py.in, API/lit.site.cfg.py,
@@ -88,7 +88,7 @@ write_lit_cfg("lit_api_site_cfg") {
 
   dir = get_path_info(output, "dir")
   if (host_os == "win") {
-    # See comment for Windows solink in llvm/utils/gn/build/toolchain/BUILD.gn
+    # See comment for Windows solink in ${llvm_build_root}build/toolchain/BUILD.gn
     extra_values += [ "SHLIBDIR=" + rebase_path("$root_out_dir/bin", dir) ]
   } else {
     extra_values += [ "SHLIBDIR=" + rebase_path("$root_out_dir/lib", dir) ]
@@ -129,7 +129,7 @@ write_lit_cfg("lit_shell_site_cfg") {
 
   dir = get_path_info(output, "dir")
   if (host_os == "win") {
-    # See comment for Windows solink in llvm/utils/gn/build/toolchain/BUILD.gn
+    # See comment for Windows solink in ${llvm_build_root}build/toolchain/BUILD.gn
     extra_values += [ "SHLIBDIR=" + rebase_path("$root_out_dir/bin", dir) ]
   } else {
     extra_values += [ "SHLIBDIR=" + rebase_path("$root_out_dir/lib", dir) ]
@@ -144,7 +144,7 @@ write_lit_cfg("lit_unit_site_cfg") {
 }
 
 action("lit-lldb-init-quiet") {
-  script = "//llvm/utils/gn/build/write_file.py"
+  script = "//${llvm_build_root}build/write_file.py"
   outputs = [ "$root_out_dir/obj/lldb/test/Shell/lit-lldb-init-quiet" ]
   args = [
     rebase_path(outputs[0], root_build_dir),

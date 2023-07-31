@@ -9,7 +9,7 @@ tablegen("Options") {
 
 static_library("MinGW") {
   output_name = "lldMinGW"
-  configs += [ "//llvm/utils/gn/build:lld_code" ]
+  configs += [ "//${llvm_build_root}build:lld_code" ]
   deps = [
     ":Options",
     "//lld/COFF",

@@ -4,7 +4,7 @@ import("//lldb/include/lldb/Host/libedit.gni")
 
 static_library("Host") {
   output_name = "lldbHost"
-  configs += [ "//llvm/utils/gn/build:lldb_code" ]
+  configs += [ "//${llvm_build_root}build:lldb_code" ]
   deps = [
     "//lldb/include/lldb/Host:Config",
     "//lldb/source/Utility",
@@ -16,7 +16,7 @@ static_library("Host") {
     #   ${EXTRA_LIBS}
     #   ${LLDBObjCLibs}
   ]
-  public_deps = [ "//llvm/utils/gn/build/libs/xml" ]
+  public_deps = [ "//${llvm_build_root}build/libs/xml" ]
   sources = [
     "common/File.cpp",
     "common/FileAction.cpp",

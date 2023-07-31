@@ -4,9 +4,9 @@ import("//clang/lib/ARCMigrate/enable.gni")
 import("//clang/lib/StaticAnalyzer/Frontend/enable.gni")
 import("//llvm/lib/Target/targets.gni")
 import("//llvm/triples.gni")
-import("//llvm/utils/gn/build/libs/pthread/enable.gni")
-import("//llvm/utils/gn/build/libs/zlib/enable.gni")
-import("//llvm/utils/gn/build/write_cmake_config.gni")
+import("//${llvm_build_root}build/libs/pthread/enable.gni")
+import("//${llvm_build_root}build/libs/zlib/enable.gni")
+import("//${llvm_build_root}build/write_cmake_config.gni")
 import("//llvm/utils/llvm-lit/lit_path_function.gni")
 import("clang_lit_site_cfg_files.gni")
 
@@ -29,7 +29,7 @@ template("write_lit_config") {
       "LLVM_TARGET_TRIPLE=$llvm_target_triple",
     ]
     if (host_os == "win") {
-      # See comment for Windows solink in llvm/utils/gn/build/toolchain/BUILD.gn
+      # See comment for Windows solink in ${llvm_build_root}build/toolchain/BUILD.gn
       values += [ "SHLIBDIR=" + rebase_path("$root_out_dir/bin", dir) ]
     } else {
       values += [ "SHLIBDIR=" + rebase_path("$root_out_dir/lib", dir) ]
@@ -112,7 +112,7 @@ write_lit_config("lit_site_cfg") {
 
   if (host_os == "win") {
     extra_values += [
-      # See comment for Windows solink in llvm/utils/gn/build/toolchain/BUILD.gn
+      # See comment for Windows solink in ${llvm_build_root}build/toolchain/BUILD.gn
       "CMAKE_LIBRARY_OUTPUT_DIRECTORY=" + rebase_path("$root_out_dir/bin", dir),
       "LLVM_LIT_ERRC_MESSAGES=no such file or directory;is a directory;" +
           "invalid argument;permission denied",

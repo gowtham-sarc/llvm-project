@@ -1,8 +1,8 @@
 import("//build_overrides/llvm.gni")
 
 source_set("sources") {
-  configs -= [ "//llvm/utils/gn/build:llvm_code" ]
-  configs += [ "//llvm/utils/gn/build:crt_code" ]
+  configs -= [ "//${llvm_build_root}build:llvm_code" ]
+  configs += [ "//${llvm_build_root}build:crt_code" ]
   sources = [
     "interception.h",
     "interception_linux.cpp",

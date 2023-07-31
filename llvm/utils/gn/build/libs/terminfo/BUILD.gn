@@ -1,6 +1,6 @@
 import("//build_overrides/llvm.gni")
 
-import("//llvm/utils/gn/build/libs/terminfo/enable.gni")
+import("//${llvm_build_root}build/libs/terminfo/enable.gni")
 
 config("terminfo_config") {
   visibility = [ ":terminfo" ]

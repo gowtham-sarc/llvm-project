@@ -10,7 +10,7 @@ gen_decision_forest("DecisionForestRuntimeTest") {
 }
 
 unittest("ClangdTests") {
-  configs += [ "//llvm/utils/gn/build:clang_code" ]
+  configs += [ "//${llvm_build_root}build:clang_code" ]
   deps = [
     ":DecisionForestRuntimeTest",
     "//clang-tools-extra/clang-tidy",

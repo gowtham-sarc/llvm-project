@@ -1,7 +1,7 @@
 import("//build_overrides/llvm.gni")
 
 executable("c-index-test") {
-  configs += [ "//llvm/utils/gn/build:clang_code" ]
+  configs += [ "//${llvm_build_root}build:clang_code" ]
   deps = [
     "//clang/include/clang/Config",
     "//clang/lib/AST",
@@ -12,7 +12,7 @@ executable("c-index-test") {
     "//clang/lib/Serialization",
     "//clang/tools/libclang",
     "//llvm/lib/Support",
-    "//llvm/utils/gn/build/libs/xml",
+    "//${llvm_build_root}build/libs/xml",
   ]
   if (host_os != "win") {
     cflags_c = [ "-std=gnu89" ]

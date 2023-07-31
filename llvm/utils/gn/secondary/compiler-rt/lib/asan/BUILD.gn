@@ -136,14 +136,14 @@ if (current_toolchain == host_toolchain) {
   }
 
   source_set("cxx_sources") {
-    configs -= [ "//llvm/utils/gn/build:llvm_code" ]
-    configs += [ "//llvm/utils/gn/build:crt_code" ]
+    configs -= [ "//${llvm_build_root}build:llvm_code" ]
+    configs += [ "//${llvm_build_root}build:crt_code" ]
     sources = [ "asan_new_delete.cpp" ]
   }
 
   source_set("static_sources") {
-    configs -= [ "//llvm/utils/gn/build:llvm_code" ]
-    configs += [ "//llvm/utils/gn/build:crt_code" ]
+    configs -= [ "//${llvm_build_root}build:llvm_code" ]
+    configs += [ "//${llvm_build_root}build:crt_code" ]
     sources = [ "asan_rtl_static.cpp" ]
     if (target_os != "mac" && target_os != "win") {
       sources += [ "asan_rtl_x86_64.S" ]
@@ -151,14 +151,14 @@ if (current_toolchain == host_toolchain) {
   }
 
   source_set("preinit_sources") {
-    configs -= [ "//llvm/utils/gn/build:llvm_code" ]
-    configs += [ "//llvm/utils/gn/build:crt_code" ]
+    configs -= [ "//${llvm_build_root}build:llvm_code" ]
+    configs += [ "//${llvm_build_root}build:crt_code" ]
     sources = [ "asan_preinit.cpp" ]
   }
 
   source_set("weak_interception") {
-    configs -= [ "//llvm/utils/gn/build:llvm_code" ]
-    configs += [ "//llvm/utils/gn/build:crt_code" ]
+    configs -= [ "//${llvm_build_root}build:llvm_code" ]
+    configs += [ "//${llvm_build_root}build:crt_code" ]
     sources = [ "asan_win_weak_interception.cpp" ]
     defines = [ "SANITIZER_DYNAMIC" ]
   }
@@ -172,8 +172,8 @@ if (current_toolchain == host_toolchain) {
     } else {
       output_name = "clang_rt.asan$crt_current_target_suffix"
     }
-    configs -= [ "//llvm/utils/gn/build:llvm_code" ]
-    configs += [ "//llvm/utils/gn/build:crt_code" ]
+    configs -= [ "//${llvm_build_root}build:llvm_code" ]
+    configs += [ "//${llvm_build_root}build:crt_code" ]
     configs += [ ":asan_config" ]
     sources = asan_sources
     deps = [
@@ -202,10 +202,10 @@ if (current_toolchain == host_toolchain) {
       output_dir = crt_current_out_dir
       output_name = "clang_rt.asan$crt_current_target_suffix"
       complete_static_lib = true
-      configs -= [ "//llvm/utils/gn/build:llvm_code" ]
-      configs += [ "//llvm/utils/gn/build:crt_code" ]
+      configs -= [ "//${llvm_build_root}build:llvm_code" ]
+      configs += [ "//${llvm_build_root}build:crt_code" ]
       configs += [ ":asan_config" ]
-      configs -= [ "//llvm/utils/gn/build:thin_archive" ]
+      configs -= [ "//${llvm_build_root}build:thin_archive" ]
       sources = asan_sources
       deps = [
         ":preinit_sources",
@@ -220,7 +220,7 @@ if (current_toolchain == host_toolchain) {
       output_dir = crt_current_out_dir
       output_name = "clang_rt.asan_cxx$crt_current_target_suffix"
       complete_static_lib = true
-      configs -= [ "//llvm/utils/gn/build:thin_archive" ]
+      configs -= [ "//${llvm_build_root}build:thin_archive" ]
       deps = [
         ":cxx_sources",
         "//compiler-rt/lib/ubsan:cxx_sources",
@@ -231,7 +231,7 @@ if (current_toolchain == host_toolchain) {
       output_dir = crt_current_out_dir
       output_name = "clang_rt.asan_static$crt_current_target_suffix"
       complete_static_lib = true
-      configs -= [ "//llvm/utils/gn/build:thin_archive" ]
+      configs -= [ "//${llvm_build_root}build:thin_archive" ]
       deps = [ ":static_sources" ]
     }
 
@@ -239,7 +239,7 @@ if (current_toolchain == host_toolchain) {
       output_dir = crt_current_out_dir
       output_name = "clang_rt.asan-preinit$crt_current_target_suffix"
       complete_static_lib = true
-      configs -= [ "//llvm/utils/gn/build:thin_archive" ]
+      configs -= [ "//${llvm_build_root}build:thin_archive" ]
       deps = [ ":preinit_sources" ]
     }
   }
@@ -247,10 +247,10 @@ if (current_toolchain == host_toolchain) {
     static_library("asan_dll_thunk") {
       output_dir = crt_current_out_dir
       output_name = "clang_rt.asan_dll_thunk$crt_current_target_suffix"
-      configs -= [ "//llvm/utils/gn/build:llvm_code" ]
-      configs += [ "//llvm/utils/gn/build:crt_code" ]
+      configs -= [ "//${llvm_build_root}build:llvm_code" ]
+      configs += [ "//${llvm_build_root}build:crt_code" ]
       complete_static_lib = true
-      configs -= [ "//llvm/utils/gn/build:thin_archive" ]
+      configs -= [ "//${llvm_build_root}build:thin_archive" ]
       sources = [
         "asan_globals_win.cpp",
         "asan_win_dll_thunk.cpp",
@@ -266,10 +266,10 @@ if (current_toolchain == host_toolchain) {
       output_dir = crt_current_out_dir
       output_name =
           "clang_rt.asan_dynamic_runtime_thunk$crt_current_target_suffix"
-      configs -= [ "//llvm/utils/gn/build:llvm_code" ]
-      configs += [ "//llvm/utils/gn/build:crt_code" ]
+      configs -= [ "//${llvm_build_root}build:llvm_code" ]
+      configs += [ "//${llvm_build_root}build:crt_code" ]
       complete_static_lib = true
-      configs -= [ "//llvm/utils/gn/build:thin_archive" ]
+      configs -= [ "//${llvm_build_root}build:thin_archive" ]
       sources = [
         "asan_globals_win.cpp",
         "asan_win_dynamic_runtime_thunk.cpp",

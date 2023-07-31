@@ -3,8 +3,8 @@ import("//build_overrides/llvm.gni")
 static_library("POSIX") {
   output_name = "lldbPluginPlatformPOSIX"
   configs += [
-    "//llvm/utils/gn/build:clang_code",
-    "//llvm/utils/gn/build:lldb_code",
+    "//${llvm_build_root}build:clang_code",
+    "//${llvm_build_root}build:lldb_code",
   ]
   deps = [
     "//lldb/source/Core",

@@ -1,8 +1,8 @@
 import("//build_overrides/llvm.gni")
 
-import("//llvm/utils/gn/build/driver_executable.gni")
-import("//llvm/utils/gn/build/symlink_or_copy.gni")
-import("//llvm/utils/gn/build/write_cmake_config.gni")
+import("//${llvm_build_root}build/driver_executable.gni")
+import("//${llvm_build_root}build/symlink_or_copy.gni")
+import("//${llvm_build_root}build/write_cmake_config.gni")
 import("//llvm/version.gni")
 
 symlinks = [
@@ -50,7 +50,7 @@ if (host_os == "mac") {
 }
 
 driver_executable("clang") {
-  configs += [ "//llvm/utils/gn/build:clang_code" ]
+  configs += [ "//${llvm_build_root}build:clang_code" ]
   deps = [
     "//clang/include/clang/Config",
     "//clang/lib/Basic",

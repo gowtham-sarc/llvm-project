@@ -1,6 +1,6 @@
 import("//build_overrides/llvm.gni")
 
-import("//llvm/utils/gn/build/libs/zlib/enable.gni")
+import("//${llvm_build_root}build/libs/zlib/enable.gni")
 
 config("zlib_config") {
   visibility = [ ":zlib" ]

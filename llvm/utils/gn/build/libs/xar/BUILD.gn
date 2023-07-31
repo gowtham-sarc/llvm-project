@@ -1,6 +1,6 @@
 import("//build_overrides/llvm.gni")
 
-import("//llvm/utils/gn/build/libs/xar/enable.gni")
+import("//${llvm_build_root}build/libs/xar/enable.gni")
 
 config("xar_config") {
   visibility = [ ":xar" ]

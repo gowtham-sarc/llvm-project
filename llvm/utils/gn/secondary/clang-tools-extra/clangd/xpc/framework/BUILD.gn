@@ -1,13 +1,13 @@
 import("//build_overrides/llvm.gni")
 
-import("//llvm/utils/gn/build/symlink_or_copy.gni")
-import("//llvm/utils/gn/build/write_cmake_config.gni")
+import("//${llvm_build_root}build/symlink_or_copy.gni")
+import("//${llvm_build_root}build/write_cmake_config.gni")
 
 # create_clangd_xpc_framework() in cmake creates both the ClangdXPC.framework
 # bundle and the clangd.xpc bundle within it in a single action.
 # Since GN has some native support for macOS bundles, it's more natural
 # to have one create_bundle() each for both ClangdXPC.framework and clangd.xpc.
-# See `llvm/utils/gn/gn.py help create_bundle` and ../cmake/modules.
+# See `${llvm_build_root}gn.py help create_bundle` and ../cmake/modules.
 
 ######################################################################
 # clangd.xpc bundle

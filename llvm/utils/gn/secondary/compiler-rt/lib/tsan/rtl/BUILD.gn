@@ -3,8 +3,8 @@ import("//build_overrides/llvm.gni")
 import("//compiler-rt/target.gni")
 
 source_set("cxx_sources") {
-  configs -= [ "//llvm/utils/gn/build:llvm_code" ]
-  configs += [ "//llvm/utils/gn/build:crt_code" ]
+  configs -= [ "//${llvm_build_root}build:llvm_code" ]
+  configs += [ "//${llvm_build_root}build:crt_code" ]
   sources = [ "tsan_new_delete.cpp" ]
 }
 
@@ -15,8 +15,8 @@ if (current_os == "mac") {
 }
 
 target(tsan_target_type, "rtl") {
-  configs -= [ "//llvm/utils/gn/build:llvm_code" ]
-  configs += [ "//llvm/utils/gn/build:crt_code" ]
+  configs -= [ "//${llvm_build_root}build:llvm_code" ]
+  configs += [ "//${llvm_build_root}build:crt_code" ]
 
   output_dir = crt_current_out_dir
   if (current_os == "mac") {
@@ -34,7 +34,7 @@ target(tsan_target_type, "rtl") {
 
   if (tsan_target_type == "static_library") {
     complete_static_lib = true
-    configs -= [ "//llvm/utils/gn/build:thin_archive" ]
+    configs -= [ "//${llvm_build_root}build:thin_archive" ]
     deps += [ ":tsan_cxx" ]
   } else {
     deps += [
@@ -172,7 +172,7 @@ if (tsan_target_type == "static_library") {
     output_dir = crt_current_out_dir
     output_name = "clang_rt.tsan_cxx$crt_current_target_suffix"
     complete_static_lib = true
-    configs -= [ "//llvm/utils/gn/build:thin_archive" ]
+    configs -= [ "//${llvm_build_root}build:thin_archive" ]
     deps = [
       ":cxx_sources",
       "//compiler-rt/lib/ubsan:cxx_sources",

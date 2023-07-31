@@ -2,7 +2,7 @@ import("//build_overrides/llvm.gni")
 
 static_library("AArch64") {
   output_name = "LLVMBOLTTargetAArch64"
-  configs += [ "//llvm/utils/gn/build:bolt_code" ]
+  configs += [ "//${llvm_build_root}build:bolt_code" ]
   deps = [
     "//bolt/lib/Core",
     "//llvm/lib/MC",

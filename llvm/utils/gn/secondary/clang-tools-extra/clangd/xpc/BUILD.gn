@@ -2,7 +2,7 @@ import("//build_overrides/llvm.gni")
 
 static_library("conversions") {
   output_name = "clangdXpcJsonConversions"
-  configs += [ "//llvm/utils/gn/build:clang_code" ]
+  configs += [ "//${llvm_build_root}build:clang_code" ]
   deps = [
     "//clang-tools-extra/clangd",
     "//clang-tools-extra/clangd/support",
@@ -14,7 +14,7 @@ static_library("conversions") {
 
 static_library("transport") {
   output_name = "clangdXpcTransport"
-  configs += [ "//llvm/utils/gn/build:clang_code" ]
+  configs += [ "//${llvm_build_root}build:clang_code" ]
   deps = [
     ":conversions",
     "//clang-tools-extra/clangd",

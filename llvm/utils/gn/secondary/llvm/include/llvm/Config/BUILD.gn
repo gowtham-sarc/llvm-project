@@ -7,15 +7,15 @@ import("//llvm/lib/Target/targets_with_disassemblers.gni")
 import("//llvm/lib/Target/targets_with_exegesis.gni")
 import("//llvm/lib/Target/targets_with_mcas.gni")
 import("//llvm/triples.gni")
-import("//llvm/utils/gn/build/buildflags.gni")
-import("//llvm/utils/gn/build/libs/curl/enable.gni")
-import("//llvm/utils/gn/build/libs/edit/enable.gni")
-import("//llvm/utils/gn/build/libs/pthread/enable.gni")
-import("//llvm/utils/gn/build/libs/terminfo/enable.gni")
-import("//llvm/utils/gn/build/libs/xar/enable.gni")
-import("//llvm/utils/gn/build/libs/xml/enable.gni")
-import("//llvm/utils/gn/build/libs/zlib/enable.gni")
-import("//llvm/utils/gn/build/write_cmake_config.gni")
+import("//${llvm_build_root}build/buildflags.gni")
+import("//${llvm_build_root}build/libs/curl/enable.gni")
+import("//${llvm_build_root}build/libs/edit/enable.gni")
+import("//${llvm_build_root}build/libs/pthread/enable.gni")
+import("//${llvm_build_root}build/libs/terminfo/enable.gni")
+import("//${llvm_build_root}build/libs/xar/enable.gni")
+import("//${llvm_build_root}build/libs/xml/enable.gni")
+import("//${llvm_build_root}build/libs/zlib/enable.gni")
+import("//${llvm_build_root}build/write_cmake_config.gni")
 import("//llvm/version.gni")
 
 # Contains actions to create config.h, llvm-config.h, abi-breaking.h,
@@ -29,7 +29,7 @@ import("//llvm/version.gni")
 # to keep the gn build close to the cmake build.
 
 # Other than in the cmake build, header generation doesn't do any feature
-# checking. See also "Philosophy" in llvm/utils/gn/README.rst.
+# checking. See also "Philosophy" in ${llvm_build_root}README.rst.
 
 ##############################################################################
 # config.h, llvm-config.h, abi-breaking.h

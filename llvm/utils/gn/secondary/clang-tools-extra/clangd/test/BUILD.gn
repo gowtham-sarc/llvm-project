@@ -2,8 +2,8 @@ import("//build_overrides/llvm.gni")
 
 import("//clang-tools-extra/clangd/xpc/enable.gni")
 import("//llvm/triples.gni")
-import("//llvm/utils/gn/build/libs/zlib/enable.gni")
-import("//llvm/utils/gn/build/write_cmake_config.gni")
+import("//${llvm_build_root}build/libs/zlib/enable.gni")
+import("//${llvm_build_root}build/write_cmake_config.gni")
 import("clangd_lit_site_cfg_files.gni")
 
 template("write_lit_config") {
@@ -15,7 +15,7 @@ template("write_lit_config") {
       "LLVM_LIBS_DIR=",  # needed only for shared builds
     ]
     if (host_os == "win") {
-      # See comment for Windows solink in llvm/utils/gn/build/toolchain/BUILD.gn
+      # See comment for Windows solink in ${llvm_build_root}build/toolchain/BUILD.gn
       values += [ "SHLIBDIR=" + rebase_path("$root_out_dir/bin") ]
     } else {
       values += [ "SHLIBDIR=" + rebase_path("$root_out_dir/lib") ]

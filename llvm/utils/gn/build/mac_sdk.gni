@@ -1,6 +1,6 @@
 import("//build_overrides/llvm.gni")
 
-import("//llvm/utils/gn/build/sysroot.gni")
+import("//${llvm_build_root}build/sysroot.gni")
 
 have_ios_sdks = true
 

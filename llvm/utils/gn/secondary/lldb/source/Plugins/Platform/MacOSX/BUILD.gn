@@ -14,8 +14,8 @@ lldb_tablegen("PlatformMacOSXPropertiesEnum") {
 static_library("MacOSX") {
   output_name = "lldbPluginPlatformMacOSX"
   configs += [
-    "//llvm/utils/gn/build:clang_code",
-    "//llvm/utils/gn/build:lldb_code",
+    "//${llvm_build_root}build:clang_code",
+    "//${llvm_build_root}build:lldb_code",
   ]
   deps = [
     ":PlatformMacOSXProperties",

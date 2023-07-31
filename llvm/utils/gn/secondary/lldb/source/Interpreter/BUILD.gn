@@ -13,7 +13,7 @@ lldb_tablegen("InterpreterPropertiesEnum") {
 
 static_library("Interpreter") {
   output_name = "lldbInterpreter"
-  configs += [ "//llvm/utils/gn/build:lldb_code" ]
+  configs += [ "//${llvm_build_root}build:lldb_code" ]
   deps = [
     ":InterpreterProperties",
     ":InterpreterPropertiesEnum",

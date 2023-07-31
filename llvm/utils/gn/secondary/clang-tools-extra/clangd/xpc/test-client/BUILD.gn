@@ -1,7 +1,7 @@
 import("//build_overrides/llvm.gni")
 
 executable("clangd-xpc-test-client") {
-  configs += [ "//llvm/utils/gn/build:clang_code" ]
+  configs += [ "//${llvm_build_root}build:clang_code" ]
   deps = [
     "//clang-tools-extra/clangd",
     "//clang-tools-extra/clangd/xpc:conversions",

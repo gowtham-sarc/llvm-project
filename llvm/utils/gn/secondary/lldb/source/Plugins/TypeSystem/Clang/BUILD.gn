@@ -3,8 +3,8 @@ import("//build_overrides/llvm.gni")
 static_library("Clang") {
   output_name = "lldbPluginTypeSystemClang"
   configs += [
-    "//llvm/utils/gn/build:clang_code",
-    "//llvm/utils/gn/build:lldb_code",
+    "//${llvm_build_root}build:clang_code",
+    "//${llvm_build_root}build:lldb_code",
   ]
   deps = [
     "//clang/lib/AST",

@@ -1,6 +1,6 @@
 import("//build_overrides/llvm.gni")
 
-import("//llvm/utils/gn/build/compiled_action.gni")
+import("//${llvm_build_root}build/compiled_action.gni")
 
 template("gen") {
   compiled_action(target_name) {

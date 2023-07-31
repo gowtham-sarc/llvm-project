@@ -26,7 +26,7 @@ import("//build_overrides/llvm.gni")
 #     td_file = "AttributesCompatFunc.td"
 #   }
 
-import("//llvm/utils/gn/build/compiled_action.gni")
+import("//${llvm_build_root}build/compiled_action.gni")
 
 template("tablegen") {
   assert(defined(invoker.args), "must set 'args' in $target_name")

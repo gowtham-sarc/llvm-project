@@ -2,7 +2,7 @@ import("//build_overrides/llvm.gni")
 
 static_library("plugin") {
   output_name = "clangIncludeFixerPlugin"
-  configs += [ "//llvm/utils/gn/build:clang_code" ]
+  configs += [ "//${llvm_build_root}build:clang_code" ]
   deps = [
     "//clang-tools-extra/clang-include-fixer",
     "//clang/lib/AST",
@@ -11,7 +11,7 @@ static_library("plugin") {
     "//clang/lib/Parse",
     "//clang/lib/Sema",
     "//clang/lib/Tooling",
-    "//llvm/utils/gn/build/libs/pthread",
+    "//${llvm_build_root}build/libs/pthread",
   ]
 
   sources = [ "IncludeFixerPlugin.cpp" ]

@@ -21,7 +21,7 @@ template("write_vcsrevision") {
   assert(defined(invoker.header), "must set 'header' in $target_name")
 
   action(target_name) {
-    script = "//llvm/utils/gn/build/write_vcsrevision.py"
+    script = "//${llvm_build_root}build/write_vcsrevision.py"
     header = invoker.header
     if (defined(invoker.names)) {
       names = invoker.names

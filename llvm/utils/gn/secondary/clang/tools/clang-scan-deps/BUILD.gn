@@ -1,7 +1,7 @@
 import("//build_overrides/llvm.gni")
 
 import("//llvm/utils/TableGen/tablegen.gni")
-import("//llvm/utils/gn/build/driver_executable.gni")
+import("//${llvm_build_root}build/driver_executable.gni")
 
 tablegen("Opts") {
   visibility = [ ":clang-scan-deps" ]
@@ -9,7 +9,7 @@ tablegen("Opts") {
 }
 
 driver_executable("clang-scan-deps") {
-  configs += [ "//llvm/utils/gn/build:clang_code" ]
+  configs += [ "//${llvm_build_root}build:clang_code" ]
   deps = [
     ":Opts",
     "//clang/lib/AST",
