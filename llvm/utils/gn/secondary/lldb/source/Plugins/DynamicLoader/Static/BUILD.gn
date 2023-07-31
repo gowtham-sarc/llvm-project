@@ -4,11 +4,11 @@ static_library("Static") {
   output_name = "lldbPluginDynamicLoaderStatic"
   configs += [ "//${llvm_build_root}build:lldb_code" ]
   deps = [
-    "//lldb/source/Core",
-    "//lldb/source/Host",
-    "//lldb/source/Symbol",
-    "//lldb/source/Target",
-    "//lldb/source/Utility",
+    "//${llvm_root}lldb/source/Core",
+    "//${llvm_root}lldb/source/Host",
+    "//${llvm_root}lldb/source/Symbol",
+    "//${llvm_root}lldb/source/Target",
+    "//${llvm_root}lldb/source/Utility",
   ]
   sources = [ "DynamicLoaderStatic.cpp" ]
 }

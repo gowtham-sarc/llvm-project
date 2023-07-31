@@ -1,6 +1,6 @@
 import("//build_overrides/llvm.gni")
 
-import("//llvm/triples.gni")
+import("//${llvm_root}llvm/triples.gni")
 
 #import("//${llvm_build_root}build/libs/xar/enable.gni")
 import("//${llvm_build_root}build/libs/xml/enable.gni")
@@ -33,7 +33,7 @@ template("write_lit_cfg") {
 }
 
 write_cmake_config("lit-lldb-init") {
-  input = "//lldb/test/Shell/lit-lldb-init.in"
+  input = "//${llvm_root}lldb/test/Shell/lit-lldb-init.in"
 
   # XXX nicer way to get this path
   output = "$root_out_dir/obj/lldb/test/Shell/lit-lldb-init"
@@ -44,14 +44,14 @@ write_cmake_config("lit-lldb-init") {
 
 write_lit_cfg("lit_site_cfg") {
   # Fully-qualified instead of relative for LIT_SITE_CFG_IN_HEADER.
-  input = "//lldb/test/lit.site.cfg.py.in"
+  input = "//${llvm_root}lldb/test/lit.site.cfg.py.in"
   output = lldb_lit_site_cfg_file
   extra_values = [ "LLVM_BUILD_MODE=." ]
 }
 
 write_lit_cfg("lit_api_site_cfg") {
   # Fully-qualified instead of relative for LIT_SITE_CFG_IN_HEADER.
-  input = "//lldb/test/API/lit.site.cfg.py.in"
+  input = "//${llvm_root}lldb/test/API/lit.site.cfg.py.in"
   output = lldb_lit_api_site_cfg_file
   extra_values = [
     "LIBCXX_LIBRARY_DIR=" + rebase_path("$root_build_dir/lib"),
@@ -97,7 +97,7 @@ write_lit_cfg("lit_api_site_cfg") {
 
 write_lit_cfg("lit_shell_site_cfg") {
   # Fully-qualified instead of relative for LIT_SITE_CFG_IN_HEADER.
-  input = "//lldb/test/Shell/lit.site.cfg.py.in"
+  input = "//${llvm_root}lldb/test/Shell/lit.site.cfg.py.in"
   output = lldb_lit_shell_site_cfg_file
   extra_values = [
     "CMAKE_SYSROOT=",
@@ -117,7 +117,7 @@ write_lit_cfg("lit_shell_site_cfg") {
     "LLDB_TEST_OBJC_GNUSTEP_DIR=",
     "LLDB_TOOL_LLDB_SERVER_BUILD=1",
     "LLDB_TOOLS_DIR=" + rebase_path("$root_out_dir/bin"),
-    "LLDB_USE_SYSTEM_DEBUGSERVER=1",  # XXX port //lldb/tools/debugserver (?)
+    "LLDB_USE_SYSTEM_DEBUGSERVER=1",  # XXX port //${llvm_root}lldb/tools/debugserver (?)
     "LLVM_HOST_TRIPLE=$llvm_current_triple",
   ]
 
@@ -138,7 +138,7 @@ write_lit_cfg("lit_shell_site_cfg") {
 
 write_lit_cfg("lit_unit_site_cfg") {
   # Fully-qualified instead of relative for LIT_SITE_CFG_IN_HEADER.
-  input = "//lldb/test/Unit/lit.site.cfg.py.in"
+  input = "//${llvm_root}lldb/test/Unit/lit.site.cfg.py.in"
   output = lldb_lit_unit_site_cfg_file
   extra_values = [ "LLVM_BUILD_MODE=." ]
 }
@@ -163,34 +163,34 @@ group("test") {
     ":lit_shell_site_cfg",
     ":lit_site_cfg",
     ":lit_unit_site_cfg",
-    "//clang/tools/driver:symlinks",
-    "//lld/tools/lld:symlinks",
-    "//lldb/tools/driver:lldb",
+    "//${llvm_root}clang/tools/driver:symlinks",
+    "//${llvm_root}lld/tools/lld:symlinks",
+    "//${llvm_root}lldb/tools/driver:lldb",
 
     # XXX lldb-instr, darwin-debug, etc
-    "//lldb/tools/lldb-server",
-    "//lldb/tools/lldb-test",
-    "//lldb/tools/lldb-vscode",
-    "//lldb/utils/lit-cpuid",
+    "//${llvm_root}lldb/tools/lldb-server",
+    "//${llvm_root}lldb/tools/lldb-test",
+    "//${llvm_root}lldb/tools/lldb-vscode",
+    "//${llvm_root}lldb/utils/lit-cpuid",
 
-    #"//lldb/unittests",
-    "//llvm/tools/dsymutil",
-    "//llvm/tools/llc",
-    "//llvm/tools/lli",
-    "//llvm/tools/llvm-config",
-    "//llvm/tools/llvm-dwarfdump",
-    "//llvm/tools/llvm-dwp",
-    "//llvm/tools/llvm-mc",
-    "//llvm/tools/llvm-nm:symlinks",
-    "//llvm/tools/llvm-objcopy:symlinks",
-    "//llvm/tools/llvm-pdbutil",
-    "//llvm/tools/llvm-readobj:symlinks",
-    "//llvm/tools/yaml2obj",
-    "//llvm/utils/FileCheck",
-    "//llvm/utils/count",
-    "//llvm/utils/llvm-lit",
-    "//llvm/utils/not",
-    "//llvm/utils/split-file",
+    #"//${llvm_root}lldb/unittests",
+    "//${llvm_root}llvm/tools/dsymutil",
+    "//${llvm_root}llvm/tools/llc",
+    "//${llvm_root}llvm/tools/lli",
+    "//${llvm_root}llvm/tools/llvm-config",
+    "//${llvm_root}llvm/tools/llvm-dwarfdump",
+    "//${llvm_root}llvm/tools/llvm-dwp",
+    "//${llvm_root}llvm/tools/llvm-mc",
+    "//${llvm_root}llvm/tools/llvm-nm:symlinks",
+    "//${llvm_root}llvm/tools/llvm-objcopy:symlinks",
+    "//${llvm_root}llvm/tools/llvm-pdbutil",
+    "//${llvm_root}llvm/tools/llvm-readobj:symlinks",
+    "//${llvm_root}llvm/tools/yaml2obj",
+    "//${llvm_root}llvm/utils/FileCheck",
+    "//${llvm_root}llvm/utils/count",
+    "//${llvm_root}llvm/utils/llvm-lit",
+    "//${llvm_root}llvm/utils/not",
+    "//${llvm_root}llvm/utils/split-file",
   ]
   testonly = true
 }

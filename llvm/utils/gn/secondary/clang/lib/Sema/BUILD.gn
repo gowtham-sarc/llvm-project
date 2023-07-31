@@ -1,6 +1,6 @@
 import("//build_overrides/llvm.gni")
 
-import("//clang/utils/TableGen/clang_tablegen.gni")
+import("//${llvm_root}clang/utils/TableGen/clang_tablegen.gni")
 
 clang_tablegen("OpenCLBuiltins") {
   args = [ "-gen-clang-opencl-builtins" ]
@@ -11,29 +11,29 @@ static_library("Sema") {
   configs += [ "//${llvm_build_root}build:clang_code" ]
   deps = [
     ":OpenCLBuiltins",
-    "//clang/include/clang/Basic:arm_cde_builtin_aliases",
-    "//clang/include/clang/Basic:arm_cde_builtin_sema",
-    "//clang/include/clang/Basic:arm_mve_builtin_aliases",
-    "//clang/include/clang/Basic:arm_mve_builtin_sema",
-    "//clang/include/clang/Basic:arm_sme_sema_rangechecks",
-    "//clang/include/clang/Basic:arm_sve_sema_rangechecks",
-    "//clang/include/clang/Basic:riscv_sifive_vector_builtin_sema",
-    "//clang/include/clang/Basic:riscv_vector_builtin_sema",
-    "//clang/include/clang/Sema:AttrParsedAttrImpl",
-    "//clang/include/clang/Sema:AttrParsedAttrKinds",
-    "//clang/include/clang/Sema:AttrParsedAttrList",
-    "//clang/include/clang/Sema:AttrSpellingListIndex",
-    "//clang/include/clang/Sema:AttrTemplateInstantiate",
-    "//clang/lib/AST",
-    "//clang/lib/Analysis",
-    "//clang/lib/Basic",
-    "//clang/lib/Edit",
-    "//clang/lib/Lex",
-    "//clang/lib/Support",
-    "//llvm/lib/Frontend/OpenMP",
-    "//llvm/lib/MC",
-    "//llvm/lib/Support",
-    "//llvm/lib/TargetParser",
+    "//${llvm_root}clang/include/clang/Basic:arm_cde_builtin_aliases",
+    "//${llvm_root}clang/include/clang/Basic:arm_cde_builtin_sema",
+    "//${llvm_root}clang/include/clang/Basic:arm_mve_builtin_aliases",
+    "//${llvm_root}clang/include/clang/Basic:arm_mve_builtin_sema",
+    "//${llvm_root}clang/include/clang/Basic:arm_sme_sema_rangechecks",
+    "//${llvm_root}clang/include/clang/Basic:arm_sve_sema_rangechecks",
+    "//${llvm_root}clang/include/clang/Basic:riscv_sifive_vector_builtin_sema",
+    "//${llvm_root}clang/include/clang/Basic:riscv_vector_builtin_sema",
+    "//${llvm_root}clang/include/clang/Sema:AttrParsedAttrImpl",
+    "//${llvm_root}clang/include/clang/Sema:AttrParsedAttrKinds",
+    "//${llvm_root}clang/include/clang/Sema:AttrParsedAttrList",
+    "//${llvm_root}clang/include/clang/Sema:AttrSpellingListIndex",
+    "//${llvm_root}clang/include/clang/Sema:AttrTemplateInstantiate",
+    "//${llvm_root}clang/lib/AST",
+    "//${llvm_root}clang/lib/Analysis",
+    "//${llvm_root}clang/lib/Basic",
+    "//${llvm_root}clang/lib/Edit",
+    "//${llvm_root}clang/lib/Lex",
+    "//${llvm_root}clang/lib/Support",
+    "//${llvm_root}llvm/lib/Frontend/OpenMP",
+    "//${llvm_root}llvm/lib/MC",
+    "//${llvm_root}llvm/lib/Support",
+    "//${llvm_root}llvm/lib/TargetParser",
   ]
   sources = [
     "AnalysisBasedWarnings.cpp",

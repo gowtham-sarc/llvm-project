@@ -1,6 +1,6 @@
 import("//build_overrides/llvm.gni")
 
-import("//llvm/utils/TableGen/tablegen.gni")
+import("//${llvm_root}llvm/utils/TableGen/tablegen.gni")
 
 tablegen("X86GenAsmMatcher") {
   visibility = [ ":AsmParser" ]
@@ -12,11 +12,11 @@ static_library("AsmParser") {
   output_name = "LLVMX86AsmParser"
   deps = [
     ":X86GenAsmMatcher",
-    "//llvm/lib/MC",
-    "//llvm/lib/MC/MCParser",
-    "//llvm/lib/Support",
-    "//llvm/lib/Target/X86/MCTargetDesc",
-    "//llvm/lib/Target/X86/TargetInfo",
+    "//${llvm_root}llvm/lib/MC",
+    "//${llvm_root}llvm/lib/MC/MCParser",
+    "//${llvm_root}llvm/lib/Support",
+    "//${llvm_root}llvm/lib/Target/X86/MCTargetDesc",
+    "//${llvm_root}llvm/lib/Target/X86/TargetInfo",
   ]
   include_dirs = [ ".." ]
   sources = [ "X86AsmParser.cpp" ]

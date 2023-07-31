@@ -5,12 +5,12 @@ import("//third-party/unittest/unittest.gni")
 unittest("LLDAsLibAllTests") {
   configs += [ "//${llvm_build_root}build:lld_code" ]
   deps = [
-    "//lld/Common",
-    "//lld/COFF",
-    "//lld/ELF",
-    "//lld/MachO",
-    "//lld/MinGW",
-    "//lld/wasm",
+    "//${llvm_root}lld/Common",
+    "//${llvm_root}lld/COFF",
+    "//${llvm_root}lld/ELF",
+    "//${llvm_root}lld/MachO",
+    "//${llvm_root}lld/MinGW",
+    "//${llvm_root}lld/wasm",
   ]
   sources = [ "AllDrivers.cpp" ]
 }

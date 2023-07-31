@@ -4,14 +4,14 @@ static_library("PPC64") {
   output_name = "lldbPluginArchitecturePPC64"
   configs += [ "//${llvm_build_root}build:lldb_code" ]
   deps = [
-    "//lldb/source/Core",
-    "//lldb/source/Plugins/Process/Utility",
-    "//lldb/source/Target",
-    "//lldb/source/Utility",
-    "//llvm/lib/Support",
+    "//${llvm_root}lldb/source/Core",
+    "//${llvm_root}lldb/source/Plugins/Process/Utility",
+    "//${llvm_root}lldb/source/Target",
+    "//${llvm_root}lldb/source/Utility",
+    "//${llvm_root}llvm/lib/Support",
   ]
 
   # Uses source-relative paths for own includes.
-  include_dirs = [ "//lldb/source" ]
+  include_dirs = [ "//${llvm_root}lldb/source" ]
   sources = [ "ArchitecturePPC64.cpp" ]
 }

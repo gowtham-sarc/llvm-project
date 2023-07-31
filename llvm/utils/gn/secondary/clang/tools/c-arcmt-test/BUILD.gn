@@ -2,7 +2,7 @@ import("//build_overrides/llvm.gni")
 
 executable("c-arcmt-test") {
   configs += [ "//${llvm_build_root}build:clang_code" ]
-  deps = [ "//clang/tools/libclang" ]
+  deps = [ "//${llvm_root}clang/tools/libclang" ]
   sources = [ "c-arcmt-test.c" ]
 
   # See comment at top of clang/tools/libclang/BUILD.gn for why this isn't

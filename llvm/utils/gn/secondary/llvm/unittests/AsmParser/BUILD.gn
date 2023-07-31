@@ -4,9 +4,9 @@ import("//third-party/unittest/unittest.gni")
 
 unittest("AsmParserTests") {
   deps = [
-    "//llvm/lib/AsmParser",
-    "//llvm/lib/IR",
-    "//llvm/lib/Support",
+    "//${llvm_root}llvm/lib/AsmParser",
+    "//${llvm_root}llvm/lib/IR",
+    "//${llvm_root}llvm/lib/Support",
   ]
   sources = [ "AsmParserTest.cpp" ]
 }

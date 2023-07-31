@@ -3,16 +3,16 @@ import("//build_overrides/llvm.gni")
 executable("clangd-xpc-test-client") {
   configs += [ "//${llvm_build_root}build:clang_code" ]
   deps = [
-    "//clang-tools-extra/clangd",
-    "//clang-tools-extra/clangd/xpc:conversions",
-    "//clang-tools-extra/clangd/xpc/framework:ClangdXPC.framework",
-    "//clang/lib/Basic",
-    "//clang/lib/Format",
-    "//clang/lib/Frontend",
-    "//clang/lib/Sema",
-    "//clang/lib/Tooling",
-    "//clang/lib/Tooling/Core",
-    "//llvm/lib/Support",
+    "//${llvm_root}clang-tools-extra/clangd",
+    "//${llvm_root}clang-tools-extra/clangd/xpc:conversions",
+    "//${llvm_root}clang-tools-extra/clangd/xpc/framework:ClangdXPC.framework",
+    "//${llvm_root}clang/lib/Basic",
+    "//${llvm_root}clang/lib/Format",
+    "//${llvm_root}clang/lib/Frontend",
+    "//${llvm_root}clang/lib/Sema",
+    "//${llvm_root}clang/lib/Tooling",
+    "//${llvm_root}clang/lib/Tooling/Core",
+    "//${llvm_root}llvm/lib/Support",
   ]
 
   include_dirs = [ "../.." ]

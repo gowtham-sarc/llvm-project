@@ -1,24 +1,24 @@
 import("//build_overrides/llvm.gni")
 
-import("//llvm/lib/Target/targets.gni")
-import("//llvm/lib/Target/targets_with_asm_parsers.gni")
-import("//llvm/lib/Target/targets_with_disassemblers.gni")
-import("//llvm/lib/Target/targets_with_mcas.gni")
+import("//${llvm_root}llvm/lib/Target/targets.gni")
+import("//${llvm_root}llvm/lib/Target/targets_with_asm_parsers.gni")
+import("//${llvm_root}llvm/lib/Target/targets_with_disassemblers.gni")
+import("//${llvm_root}llvm/lib/Target/targets_with_mcas.gni")
 
 # This build file has two parts:
-# 1. The actual //llvm/lib/Target build target, which is just a static
+# 1. The actual //${llvm_root}llvm/lib/Target build target, which is just a static
 #    library containing the cpp files in this directory.  It contains general
 #    shared target code.
 # 2. Forwarding targets that forward to the concrete targets (X86, ARM, ...).
 #    These are defined in subdirectories, and the forwarding names match
 #    the names of the forwarding targets in CMake.  They all (indirectly,
-#    through CodeGen) depend on the //llvm/lib/Target build target.
+#    through CodeGen) depend on the //${llvm_root}llvm/lib/Target build target.
 # (See also `gn help labels`).
 # The dependency chain is:
-# //llvm/lib/Target:TargetsToBuild (a target in this file) ->
+# //${llvm_root}llvm/lib/Target:TargetsToBuild (a target in this file) ->
 # /llvm/lib/Target/(X86|ARM|...) (in the subdirectories) ->
-# //llvm/lib/CodeGen ->
-# //llvm/lib/Target (a target in this file again)
+# //${llvm_root}llvm/lib/CodeGen ->
+# //${llvm_root}llvm/lib/Target (a target in this file again)
 # Note that while this file appears twice in that stack, it's with different
 # targets in this file, so there's no cyclic dependency.
 
@@ -26,11 +26,11 @@ import("//llvm/lib/Target/targets_with_mcas.gni")
 static_library("Target") {
   output_name = "LLVMTarget"
   deps = [
-    "//llvm/lib/Analysis",
-    "//llvm/lib/IR",
-    "//llvm/lib/MC",
-    "//llvm/lib/Support",
-    "//llvm/lib/TargetParser",
+    "//${llvm_root}llvm/lib/Analysis",
+    "//${llvm_root}llvm/lib/IR",
+    "//${llvm_root}llvm/lib/MC",
+    "//${llvm_root}llvm/lib/Support",
+    "//${llvm_root}llvm/lib/TargetParser",
   ]
   public_deps = [
     # This is a bit of a hack: llvm-c/Target.h includes llvm/Config/Targets.def,
@@ -38,7 +38,7 @@ static_library("Target") {
     # declared in llvm-c/Target.h are defined in llvm/lib/Target, clients of
     # it must depend on llvm/lib/Target, so add the public_dep for Targets.def
     # here.
-    "//llvm/include/llvm/Config:write_target_def_files",
+    "//${llvm_root}llvm/include/llvm/Config:write_target_def_files",
   ]
   sources = [
     "Target.cpp",

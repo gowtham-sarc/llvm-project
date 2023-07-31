@@ -4,13 +4,13 @@ static_library("x86") {
   output_name = "lldbPluginUnwindAssemblyX86"
   configs += [ "//${llvm_build_root}build:lldb_code" ]
   deps = [
-    "//lldb/source/Core",
-    "//lldb/source/Symbol",
-    "//lldb/source/Target",
-    "//lldb/source/Utility",
-    "//llvm/lib/MC",
-    "//llvm/lib/MC/MCDisassembler",
-    "//llvm/lib/Support",
+    "//${llvm_root}lldb/source/Core",
+    "//${llvm_root}lldb/source/Symbol",
+    "//${llvm_root}lldb/source/Target",
+    "//${llvm_root}lldb/source/Utility",
+    "//${llvm_root}llvm/lib/MC",
+    "//${llvm_root}llvm/lib/MC/MCDisassembler",
+    "//${llvm_root}llvm/lib/Support",
   ]
   sources = [
     "UnwindAssembly-x86.cpp",

@@ -4,18 +4,18 @@ static_library("clang-doc") {
   output_name = "clangDoc"
   configs += [ "//${llvm_build_root}build:clang_code" ]
   deps = [
-    "//clang/lib/AST",
-    "//clang/lib/ASTMatchers",
-    "//clang/lib/Analysis",
-    "//clang/lib/Basic",
-    "//clang/lib/Frontend",
-    "//clang/lib/Index",
-    "//clang/lib/Lex",
-    "//clang/lib/Tooling",
-    "//clang/lib/Tooling/Core",
-    "//llvm/lib/Bitcode/Reader",
-    "//llvm/lib/Bitcode/Writer",
-    "//llvm/lib/Support",
+    "//${llvm_root}clang/lib/AST",
+    "//${llvm_root}clang/lib/ASTMatchers",
+    "//${llvm_root}clang/lib/Analysis",
+    "//${llvm_root}clang/lib/Basic",
+    "//${llvm_root}clang/lib/Frontend",
+    "//${llvm_root}clang/lib/Index",
+    "//${llvm_root}clang/lib/Lex",
+    "//${llvm_root}clang/lib/Tooling",
+    "//${llvm_root}clang/lib/Tooling/Core",
+    "//${llvm_root}llvm/lib/Bitcode/Reader",
+    "//${llvm_root}llvm/lib/Bitcode/Writer",
+    "//${llvm_root}llvm/lib/Support",
   ]
   sources = [
     "BitcodeReader.cpp",

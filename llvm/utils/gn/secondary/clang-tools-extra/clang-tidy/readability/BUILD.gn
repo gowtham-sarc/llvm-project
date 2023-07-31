@@ -4,14 +4,14 @@ static_library("readability") {
   output_name = "clangTidyReadabilityModule"
   configs += [ "//${llvm_build_root}build:clang_code" ]
   deps = [
-    "//clang-tools-extra/clang-tidy",
-    "//clang-tools-extra/clang-tidy/utils",
-    "//clang/lib/AST",
-    "//clang/lib/ASTMatchers",
-    "//clang/lib/Basic",
-    "//clang/lib/Lex",
-    "//clang/lib/Tooling",
-    "//llvm/lib/Support",
+    "//${llvm_root}clang-tools-extra/clang-tidy",
+    "//${llvm_root}clang-tools-extra/clang-tidy/utils",
+    "//${llvm_root}clang/lib/AST",
+    "//${llvm_root}clang/lib/ASTMatchers",
+    "//${llvm_root}clang/lib/Basic",
+    "//${llvm_root}clang/lib/Lex",
+    "//${llvm_root}clang/lib/Tooling",
+    "//${llvm_root}llvm/lib/Support",
   ]
   sources = [
     "AvoidConstParamsInDecls.cpp",

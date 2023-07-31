@@ -1,6 +1,6 @@
 import("//build_overrides/llvm.gni")
 
-import("//llvm/triples.gni")
+import("//${llvm_root}llvm/triples.gni")
 import("//${llvm_build_root}build/mac_sdk.gni")
 import("//${llvm_build_root}build/toolchain/compiler.gni")
 

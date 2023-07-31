@@ -5,17 +5,17 @@ import("//third-party/unittest/unittest.gni")
 unittest("ClangQueryTests") {
   configs += [ "//${llvm_build_root}build:clang_code" ]
   deps = [
-    "//clang-tools-extra/clang-query",
-    "//clang/lib/AST",
-    "//clang/lib/ASTMatchers",
-    "//clang/lib/ASTMatchers/Dynamic",
-    "//clang/lib/Basic",
-    "//clang/lib/Frontend",
-    "//clang/lib/Serialization",
-    "//clang/lib/Tooling",
-    "//llvm/lib/Support",
+    "//${llvm_root}clang-tools-extra/clang-query",
+    "//${llvm_root}clang/lib/AST",
+    "//${llvm_root}clang/lib/ASTMatchers",
+    "//${llvm_root}clang/lib/ASTMatchers/Dynamic",
+    "//${llvm_root}clang/lib/Basic",
+    "//${llvm_root}clang/lib/Frontend",
+    "//${llvm_root}clang/lib/Serialization",
+    "//${llvm_root}clang/lib/Tooling",
+    "//${llvm_root}llvm/lib/Support",
   ]
-  include_dirs = [ "//clang-tools-extra/clang-query" ]
+  include_dirs = [ "//${llvm_root}clang-tools-extra/clang-query" ]
   sources = [
     "QueryEngineTest.cpp",
     "QueryParserTest.cpp",

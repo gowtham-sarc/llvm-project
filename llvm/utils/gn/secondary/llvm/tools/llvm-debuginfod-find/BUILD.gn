@@ -1,6 +1,6 @@
 import("//build_overrides/llvm.gni")
 
-import("//llvm/tools/binutils_symlinks.gni")
+import("//${llvm_root}llvm/tools/binutils_symlinks.gni")
 import("//${llvm_build_root}build/symlink_or_copy.gni")
 
 if (llvm_install_binutils_symlinks) {
@@ -22,8 +22,8 @@ group("symlinks") {
 
 executable("llvm-debuginfod-find") {
   deps = [
-    "//llvm/lib/Debuginfod",
-    "//llvm/lib/Support",
+    "//${llvm_root}llvm/lib/Debuginfod",
+    "//${llvm_root}llvm/lib/Support",
   ]
   sources = [ "llvm-debuginfod-find.cpp" ]
 }

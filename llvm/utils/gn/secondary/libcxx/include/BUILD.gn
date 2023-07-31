@@ -1,6 +1,6 @@
 import("//build_overrides/llvm.gni")
 
-import("//libcxx/config.gni")
+import("//${llvm_root}libcxx/config.gni")
 import("//${llvm_build_root}build/write_cmake_config.gni")
 
 libcxx_generated_include_dir = "$root_build_dir/include/c++/v1"
@@ -1080,7 +1080,7 @@ if (current_toolchain == default_toolchain) {
       # On macOS, libcxx/CMakeLists.txt sets LIBCXX_CXX_ABI_SYSTEM to 1, which
       # causes an empty header list to be passed to setup_abi_lib, so these
       # don't get copied on macOS due to that.
-      deps += [ "//libcxxabi/include" ]
+      deps += [ "//${llvm_root}libcxxabi/include" ]
     }
     outputs = [ "$root_build_dir/include/c++/v1/{{source_target_relative}}" ]
   }

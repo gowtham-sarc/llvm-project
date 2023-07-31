@@ -4,17 +4,17 @@ import("//third-party/unittest/unittest.gni")
 
 unittest("MCJITTests") {
   deps = [
-    "//llvm/lib/Analysis",
-    "//llvm/lib/ExecutionEngine",
-    "//llvm/lib/ExecutionEngine/MCJIT",
-    "//llvm/lib/ExecutionEngine/RuntimeDyld",
-    "//llvm/lib/IR",
-    "//llvm/lib/MC",
-    "//llvm/lib/Passes",
-    "//llvm/lib/Support",
-    "//llvm/lib/Target",
-    "//llvm/lib/Target:NativeTarget",
-    "//llvm/lib/TargetParser",
+    "//${llvm_root}llvm/lib/Analysis",
+    "//${llvm_root}llvm/lib/ExecutionEngine",
+    "//${llvm_root}llvm/lib/ExecutionEngine/MCJIT",
+    "//${llvm_root}llvm/lib/ExecutionEngine/RuntimeDyld",
+    "//${llvm_root}llvm/lib/IR",
+    "//${llvm_root}llvm/lib/MC",
+    "//${llvm_root}llvm/lib/Passes",
+    "//${llvm_root}llvm/lib/Support",
+    "//${llvm_root}llvm/lib/Target",
+    "//${llvm_root}llvm/lib/Target:NativeTarget",
+    "//${llvm_root}llvm/lib/TargetParser",
   ]
   sources = [
     "MCJITCAPITest.cpp",

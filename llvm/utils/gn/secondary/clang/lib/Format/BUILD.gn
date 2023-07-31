@@ -4,11 +4,11 @@ static_library("Format") {
   output_name = "clangFormat"
   configs += [ "//${llvm_build_root}build:clang_code" ]
   deps = [
-    "//clang/lib/Basic",
-    "//clang/lib/Lex",
-    "//clang/lib/Tooling/Core",
-    "//clang/lib/Tooling/Inclusions",
-    "//llvm/lib/Support",
+    "//${llvm_root}clang/lib/Basic",
+    "//${llvm_root}clang/lib/Lex",
+    "//${llvm_root}clang/lib/Tooling/Core",
+    "//${llvm_root}clang/lib/Tooling/Inclusions",
+    "//${llvm_root}llvm/lib/Support",
   ]
   sources = [
     "AffectedRangeManager.cpp",

@@ -3,8 +3,8 @@ import("//build_overrides/llvm.gni")
 source_set("unimplemented") {
   configs += [ "//${llvm_build_root}build:clang_code" ]
   deps = [
-    "//clang-tools-extra/clangd/support",
-    "//llvm/lib/Support",
+    "//${llvm_root}clang-tools-extra/clangd/support",
+    "//${llvm_root}llvm/lib/Support",
   ]
   include_dirs = [ "../../.." ]
   sources = [ "UnimplementedClient.cpp" ]

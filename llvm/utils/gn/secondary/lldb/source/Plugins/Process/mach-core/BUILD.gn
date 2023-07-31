@@ -4,20 +4,20 @@ static_library("mach-core") {
   output_name = "lldbPluginProcessMachCore"
   configs += [ "//${llvm_build_root}build:lldb_code" ]
   deps = [
-    "//lldb/source/Breakpoint",
-    "//lldb/source/Core",
-    "//lldb/source/Host",
-    "//lldb/source/Plugins/DynamicLoader/Darwin-Kernel",
-    "//lldb/source/Plugins/DynamicLoader/MacOSX-DYLD",
-    "//lldb/source/Plugins/ObjectFile/Mach-O",
-    "//lldb/source/Symbol",
-    "//lldb/source/Target",
-    "//lldb/source/Utility",
-    "//llvm/lib/Support",
+    "//${llvm_root}lldb/source/Breakpoint",
+    "//${llvm_root}lldb/source/Core",
+    "//${llvm_root}lldb/source/Host",
+    "//${llvm_root}lldb/source/Plugins/DynamicLoader/Darwin-Kernel",
+    "//${llvm_root}lldb/source/Plugins/DynamicLoader/MacOSX-DYLD",
+    "//${llvm_root}lldb/source/Plugins/ObjectFile/Mach-O",
+    "//${llvm_root}lldb/source/Symbol",
+    "//${llvm_root}lldb/source/Target",
+    "//${llvm_root}lldb/source/Utility",
+    "//${llvm_root}llvm/lib/Support",
   ]
 
   # Reaches into Plugins/Process/Utility.
-  include_dirs = [ "//lldb/source" ]
+  include_dirs = [ "//${llvm_root}lldb/source" ]
   sources = [
     "ProcessMachCore.cpp",
     "ThreadMachCore.cpp",

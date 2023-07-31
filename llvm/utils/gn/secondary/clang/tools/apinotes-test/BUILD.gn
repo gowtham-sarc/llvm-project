@@ -3,8 +3,8 @@ import("//build_overrides/llvm.gni")
 executable("apinotes-test") {
   configs += [ "//${llvm_build_root}build:clang_code" ]
   deps = [
-    "//clang/lib/APINotes",
-    "//llvm/lib/Support",
+    "//${llvm_root}clang/lib/APINotes",
+    "//${llvm_root}llvm/lib/Support",
   ]
   sources = [ "APINotesTest.cpp" ]
 }

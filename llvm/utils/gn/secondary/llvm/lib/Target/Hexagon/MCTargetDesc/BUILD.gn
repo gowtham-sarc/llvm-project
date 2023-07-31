@@ -1,6 +1,6 @@
 import("//build_overrides/llvm.gni")
 
-import("//llvm/utils/TableGen/tablegen.gni")
+import("//${llvm_root}llvm/utils/TableGen/tablegen.gni")
 
 tablegen("HexagonGenAsmWriter") {
   visibility = [ ":MCTargetDesc" ]
@@ -46,9 +46,9 @@ static_library("MCTargetDesc") {
   deps = [
     ":HexagonGenAsmWriter",
     ":HexagonGenMCCodeEmitter",
-    "//llvm/lib/MC",
-    "//llvm/lib/Support",
-    "//llvm/lib/Target/Hexagon/TargetInfo",
+    "//${llvm_root}llvm/lib/MC",
+    "//${llvm_root}llvm/lib/Support",
+    "//${llvm_root}llvm/lib/Target/Hexagon/TargetInfo",
   ]
   include_dirs = [ ".." ]
   sources = [

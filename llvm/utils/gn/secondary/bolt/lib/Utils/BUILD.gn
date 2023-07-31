@@ -4,7 +4,7 @@ static_library("Utils") {
   output_name = "LLVMBOLTUtils"
   configs += [ "//${llvm_build_root}build:bolt_code" ]
   deps = [
-    "//llvm/lib/Support",
+    "//${llvm_root}llvm/lib/Support",
     "//${llvm_build_root}build/libs/pthread",
   ]
   sources = [

@@ -4,10 +4,10 @@ import("//third-party/unittest/unittest.gni")
 
 unittest("DebugInfoPDBTests") {
   deps = [
-    "//llvm/lib/DebugInfo/CodeView",
-    "//llvm/lib/DebugInfo/MSF",
-    "//llvm/lib/DebugInfo/PDB",
-    "//llvm/lib/Testing/Support",
+    "//${llvm_root}llvm/lib/DebugInfo/CodeView",
+    "//${llvm_root}llvm/lib/DebugInfo/MSF",
+    "//${llvm_root}llvm/lib/DebugInfo/PDB",
+    "//${llvm_root}llvm/lib/Testing/Support",
   ]
   sources = [
     "HashTableTest.cpp",

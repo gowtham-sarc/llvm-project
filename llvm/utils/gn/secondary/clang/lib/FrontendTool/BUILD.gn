@@ -1,7 +1,7 @@
 import("//build_overrides/llvm.gni")
 
-import("//clang/lib/ARCMigrate/enable.gni")
-import("//clang/lib/StaticAnalyzer/Frontend/enable.gni")
+import("//${llvm_root}clang/lib/ARCMigrate/enable.gni")
+import("//${llvm_root}clang/lib/StaticAnalyzer/Frontend/enable.gni")
 
 assert(clang_enable_static_analyzer || !clang_enable_arcmt,
        "Cannot disable static analyzer while enabling ARCMT")
@@ -10,21 +10,21 @@ static_library("FrontendTool") {
   output_name = "clangFrontendTool"
   configs += [ "//${llvm_build_root}build:clang_code" ]
   deps = [
-    "//clang/include/clang/Config",
-    "//clang/lib/Basic",
-    "//clang/lib/CodeGen",
-    "//clang/lib/Driver",
-    "//clang/lib/ExtractAPI",
-    "//clang/lib/Frontend",
-    "//clang/lib/Frontend/Rewrite",
-    "//llvm/lib/Option",
-    "//llvm/lib/Support",
+    "//${llvm_root}clang/include/clang/Config",
+    "//${llvm_root}clang/lib/Basic",
+    "//${llvm_root}clang/lib/CodeGen",
+    "//${llvm_root}clang/lib/Driver",
+    "//${llvm_root}clang/lib/ExtractAPI",
+    "//${llvm_root}clang/lib/Frontend",
+    "//${llvm_root}clang/lib/Frontend/Rewrite",
+    "//${llvm_root}llvm/lib/Option",
+    "//${llvm_root}llvm/lib/Support",
   ]
   if (clang_enable_arcmt) {
-    deps += [ "//clang/lib/ARCMigrate" ]
+    deps += [ "//${llvm_root}clang/lib/ARCMigrate" ]
   }
   if (clang_enable_static_analyzer) {
-    deps += [ "//clang/lib/StaticAnalyzer/Frontend" ]
+    deps += [ "//${llvm_root}clang/lib/StaticAnalyzer/Frontend" ]
   }
   sources = [ "ExecuteCompilerInvocation.cpp" ]
 }

@@ -465,7 +465,7 @@ config("thin_archive") {
 
 config("llvm_code") {
   include_dirs = [
-    "//llvm/include",
+    "//${llvm_root}llvm/include",
     "$root_gen_dir/llvm/include",
   ]
   if (current_os != "win") {
@@ -475,7 +475,7 @@ config("llvm_code") {
 
 config("lld_code") {
   include_dirs = [
-    "//lld/include",
+    "//${llvm_root}lld/include",
     "$root_gen_dir/lld/include",
   ]
 }
@@ -485,20 +485,20 @@ config("clang_code") {
     cflags = [ "-fno-strict-aliasing" ]
   }
   include_dirs = [
-    "//clang/include",
+    "//${llvm_root}clang/include",
     "$root_gen_dir/clang/include",
   ]
 }
 
 config("bolt_code") {
   include_dirs = [
-    "//bolt/include",
+    "//${llvm_root}bolt/include",
     "$root_gen_dir/bolt/include",
   ]
 }
 
 config("crt_code") {
-  include_dirs = [ "//compiler-rt/lib" ]
+  include_dirs = [ "//${llvm_root}compiler-rt/lib" ]
   cflags = [
     "-fno-builtin",
     "-gline-tables-only",
@@ -530,7 +530,7 @@ config("lldb_code") {
     cflags = [ "-fno-strict-aliasing" ]
   }
   include_dirs = [
-    "//lldb/include",
+    "//${llvm_root}lldb/include",
     "$root_gen_dir/lldb/include",
   ]
 }

@@ -9,14 +9,14 @@ unittest("ClangReplInterpreterExceptionTests") {
     "//${llvm_build_root}build:no_rtti",
   ]
   deps = [
-    "//clang/lib/AST",
-    "//clang/lib/Basic",
-    "//clang/lib/Frontend",
-    "//clang/lib/Interpreter",
-    "//llvm/lib/ExecutionEngine/Orc",
-    "//llvm/lib/IR",
-    "//llvm/lib/Support",
-    "//llvm/lib/Target:TargetsToBuild",
+    "//${llvm_root}clang/lib/AST",
+    "//${llvm_root}clang/lib/Basic",
+    "//${llvm_root}clang/lib/Frontend",
+    "//${llvm_root}clang/lib/Interpreter",
+    "//${llvm_root}llvm/lib/ExecutionEngine/Orc",
+    "//${llvm_root}llvm/lib/IR",
+    "//${llvm_root}llvm/lib/Support",
+    "//${llvm_root}llvm/lib/Target:TargetsToBuild",
   ]
   sources = [ "InterpreterExceptionTest.cpp" ]
 }

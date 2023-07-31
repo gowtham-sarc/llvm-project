@@ -3,16 +3,16 @@ import("//build_overrides/llvm.gni")
 executable("modularize") {
   configs += [ "//${llvm_build_root}build:clang_code" ]
   deps = [
-    "//clang/lib/AST",
-    "//clang/lib/Basic",
-    "//clang/lib/Driver",
-    "//clang/lib/Frontend",
-    "//clang/lib/Lex",
-    "//clang/lib/Serialization",
-    "//clang/lib/Tooling",
-    "//llvm/lib/Option",
-    "//llvm/lib/Support",
-    "//llvm/lib/TargetParser",
+    "//${llvm_root}clang/lib/AST",
+    "//${llvm_root}clang/lib/Basic",
+    "//${llvm_root}clang/lib/Driver",
+    "//${llvm_root}clang/lib/Frontend",
+    "//${llvm_root}clang/lib/Lex",
+    "//${llvm_root}clang/lib/Serialization",
+    "//${llvm_root}clang/lib/Tooling",
+    "//${llvm_root}llvm/lib/Option",
+    "//${llvm_root}llvm/lib/Support",
+    "//${llvm_root}llvm/lib/TargetParser",
   ]
   sources = [
     "CoverageChecker.cpp",

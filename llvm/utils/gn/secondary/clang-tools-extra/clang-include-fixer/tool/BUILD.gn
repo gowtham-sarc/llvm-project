@@ -3,15 +3,15 @@ import("//build_overrides/llvm.gni")
 executable("clang-include-fixer") {
   configs += [ "//${llvm_build_root}build:clang_code" ]
   deps = [
-    "//clang-tools-extra/clang-include-fixer",
-    "//clang-tools-extra/clang-include-fixer/find-all-symbols",
-    "//clang/lib/Basic",
-    "//clang/lib/Format",
-    "//clang/lib/Frontend",
-    "//clang/lib/Rewrite",
-    "//clang/lib/Serialization",
-    "//clang/lib/Tooling",
-    "//clang/lib/Tooling/Core",
+    "//${llvm_root}clang-tools-extra/clang-include-fixer",
+    "//${llvm_root}clang-tools-extra/clang-include-fixer/find-all-symbols",
+    "//${llvm_root}clang/lib/Basic",
+    "//${llvm_root}clang/lib/Format",
+    "//${llvm_root}clang/lib/Frontend",
+    "//${llvm_root}clang/lib/Rewrite",
+    "//${llvm_root}clang/lib/Serialization",
+    "//${llvm_root}clang/lib/Tooling",
+    "//${llvm_root}clang/lib/Tooling/Core",
   ]
   include_dirs = [ ".." ]
   sources = [ "ClangIncludeFixer.cpp" ]

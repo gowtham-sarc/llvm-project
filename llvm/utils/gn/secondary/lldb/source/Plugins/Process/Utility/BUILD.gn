@@ -4,21 +4,21 @@ static_library("Utility") {
   output_name = "lldbPluginProcessUtility"
   configs += [ "//${llvm_build_root}build:lldb_code" ]
   deps = [
-    #"//lldb/source/Breakpoint", # 3-hop dependency cycle.
-    "//lldb/source/Core",
-    "//lldb/source/DataFormatters",
-    "//lldb/source/Expression",
-    "//lldb/source/Host",
-    "//lldb/source/Symbol",
+    #"//${llvm_root}lldb/source/Breakpoint", # 3-hop dependency cycle.
+    "//${llvm_root}lldb/source/Core",
+    "//${llvm_root}lldb/source/DataFormatters",
+    "//${llvm_root}lldb/source/Expression",
+    "//${llvm_root}lldb/source/Host",
+    "//${llvm_root}lldb/source/Symbol",
 
-    #"//lldb/source/Target", # Dependency cycle.
-    "//lldb/source/Utility",
-    "//llvm/lib/Support",
-    "//llvm/lib/TargetParser",
+    #"//${llvm_root}lldb/source/Target", # Dependency cycle.
+    "//${llvm_root}lldb/source/Utility",
+    "//${llvm_root}llvm/lib/Support",
+    "//${llvm_root}llvm/lib/TargetParser",
   ]
 
   # Uses source-relative includes for own headers.
-  include_dirs = [ "//lldb/source" ]
+  include_dirs = [ "//${llvm_root}lldb/source" ]
   sources = [
     "AuxVector.cpp",
     "FreeBSDSignals.cpp",

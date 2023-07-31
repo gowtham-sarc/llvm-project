@@ -4,10 +4,10 @@ static_library("Dynamic") {
   output_name = "clangDynamicASTMatchers"
   configs += [ "//${llvm_build_root}build:clang_code" ]
   deps = [
-    "//clang/lib/AST",
-    "//clang/lib/ASTMatchers",
-    "//clang/lib/Basic",
-    "//llvm/lib/Support",
+    "//${llvm_root}clang/lib/AST",
+    "//${llvm_root}clang/lib/ASTMatchers",
+    "//${llvm_root}clang/lib/Basic",
+    "//${llvm_root}llvm/lib/Support",
   ]
   sources = [
     "Diagnostics.cpp",

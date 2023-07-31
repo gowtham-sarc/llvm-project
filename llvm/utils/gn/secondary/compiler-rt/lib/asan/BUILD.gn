@@ -1,6 +1,6 @@
 import("//build_overrides/llvm.gni")
 
-import("//compiler-rt/target.gni")
+import("//${llvm_root}compiler-rt/target.gni")
 
 if (current_toolchain == host_toolchain) {
   copy("ignorelist") {
@@ -178,17 +178,17 @@ if (current_toolchain == host_toolchain) {
     sources = asan_sources
     deps = [
       ":cxx_sources",
-      "//compiler-rt/lib/interception:sources",
-      "//compiler-rt/lib/lsan:common_sources",
-      "//compiler-rt/lib/sanitizer_common:sources",
-      "//compiler-rt/lib/ubsan:cxx_sources",
-      "//compiler-rt/lib/ubsan:sources",
+      "//${llvm_root}compiler-rt/lib/interception:sources",
+      "//${llvm_root}compiler-rt/lib/lsan:common_sources",
+      "//${llvm_root}compiler-rt/lib/sanitizer_common:sources",
+      "//${llvm_root}compiler-rt/lib/ubsan:cxx_sources",
+      "//${llvm_root}compiler-rt/lib/ubsan:sources",
     ]
     if (current_os == "win") {
       deps += [
         ":weak_interception",
-        "//compiler-rt/lib/sanitizer_common:weak_interception",
-        "//compiler-rt/lib/ubsan:weak_interception",
+        "//${llvm_root}compiler-rt/lib/sanitizer_common:weak_interception",
+        "//${llvm_root}compiler-rt/lib/ubsan:weak_interception",
       ]
     }
     defines = [ "ASAN_DYNAMIC" ]
@@ -209,10 +209,10 @@ if (current_toolchain == host_toolchain) {
       sources = asan_sources
       deps = [
         ":preinit_sources",
-        "//compiler-rt/lib/interception:sources",
-        "//compiler-rt/lib/lsan:common_sources",
-        "//compiler-rt/lib/sanitizer_common:sources",
-        "//compiler-rt/lib/ubsan:sources",
+        "//${llvm_root}compiler-rt/lib/interception:sources",
+        "//${llvm_root}compiler-rt/lib/lsan:common_sources",
+        "//${llvm_root}compiler-rt/lib/sanitizer_common:sources",
+        "//${llvm_root}compiler-rt/lib/ubsan:sources",
       ]
     }
 
@@ -223,7 +223,7 @@ if (current_toolchain == host_toolchain) {
       configs -= [ "//${llvm_build_root}build:thin_archive" ]
       deps = [
         ":cxx_sources",
-        "//compiler-rt/lib/ubsan:cxx_sources",
+        "//${llvm_root}compiler-rt/lib/ubsan:cxx_sources",
       ]
     }
 
@@ -257,9 +257,9 @@ if (current_toolchain == host_toolchain) {
       ]
       defines = [ "SANITIZER_DLL_THUNK" ]
       deps = [
-        "//compiler-rt/lib/interception:sources",
-        "//compiler-rt/lib/sanitizer_common:dll_thunk",
-        "//compiler-rt/lib/ubsan:dll_thunk",
+        "//${llvm_root}compiler-rt/lib/interception:sources",
+        "//${llvm_root}compiler-rt/lib/sanitizer_common:dll_thunk",
+        "//${llvm_root}compiler-rt/lib/ubsan:dll_thunk",
       ]
     }
     static_library("asan_dynamic_runtime_thunk") {
@@ -276,8 +276,8 @@ if (current_toolchain == host_toolchain) {
       ]
       defines = [ "SANITIZER_DYNAMIC_RUNTIME_THUNK" ]
       deps = [
-        "//compiler-rt/lib/sanitizer_common:dynamic_runtime_thunk",
-        "//compiler-rt/lib/ubsan:dynamic_runtime_thunk",
+        "//${llvm_root}compiler-rt/lib/sanitizer_common:dynamic_runtime_thunk",
+        "//${llvm_root}compiler-rt/lib/ubsan:dynamic_runtime_thunk",
       ]
       cflags = [ "-Zl" ]
     }

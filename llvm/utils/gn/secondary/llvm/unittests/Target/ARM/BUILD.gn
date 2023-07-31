@@ -4,17 +4,17 @@ import("//third-party/unittest/unittest.gni")
 
 unittest("ARMTests") {
   deps = [
-    "//llvm/lib/CodeGen/MIRParser",
-    "//llvm/lib/MC",
-    "//llvm/lib/Support",
-    "//llvm/lib/Target",
-    "//llvm/lib/Target/ARM:LLVMARMCodeGen",
-    "//llvm/lib/Target/ARM/MCTargetDesc",
-    "//llvm/lib/Target/ARM/TargetInfo",
-    "//llvm/lib/Target/ARM/Utils",
-    "//llvm/lib/TargetParser",
+    "//${llvm_root}llvm/lib/CodeGen/MIRParser",
+    "//${llvm_root}llvm/lib/MC",
+    "//${llvm_root}llvm/lib/Support",
+    "//${llvm_root}llvm/lib/Target",
+    "//${llvm_root}llvm/lib/Target/ARM:LLVMARMCodeGen",
+    "//${llvm_root}llvm/lib/Target/ARM/MCTargetDesc",
+    "//${llvm_root}llvm/lib/Target/ARM/TargetInfo",
+    "//${llvm_root}llvm/lib/Target/ARM/Utils",
+    "//${llvm_root}llvm/lib/TargetParser",
   ]
-  include_dirs = [ "//llvm/lib/Target/ARM" ]
+  include_dirs = [ "//${llvm_root}llvm/lib/Target/ARM" ]
   sources = [
     "InstSizes.cpp",
     "MachineInstrTest.cpp",

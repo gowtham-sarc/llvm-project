@@ -1,7 +1,7 @@
 import("//build_overrides/llvm.gni")
 
-import("//clang/resource_dir.gni")
-import("//clang/runtimes.gni")
+import("//${llvm_root}clang/resource_dir.gni")
+import("//${llvm_root}clang/runtimes.gni")
 
 if (current_cpu == "x86") {
   if (current_os == "android") {

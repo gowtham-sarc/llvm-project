@@ -4,16 +4,16 @@ import("//third-party/unittest/unittest.gni")
 
 unittest("WebAssemblyTests") {
   deps = [
-    "//llvm/lib/CodeGen",
-    "//llvm/lib/CodeGen/MIRParser",
-    "//llvm/lib/IR",
-    "//llvm/lib/MC",
-    "//llvm/lib/Support",
-    "//llvm/lib/Target/WebAssembly:LLVMWebAssemblyCodeGen",
-    "//llvm/lib/Target/WebAssembly/MCTargetDesc",
-    "//llvm/lib/Target/WebAssembly/TargetInfo",
-    "//llvm/lib/TargetParser",
+    "//${llvm_root}llvm/lib/CodeGen",
+    "//${llvm_root}llvm/lib/CodeGen/MIRParser",
+    "//${llvm_root}llvm/lib/IR",
+    "//${llvm_root}llvm/lib/MC",
+    "//${llvm_root}llvm/lib/Support",
+    "//${llvm_root}llvm/lib/Target/WebAssembly:LLVMWebAssemblyCodeGen",
+    "//${llvm_root}llvm/lib/Target/WebAssembly/MCTargetDesc",
+    "//${llvm_root}llvm/lib/Target/WebAssembly/TargetInfo",
+    "//${llvm_root}llvm/lib/TargetParser",
   ]
-  include_dirs = [ "//llvm/lib/Target/WebAssembly" ]
+  include_dirs = [ "//${llvm_root}llvm/lib/Target/WebAssembly" ]
   sources = [ "WebAssemblyExceptionInfoTest.cpp" ]
 }

@@ -15,7 +15,7 @@ loadable_module("bugpoint-passes") {
 
     # BugpointPasses doesn't want to link in any LLVM code, it just
     # needs its headers.
-    "//llvm/include/llvm/IR:public_tablegen",
+    "//${llvm_root}llvm/include/llvm/IR:public_tablegen",
   ]
   sources = [ "TestPasses.cpp" ]
 

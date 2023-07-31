@@ -1,8 +1,8 @@
 import("//build_overrides/llvm.gni")
 
-import("//llvm/lib/DebugInfo/PDB/enable_dia.gni")
-import("//llvm/lib/Target/targets_string.gni")
-import("//llvm/triples.gni")
+import("//${llvm_root}llvm/lib/DebugInfo/PDB/enable_dia.gni")
+import("//${llvm_root}llvm/lib/Target/targets_string.gni")
+import("//${llvm_root}llvm/triples.gni")
 import("//${llvm_build_root}build/buildflags.gni")
 import("//${llvm_build_root}build/libs/curl/enable.gni")
 import("//${llvm_build_root}build/libs/pthread/enable.gni")
@@ -11,8 +11,8 @@ import("//${llvm_build_root}build/libs/xml/enable.gni")
 import("//${llvm_build_root}build/libs/zlib/enable.gni")
 import("//${llvm_build_root}build/mac_sdk.gni")
 import("//${llvm_build_root}build/write_cmake_config.gni")
-import("//llvm/utils/llvm-lit/lit_path_function.gni")
-import("//llvm/version.gni")
+import("//${llvm_root}llvm/utils/llvm-lit/lit_path_function.gni")
+import("//${llvm_root}llvm/version.gni")
 import("llvm_lit_site_cfg_files.gni")
 
 template("write_lit_config") {
@@ -39,7 +39,7 @@ template("write_lit_config") {
 }
 
 write_lit_config("lit_site_cfg") {
-  input = "//llvm/test/lit.site.cfg.py.in"
+  input = "//${llvm_root}llvm/test/lit.site.cfg.py.in"
   output = llvm_lit_site_cfg_file
   dir = get_path_info(output, "dir")
   extra_values = [
@@ -221,7 +221,7 @@ write_lit_config("lit_site_cfg") {
 }
 
 write_lit_config("lit_unit_site_cfg") {
-  input = "//llvm/test/Unit/lit.site.cfg.py.in"
+  input = "//${llvm_root}llvm/test/Unit/lit.site.cfg.py.in"
   output = llvm_lit_unit_site_cfg_file
   extra_values = [ "LLVM_BUILD_MODE=." ]
 }
@@ -239,89 +239,89 @@ group("test") {
     # even though nothing but unittests depends on them.  Add explicit
     # dependencies to make sure the libaries exist on disk when llvm-config's
     # lit tests run.
-    "//llvm/lib/LineEditor",
-    "//llvm/lib/Testing/Support",
-    "//llvm/tools/bugpoint",
-    "//llvm/tools/dsymutil",
-    "//llvm/tools/llc",
-    "//llvm/tools/lli",
-    "//llvm/tools/lli/ChildTarget:lli-child-target",
-    "//llvm/tools/llvm-ar:symlinks",
-    "//llvm/tools/llvm-as",
-    "//llvm/tools/llvm-bcanalyzer",
-    "//llvm/tools/llvm-c-test",
-    "//llvm/tools/llvm-cat",
-    "//llvm/tools/llvm-cfi-verify",
-    "//llvm/tools/llvm-cov",
-    "//llvm/tools/llvm-cvtres",
-    "//llvm/tools/llvm-cxxdump",
-    "//llvm/tools/llvm-cxxfilt",
-    "//llvm/tools/llvm-cxxmap",
-    "//llvm/tools/llvm-debuginfo-analyzer",
-    "//llvm/tools/llvm-debuginfod:symlinks",
-    "//llvm/tools/llvm-debuginfod-find:symlinks",
-    "//llvm/tools/llvm-diff",
-    "//llvm/tools/llvm-dis",
-    "//llvm/tools/llvm-dwarfdump",
-    "//llvm/tools/llvm-dwarfutil",
-    "//llvm/tools/llvm-dwp",
-    "//llvm/tools/llvm-exegesis",
-    "//llvm/tools/llvm-extract",
-    "//llvm/tools/llvm-gsymutil:llvm-gsymutil",
-    "//llvm/tools/llvm-ifs",
-    "//llvm/tools/llvm-isel-fuzzer",
-    "//llvm/tools/llvm-jitlink",
-    "//llvm/tools/llvm-jitlink/llvm-jitlink-executor",
-    "//llvm/tools/llvm-libtool-darwin:symlinks",
-    "//llvm/tools/llvm-link",
-    "//llvm/tools/llvm-lipo:symlinks",
-    "//llvm/tools/llvm-lto",
-    "//llvm/tools/llvm-lto2",
-    "//llvm/tools/llvm-mc",
-    "//llvm/tools/llvm-mca",
-    "//llvm/tools/llvm-ml",
-    "//llvm/tools/llvm-modextract",
-    "//llvm/tools/llvm-mt",
-    "//llvm/tools/llvm-nm",
-    "//llvm/tools/llvm-objcopy:symlinks",
-    "//llvm/tools/llvm-objdump:symlinks",
-    "//llvm/tools/llvm-opt-fuzzer",
-    "//llvm/tools/llvm-opt-report",
-    "//llvm/tools/llvm-pdbutil",
-    "//llvm/tools/llvm-profdata",
-    "//llvm/tools/llvm-profgen",
-    "//llvm/tools/llvm-rc:symlinks",
-    "//llvm/tools/llvm-readobj:symlinks",
-    "//llvm/tools/llvm-reduce",
-    "//llvm/tools/llvm-remark-size-diff",
-    "//llvm/tools/llvm-remarkutil",
-    "//llvm/tools/llvm-rtdyld",
-    "//llvm/tools/llvm-sim",
-    "//llvm/tools/llvm-size",
-    "//llvm/tools/llvm-split",
-    "//llvm/tools/llvm-stress",
-    "//llvm/tools/llvm-strings",
-    "//llvm/tools/llvm-symbolizer:symlinks",
-    "//llvm/tools/llvm-tapi-diff",
-    "//llvm/tools/llvm-tli-checker",
-    "//llvm/tools/llvm-undname",
-    "//llvm/tools/llvm-xray",
-    "//llvm/tools/lto",
-    "//llvm/tools/obj2yaml",
-    "//llvm/tools/opt",
-    "//llvm/tools/sancov",
-    "//llvm/tools/sanstats",
-    "//llvm/tools/verify-uselistorder",
-    "//llvm/tools/yaml2obj",
-    "//llvm/unittests",
-    "//llvm/utils/FileCheck",
-    "//llvm/utils/TableGen:llvm-tblgen",
-    "//llvm/utils/count",
-    "//llvm/utils/llvm-lit",
-    "//llvm/utils/llvm-locstats",
-    "//llvm/utils/not",
-    "//llvm/utils/split-file",
-    "//llvm/utils/yaml-bench",
+    "//${llvm_root}llvm/lib/LineEditor",
+    "//${llvm_root}llvm/lib/Testing/Support",
+    "//${llvm_root}llvm/tools/bugpoint",
+    "//${llvm_root}llvm/tools/dsymutil",
+    "//${llvm_root}llvm/tools/llc",
+    "//${llvm_root}llvm/tools/lli",
+    "//${llvm_root}llvm/tools/lli/ChildTarget:lli-child-target",
+    "//${llvm_root}llvm/tools/llvm-ar:symlinks",
+    "//${llvm_root}llvm/tools/llvm-as",
+    "//${llvm_root}llvm/tools/llvm-bcanalyzer",
+    "//${llvm_root}llvm/tools/llvm-c-test",
+    "//${llvm_root}llvm/tools/llvm-cat",
+    "//${llvm_root}llvm/tools/llvm-cfi-verify",
+    "//${llvm_root}llvm/tools/llvm-cov",
+    "//${llvm_root}llvm/tools/llvm-cvtres",
+    "//${llvm_root}llvm/tools/llvm-cxxdump",
+    "//${llvm_root}llvm/tools/llvm-cxxfilt",
+    "//${llvm_root}llvm/tools/llvm-cxxmap",
+    "//${llvm_root}llvm/tools/llvm-debuginfo-analyzer",
+    "//${llvm_root}llvm/tools/llvm-debuginfod:symlinks",
+    "//${llvm_root}llvm/tools/llvm-debuginfod-find:symlinks",
+    "//${llvm_root}llvm/tools/llvm-diff",
+    "//${llvm_root}llvm/tools/llvm-dis",
+    "//${llvm_root}llvm/tools/llvm-dwarfdump",
+    "//${llvm_root}llvm/tools/llvm-dwarfutil",
+    "//${llvm_root}llvm/tools/llvm-dwp",
+    "//${llvm_root}llvm/tools/llvm-exegesis",
+    "//${llvm_root}llvm/tools/llvm-extract",
+    "//${llvm_root}llvm/tools/llvm-gsymutil:llvm-gsymutil",
+    "//${llvm_root}llvm/tools/llvm-ifs",
+    "//${llvm_root}llvm/tools/llvm-isel-fuzzer",
+    "//${llvm_root}llvm/tools/llvm-jitlink",
+    "//${llvm_root}llvm/tools/llvm-jitlink/llvm-jitlink-executor",
+    "//${llvm_root}llvm/tools/llvm-libtool-darwin:symlinks",
+    "//${llvm_root}llvm/tools/llvm-link",
+    "//${llvm_root}llvm/tools/llvm-lipo:symlinks",
+    "//${llvm_root}llvm/tools/llvm-lto",
+    "//${llvm_root}llvm/tools/llvm-lto2",
+    "//${llvm_root}llvm/tools/llvm-mc",
+    "//${llvm_root}llvm/tools/llvm-mca",
+    "//${llvm_root}llvm/tools/llvm-ml",
+    "//${llvm_root}llvm/tools/llvm-modextract",
+    "//${llvm_root}llvm/tools/llvm-mt",
+    "//${llvm_root}llvm/tools/llvm-nm",
+    "//${llvm_root}llvm/tools/llvm-objcopy:symlinks",
+    "//${llvm_root}llvm/tools/llvm-objdump:symlinks",
+    "//${llvm_root}llvm/tools/llvm-opt-fuzzer",
+    "//${llvm_root}llvm/tools/llvm-opt-report",
+    "//${llvm_root}llvm/tools/llvm-pdbutil",
+    "//${llvm_root}llvm/tools/llvm-profdata",
+    "//${llvm_root}llvm/tools/llvm-profgen",
+    "//${llvm_root}llvm/tools/llvm-rc:symlinks",
+    "//${llvm_root}llvm/tools/llvm-readobj:symlinks",
+    "//${llvm_root}llvm/tools/llvm-reduce",
+    "//${llvm_root}llvm/tools/llvm-remark-size-diff",
+    "//${llvm_root}llvm/tools/llvm-remarkutil",
+    "//${llvm_root}llvm/tools/llvm-rtdyld",
+    "//${llvm_root}llvm/tools/llvm-sim",
+    "//${llvm_root}llvm/tools/llvm-size",
+    "//${llvm_root}llvm/tools/llvm-split",
+    "//${llvm_root}llvm/tools/llvm-stress",
+    "//${llvm_root}llvm/tools/llvm-strings",
+    "//${llvm_root}llvm/tools/llvm-symbolizer:symlinks",
+    "//${llvm_root}llvm/tools/llvm-tapi-diff",
+    "//${llvm_root}llvm/tools/llvm-tli-checker",
+    "//${llvm_root}llvm/tools/llvm-undname",
+    "//${llvm_root}llvm/tools/llvm-xray",
+    "//${llvm_root}llvm/tools/lto",
+    "//${llvm_root}llvm/tools/obj2yaml",
+    "//${llvm_root}llvm/tools/opt",
+    "//${llvm_root}llvm/tools/sancov",
+    "//${llvm_root}llvm/tools/sanstats",
+    "//${llvm_root}llvm/tools/verify-uselistorder",
+    "//${llvm_root}llvm/tools/yaml2obj",
+    "//${llvm_root}llvm/unittests",
+    "//${llvm_root}llvm/utils/FileCheck",
+    "//${llvm_root}llvm/utils/TableGen:llvm-tblgen",
+    "//${llvm_root}llvm/utils/count",
+    "//${llvm_root}llvm/utils/llvm-lit",
+    "//${llvm_root}llvm/utils/llvm-locstats",
+    "//${llvm_root}llvm/utils/not",
+    "//${llvm_root}llvm/utils/split-file",
+    "//${llvm_root}llvm/utils/yaml-bench",
 
     # llvm-config wants libgtest_main.a to exist at runtime when run as in
     # its tests, but nothing in the tree depends on them.
@@ -332,8 +332,8 @@ group("test") {
     # FIXME: In the CMake build, ENABLE_SHARED makes them work somehow
     # (but they're off by default there too).
     deps += [
-      "//llvm/lib/Transforms/Hello",
-      "//llvm/tools/bugpoint-passes",
+      "//${llvm_root}llvm/lib/Transforms/Hello",
+      "//${llvm_root}llvm/tools/bugpoint-passes",
     ]
   }
 

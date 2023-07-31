@@ -25,16 +25,16 @@ group("symlinks") {
 executable("llvm-bolt") {
   configs += [ "//${llvm_build_root}build:bolt_code" ]
   deps = [
-    "//bolt/lib/Profile",
-    "//bolt/lib/Rewrite",
-    "//bolt/lib/Utils",
-    "//llvm/lib/MC",
-    "//llvm/lib/Object",
-    "//llvm/lib/Support",
-    "//llvm/lib/Target:TargetsToBuild",
+    "//${llvm_root}bolt/lib/Profile",
+    "//${llvm_root}bolt/lib/Rewrite",
+    "//${llvm_root}bolt/lib/Utils",
+    "//${llvm_root}llvm/lib/MC",
+    "//${llvm_root}llvm/lib/Object",
+    "//${llvm_root}llvm/lib/Support",
+    "//${llvm_root}llvm/lib/Target:TargetsToBuild",
   ]
 
-  # FIXME: Add dependency on //bolt/runtime once that exists.
+  # FIXME: Add dependency on //${llvm_root}bolt/runtime once that exists.
 
   sources = [ "llvm-bolt.cpp" ]
 }

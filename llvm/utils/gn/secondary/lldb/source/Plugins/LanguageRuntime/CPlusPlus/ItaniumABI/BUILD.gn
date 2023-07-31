@@ -7,16 +7,16 @@ static_library("ItaniumABI") {
     "//${llvm_build_root}build:lldb_code",
   ]
   deps = [
-    "//lldb/source/Breakpoint",
-    "//lldb/source/Core",
-    "//lldb/source/Interpreter",
-    "//lldb/source/Plugins/LanguageRuntime/CPlusPlus",
-    "//lldb/source/Plugins/TypeSystem/Clang",
-    "//lldb/source/Symbol",
-    "//lldb/source/Target",
+    "//${llvm_root}lldb/source/Breakpoint",
+    "//${llvm_root}lldb/source/Core",
+    "//${llvm_root}lldb/source/Interpreter",
+    "//${llvm_root}lldb/source/Plugins/LanguageRuntime/CPlusPlus",
+    "//${llvm_root}lldb/source/Plugins/TypeSystem/Clang",
+    "//${llvm_root}lldb/source/Symbol",
+    "//${llvm_root}lldb/source/Target",
   ]
 
   # Reaches into Plugins/LanguageRuntime/CPlusPlus.
-  include_dirs = [ "//lldb/source" ]
+  include_dirs = [ "//${llvm_root}lldb/source" ]
   sources = [ "ItaniumABILanguageRuntime.cpp" ]
 }

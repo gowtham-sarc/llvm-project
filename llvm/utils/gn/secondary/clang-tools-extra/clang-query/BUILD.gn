@@ -4,14 +4,14 @@ static_library("clang-query") {
   output_name = "clangQuery"
   configs += [ "//${llvm_build_root}build:clang_code" ]
   deps = [
-    "//clang/lib/AST",
-    "//clang/lib/ASTMatchers",
-    "//clang/lib/ASTMatchers/Dynamic",
-    "//clang/lib/Basic",
-    "//clang/lib/Frontend",
-    "//clang/lib/Serialization",
-    "//llvm/lib/LineEditor",
-    "//llvm/lib/Support",
+    "//${llvm_root}clang/lib/AST",
+    "//${llvm_root}clang/lib/ASTMatchers",
+    "//${llvm_root}clang/lib/ASTMatchers/Dynamic",
+    "//${llvm_root}clang/lib/Basic",
+    "//${llvm_root}clang/lib/Frontend",
+    "//${llvm_root}clang/lib/Serialization",
+    "//${llvm_root}llvm/lib/LineEditor",
+    "//${llvm_root}llvm/lib/Support",
   ]
   sources = [
     "Query.cpp",

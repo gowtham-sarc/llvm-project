@@ -18,17 +18,17 @@ static_library("Tooling") {
   configs += [ "//${llvm_build_root}build:clang_code" ]
   deps = [
     ":node_introspection_inc",
-    "//clang/include/clang/Driver:Options",
-    "//clang/lib/AST",
-    "//clang/lib/ASTMatchers",
-    "//clang/lib/Basic",
-    "//clang/lib/Driver",
-    "//clang/lib/Format",
-    "//clang/lib/Frontend",
-    "//clang/lib/Lex",
-    "//clang/lib/Rewrite",
-    "//clang/lib/Tooling/Core",
-    "//llvm/lib/TargetParser",
+    "//${llvm_root}clang/include/clang/Driver:Options",
+    "//${llvm_root}clang/lib/AST",
+    "//${llvm_root}clang/lib/ASTMatchers",
+    "//${llvm_root}clang/lib/Basic",
+    "//${llvm_root}clang/lib/Driver",
+    "//${llvm_root}clang/lib/Format",
+    "//${llvm_root}clang/lib/Frontend",
+    "//${llvm_root}clang/lib/Lex",
+    "//${llvm_root}clang/lib/Rewrite",
+    "//${llvm_root}clang/lib/Tooling/Core",
+    "//${llvm_root}llvm/lib/TargetParser",
   ]
   include_dirs = [ target_gen_dir ]
   sources = [

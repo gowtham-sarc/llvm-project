@@ -4,17 +4,17 @@ static_library("ARCMigrate") {
   output_name = "clangARCMigrate"
   configs += [ "//${llvm_build_root}build:clang_code" ]
   deps = [
-    "//clang/lib/AST",
-    "//clang/lib/Analysis",
-    "//clang/lib/Basic",
-    "//clang/lib/Edit",
-    "//clang/lib/Frontend",
-    "//clang/lib/Lex",
-    "//clang/lib/Rewrite",
-    "//clang/lib/Sema",
-    "//clang/lib/Serialization",
-    "//llvm/lib/Support",
-    "//llvm/lib/TargetParser",
+    "//${llvm_root}clang/lib/AST",
+    "//${llvm_root}clang/lib/Analysis",
+    "//${llvm_root}clang/lib/Basic",
+    "//${llvm_root}clang/lib/Edit",
+    "//${llvm_root}clang/lib/Frontend",
+    "//${llvm_root}clang/lib/Lex",
+    "//${llvm_root}clang/lib/Rewrite",
+    "//${llvm_root}clang/lib/Sema",
+    "//${llvm_root}clang/lib/Serialization",
+    "//${llvm_root}llvm/lib/Support",
+    "//${llvm_root}llvm/lib/TargetParser",
   ]
   sources = [
     "ARCMT.cpp",

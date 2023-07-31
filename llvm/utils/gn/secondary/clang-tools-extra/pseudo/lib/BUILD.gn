@@ -4,10 +4,10 @@ static_library("lib") {
   output_name = "clangPseudo"
   configs += [ "//${llvm_build_root}build:clang_code" ]
   deps = [
-    "//clang-tools-extra/pseudo/lib/grammar",
-    "//clang/lib/Basic",
-    "//clang/lib/Lex",
-    "//llvm/lib/Support",
+    "//${llvm_root}clang-tools-extra/pseudo/lib/grammar",
+    "//${llvm_root}clang/lib/Basic",
+    "//${llvm_root}clang/lib/Lex",
+    "//${llvm_root}llvm/lib/Support",
   ]
   include_dirs = [ "../include" ]
   sources = [

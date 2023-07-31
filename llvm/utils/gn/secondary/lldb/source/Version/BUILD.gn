@@ -27,7 +27,7 @@ static_library("Version") {
   sources = [ "Version.cpp" ]
   public_deps = [
     # public_dep because public header Version.h includes generated Version.inc.
-    "//lldb/include/lldb/Version:version",
+    "//${llvm_root}lldb/include/lldb/Version:version",
   ]
   deps = [ ":write_vcsversion" ]
 }

@@ -1,13 +1,13 @@
 import("//build_overrides/llvm.gni")
 
-import("//llvm/lib/Target/targets_string.gni")
+import("//${llvm_root}llvm/lib/Target/targets_string.gni")
 import("//${llvm_build_root}build/buildflags.gni")
 import("//${llvm_build_root}build/libs/pthread/enable.gni")
 import("//${llvm_build_root}build/libs/terminfo/enable.gni")
 import("//${llvm_build_root}build/libs/xml/enable.gni")
 import("//${llvm_build_root}build/libs/zlib/enable.gni")
 import("//${llvm_build_root}build/write_cmake_config.gni")
-import("//llvm/version.gni")
+import("//${llvm_root}llvm/version.gni")
 
 action("write_extension_dependencies") {
   script = "//${llvm_build_root}secondary/llvm/tools/llvm-config/write_extension_dependencies.py"
@@ -113,10 +113,10 @@ executable("llvm-config") {
     ":BuildVariables.inc",
     ":LibraryDependencies.inc",
     ":write_extension_dependencies",
-    "//llvm/include/llvm/Config:config",
-    "//llvm/include/llvm/Config:llvm-config",
-    "//llvm/lib/Support",
-    "//llvm/lib/TargetParser",
+    "//${llvm_root}llvm/include/llvm/Config:config",
+    "//${llvm_root}llvm/include/llvm/Config:llvm-config",
+    "//${llvm_root}llvm/lib/Support",
+    "//${llvm_root}llvm/lib/TargetParser",
   ]
 
   # To pick up the generated inc files.

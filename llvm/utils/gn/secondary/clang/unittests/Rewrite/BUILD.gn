@@ -5,11 +5,11 @@ import("//third-party/unittest/unittest.gni")
 unittest("RewriteTests") {
   configs += [ "//${llvm_build_root}build:clang_code" ]
   deps = [
-    "//clang/lib/Frontend",
-    "//clang/lib/Rewrite",
-    "//clang/lib/Serialization",
-    "//clang/lib/Tooling",
-    "//llvm/lib/Support",
+    "//${llvm_root}clang/lib/Frontend",
+    "//${llvm_root}clang/lib/Rewrite",
+    "//${llvm_root}clang/lib/Serialization",
+    "//${llvm_root}clang/lib/Tooling",
+    "//${llvm_root}llvm/lib/Support",
   ]
   sources = [
     "RewriteBufferTest.cpp",

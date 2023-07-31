@@ -1,6 +1,6 @@
 import("//build_overrides/llvm.gni")
 
-import("//llvm/utils/TableGen/tablegen.gni")
+import("//${llvm_root}llvm/utils/TableGen/tablegen.gni")
 import("//${llvm_build_root}build/driver_executable.gni")
 
 tablegen("Opts") {
@@ -11,13 +11,13 @@ tablegen("Opts") {
 driver_executable("llvm-ifs") {
   deps = [
     ":Opts",
-    "//llvm/lib/InterfaceStub",
-    "//llvm/lib/Object",
-    "//llvm/lib/ObjectYAML",
-    "//llvm/lib/Option",
-    "//llvm/lib/Support",
-    "//llvm/lib/TargetParser",
-    "//llvm/lib/TextAPI",
+    "//${llvm_root}llvm/lib/InterfaceStub",
+    "//${llvm_root}llvm/lib/Object",
+    "//${llvm_root}llvm/lib/ObjectYAML",
+    "//${llvm_root}llvm/lib/Option",
+    "//${llvm_root}llvm/lib/Support",
+    "//${llvm_root}llvm/lib/TargetParser",
+    "//${llvm_root}llvm/lib/TextAPI",
   ]
   sources = [
     "ErrorCollector.cpp",

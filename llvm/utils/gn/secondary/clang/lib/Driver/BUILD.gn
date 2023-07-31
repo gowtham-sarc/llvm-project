@@ -5,7 +5,7 @@ static_library("Driver") {
   configs += [ "//${llvm_build_root}build:clang_code" ]
   include_dirs = [ "." ]
   deps = [
-    "//clang/include/clang/Config",
+    "//${llvm_root}clang/include/clang/Config",
 
     # Driver doesn't depend on StaticAnalyzer and the other way round, but
     # as of clang r311958 Driver does depend on StaticAnalyzer/Checkers's
@@ -14,18 +14,18 @@ static_library("Driver") {
     # GN build has this dependency instead.
     # FIXME: Move Checkers.td somewhere else to clean up this layering mess.
     # See the review thread of r311958 for details.
-    "//clang/include/clang/StaticAnalyzer/Checkers",
-    "//clang/lib/Basic",
-    "//llvm/include/llvm/Config:llvm-config",
-    "//llvm/lib/BinaryFormat",
-    "//llvm/lib/Option",
-    "//llvm/lib/Support",
-    "//llvm/lib/TargetParser",
-    "//llvm/lib/WindowsDriver",
+    "//${llvm_root}clang/include/clang/StaticAnalyzer/Checkers",
+    "//${llvm_root}clang/lib/Basic",
+    "//${llvm_root}llvm/include/llvm/Config:llvm-config",
+    "//${llvm_root}llvm/lib/BinaryFormat",
+    "//${llvm_root}llvm/lib/Option",
+    "//${llvm_root}llvm/lib/Support",
+    "//${llvm_root}llvm/lib/TargetParser",
+    "//${llvm_root}llvm/lib/WindowsDriver",
   ]
   public_deps = [
     # public_dep because public header Options.h includes generated Options.inc.
-    "//clang/include/clang/Driver:Options",
+    "//${llvm_root}clang/include/clang/Driver:Options",
   ]
   if (host_os == "win") {
     # MSVCToolChain.cpp uses version.dll.

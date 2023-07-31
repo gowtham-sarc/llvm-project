@@ -4,15 +4,15 @@ static_library("Index") {
   output_name = "clangIndex"
   configs += [ "//${llvm_build_root}build:clang_code" ]
   deps = [
-    "//clang/lib/AST",
-    "//clang/lib/Basic",
-    "//clang/lib/Format",
-    "//clang/lib/Frontend",
-    "//clang/lib/Rewrite",
-    "//clang/lib/Serialization",
-    "//clang/lib/Tooling/Core",
-    "//llvm/lib/IR",
-    "//llvm/lib/Support",
+    "//${llvm_root}clang/lib/AST",
+    "//${llvm_root}clang/lib/Basic",
+    "//${llvm_root}clang/lib/Format",
+    "//${llvm_root}clang/lib/Frontend",
+    "//${llvm_root}clang/lib/Rewrite",
+    "//${llvm_root}clang/lib/Serialization",
+    "//${llvm_root}clang/lib/Tooling/Core",
+    "//${llvm_root}llvm/lib/IR",
+    "//${llvm_root}llvm/lib/Support",
   ]
   sources = [
     "CommentToXML.cpp",

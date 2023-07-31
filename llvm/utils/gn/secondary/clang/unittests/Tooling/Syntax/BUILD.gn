@@ -5,18 +5,18 @@ import("//third-party/unittest/unittest.gni")
 unittest("SyntaxTests") {
   configs += [ "//${llvm_build_root}build:clang_code" ]
   deps = [
-    "//clang/lib/AST",
-    "//clang/lib/Basic",
-    "//clang/lib/Frontend",
-    "//clang/lib/Lex",
-    "//clang/lib/Serialization",
-    "//clang/lib/Testing",
-    "//clang/lib/Tooling",
-    "//clang/lib/Tooling/Syntax",
-    "//llvm/lib/Support",
-    "//llvm/lib/Target:TargetsToBuild",
-    "//llvm/lib/Testing/Annotations",
-    "//llvm/lib/Testing/Support",
+    "//${llvm_root}clang/lib/AST",
+    "//${llvm_root}clang/lib/Basic",
+    "//${llvm_root}clang/lib/Frontend",
+    "//${llvm_root}clang/lib/Lex",
+    "//${llvm_root}clang/lib/Serialization",
+    "//${llvm_root}clang/lib/Testing",
+    "//${llvm_root}clang/lib/Tooling",
+    "//${llvm_root}clang/lib/Tooling/Syntax",
+    "//${llvm_root}llvm/lib/Support",
+    "//${llvm_root}llvm/lib/Target:TargetsToBuild",
+    "//${llvm_root}llvm/lib/Testing/Annotations",
+    "//${llvm_root}llvm/lib/Testing/Support",
   ]
   sources = [
     "BuildTreeTest.cpp",

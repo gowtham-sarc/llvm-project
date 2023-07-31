@@ -1,61 +1,61 @@
 import("//build_overrides/llvm.gni")
 
-import("//clang/resource_dir.gni")
-import("//clang/utils/TableGen/clang_tablegen.gni")
+import("//${llvm_root}clang/resource_dir.gni")
+import("//${llvm_root}clang/utils/TableGen/clang_tablegen.gni")
 
 # Generate arm_neon.h
 clang_tablegen("arm_neon") {
   args = [ "-gen-arm-neon" ]
-  td_file = "//clang/include/clang/Basic/arm_neon.td"
+  td_file = "//${llvm_root}clang/include/clang/Basic/arm_neon.td"
   output_name = "arm_neon.h"
 }
 
 # Generate arm_fp16.h
 clang_tablegen("arm_fp16") {
   args = [ "-gen-arm-fp16" ]
-  td_file = "//clang/include/clang/Basic/arm_fp16.td"
+  td_file = "//${llvm_root}clang/include/clang/Basic/arm_fp16.td"
   output_name = "arm_fp16.h"
 }
 
 # Generate arm_sve.h
 clang_tablegen("arm_sve") {
   args = [ "-gen-arm-sve-header" ]
-  td_file = "//clang/include/clang/Basic/arm_sve.td"
+  td_file = "//${llvm_root}clang/include/clang/Basic/arm_sve.td"
   output_name = "arm_sve.h"
 }
 
 # Generate arm_sme_draft_spec_subject_to_change.h
 clang_tablegen("arm_sme_draft_spec_subject_to_change") {
   args = [ "-gen-arm-sme-header" ]
-  td_file = "//clang/include/clang/Basic/arm_sme.td"
+  td_file = "//${llvm_root}clang/include/clang/Basic/arm_sme.td"
   output_name = "arm_sme_draft_spec_subject_to_change.h"
 }
 
 # Generate arm_bf16.h
 clang_tablegen("arm_bf16") {
   args = [ "-gen-arm-bf16" ]
-  td_file = "//clang/include/clang/Basic/arm_bf16.td"
+  td_file = "//${llvm_root}clang/include/clang/Basic/arm_bf16.td"
   output_name = "arm_bf16.h"
 }
 
 # Generate arm_mve.h
 clang_tablegen("arm_mve") {
   args = [ "-gen-arm-mve-header" ]
-  td_file = "//clang/include/clang/Basic/arm_mve.td"
+  td_file = "//${llvm_root}clang/include/clang/Basic/arm_mve.td"
   output_name = "arm_mve.h"
 }
 
 # Generate arm_cde.h
 clang_tablegen("arm_cde") {
   args = [ "-gen-arm-cde-header" ]
-  td_file = "//clang/include/clang/Basic/arm_cde.td"
+  td_file = "//${llvm_root}clang/include/clang/Basic/arm_cde.td"
   output_name = "arm_cde.h"
 }
 
 # Generate riscv_vector.h
 clang_tablegen("riscv_vector") {
   args = [ "-gen-riscv-vector-header" ]
-  td_file = "//clang/include/clang/Basic/riscv_vector.td"
+  td_file = "//${llvm_root}clang/include/clang/Basic/riscv_vector.td"
   output_name = "riscv_vector.h"
 }
 

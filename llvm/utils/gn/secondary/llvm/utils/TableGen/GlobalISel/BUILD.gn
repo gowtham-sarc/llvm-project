@@ -2,9 +2,9 @@ import("//build_overrides/llvm.gni")
 
 static_library("GlobalISel") {
   deps = [
-    "//llvm/include/llvm/CodeGen:GenVT",
-    "//llvm/lib/CodeGen:CodeGenTypes",
-    "//llvm/lib/Support",
+    "//${llvm_root}llvm/include/llvm/CodeGen:GenVT",
+    "//${llvm_root}llvm/lib/CodeGen:CodeGenTypes",
+    "//${llvm_root}llvm/lib/Support",
   ]
   sources = [
     "CodeExpander.cpp",

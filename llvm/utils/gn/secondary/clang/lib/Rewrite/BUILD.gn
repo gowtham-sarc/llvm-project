@@ -4,9 +4,9 @@ static_library("Rewrite") {
   output_name = "clangRewrite"
   configs += [ "//${llvm_build_root}build:clang_code" ]
   deps = [
-    "//clang/lib/Basic",
-    "//clang/lib/Lex",
-    "//llvm/lib/Support",
+    "//${llvm_root}clang/lib/Basic",
+    "//${llvm_root}clang/lib/Lex",
+    "//${llvm_root}llvm/lib/Support",
   ]
   sources = [
     "DeltaTree.cpp",

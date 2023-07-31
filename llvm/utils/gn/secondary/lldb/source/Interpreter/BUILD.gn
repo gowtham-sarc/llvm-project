@@ -1,6 +1,6 @@
 import("//build_overrides/llvm.gni")
 
-import("//lldb/utils/TableGen/lldb_tablegen.gni")
+import("//${llvm_root}lldb/utils/TableGen/lldb_tablegen.gni")
 
 lldb_tablegen("InterpreterProperties") {
   args = [ "-gen-lldb-property-defs" ]
@@ -17,14 +17,14 @@ static_library("Interpreter") {
   deps = [
     ":InterpreterProperties",
     ":InterpreterPropertiesEnum",
-    "//lldb/source/Commands",
-    "//lldb/source/Core",
-    "//lldb/source/DataFormatters",
-    "//lldb/source/Host",
+    "//${llvm_root}lldb/source/Commands",
+    "//${llvm_root}lldb/source/Core",
+    "//${llvm_root}lldb/source/DataFormatters",
+    "//${llvm_root}lldb/source/Host",
 
-    #"//lldb/source/Target", # FIXME: 2-hop dependency cyle (Interpreter->Target->Expression->Interpreter)
-    "//lldb/source/Utility",
-    "//llvm/lib/Support",
+    #"//${llvm_root}lldb/source/Target", # FIXME: 2-hop dependency cyle (Interpreter->Target->Expression->Interpreter)
+    "//${llvm_root}lldb/source/Utility",
+    "//${llvm_root}llvm/lib/Support",
   ]
 
   # Reaches into source/Commands implementation details.

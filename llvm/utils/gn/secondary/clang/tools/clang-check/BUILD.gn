@@ -3,17 +3,17 @@ import("//build_overrides/llvm.gni")
 executable("clang-check") {
   configs += [ "//${llvm_build_root}build:clang_code" ]
   deps = [
-    "//clang/lib/AST",
-    "//clang/lib/Basic",
-    "//clang/lib/Driver",
-    "//clang/lib/Frontend",
-    "//clang/lib/Frontend/Rewrite",
-    "//clang/lib/StaticAnalyzer/Frontend",
-    "//clang/lib/Tooling",
-    "//clang/lib/Tooling/Syntax",
-    "//llvm/lib/Option",
-    "//llvm/lib/Support",
-    "//llvm/lib/Target:TargetsToBuild",
+    "//${llvm_root}clang/lib/AST",
+    "//${llvm_root}clang/lib/Basic",
+    "//${llvm_root}clang/lib/Driver",
+    "//${llvm_root}clang/lib/Frontend",
+    "//${llvm_root}clang/lib/Frontend/Rewrite",
+    "//${llvm_root}clang/lib/StaticAnalyzer/Frontend",
+    "//${llvm_root}clang/lib/Tooling",
+    "//${llvm_root}clang/lib/Tooling/Syntax",
+    "//${llvm_root}llvm/lib/Option",
+    "//${llvm_root}llvm/lib/Support",
+    "//${llvm_root}llvm/lib/Target:TargetsToBuild",
   ]
   sources = [ "ClangCheck.cpp" ]
 }

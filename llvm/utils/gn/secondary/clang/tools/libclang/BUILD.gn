@@ -1,8 +1,8 @@
 import("//build_overrides/llvm.gni")
 
-import("//clang/lib/ARCMigrate/enable.gni")
+import("//${llvm_root}clang/lib/ARCMigrate/enable.gni")
 import("//${llvm_build_root}build/symbol_exports.gni")
-import("//llvm/version.gni")
+import("//${llvm_root}llvm/version.gni")
 
 # This build file is just enough to get check-clang to pass, it's missing
 # several things from the CMake build:
@@ -27,21 +27,21 @@ symbol_exports("exports") {
 shared_library("libclang") {
   configs += [ "//${llvm_build_root}build:clang_code" ]
   deps = [
-    "//clang/include/clang/Config",
-    "//clang/lib/AST",
-    "//clang/lib/Basic",
-    "//clang/lib/ExtractAPI",
-    "//clang/lib/Frontend",
-    "//clang/lib/Headers",
-    "//clang/lib/Index",
-    "//clang/lib/Lex",
-    "//clang/lib/Sema",
-    "//clang/lib/Tooling",
-    "//llvm/include/llvm/Config:llvm-config",
-    "//llvm/lib/IR",
-    "//llvm/lib/Support",
-    "//llvm/lib/Target:TargetsToBuild",
-    "//llvm/lib/TargetParser",
+    "//${llvm_root}clang/include/clang/Config",
+    "//${llvm_root}clang/lib/AST",
+    "//${llvm_root}clang/lib/Basic",
+    "//${llvm_root}clang/lib/ExtractAPI",
+    "//${llvm_root}clang/lib/Frontend",
+    "//${llvm_root}clang/lib/Headers",
+    "//${llvm_root}clang/lib/Index",
+    "//${llvm_root}clang/lib/Lex",
+    "//${llvm_root}clang/lib/Sema",
+    "//${llvm_root}clang/lib/Tooling",
+    "//${llvm_root}llvm/include/llvm/Config:llvm-config",
+    "//${llvm_root}llvm/lib/IR",
+    "//${llvm_root}llvm/lib/Support",
+    "//${llvm_root}llvm/lib/Target:TargetsToBuild",
+    "//${llvm_root}llvm/lib/TargetParser",
   ]
   if (current_os == "win" || current_os == "mac") {
     deps += [ ":exports" ]
@@ -51,7 +51,7 @@ shared_library("libclang") {
         [ "-Wl,--version-script," + rebase_path(inputs[0], root_build_dir) ]
   }
   if (clang_enable_arcmt) {
-    deps += [ "//clang/lib/ARCMigrate" ]
+    deps += [ "//${llvm_root}clang/lib/ARCMigrate" ]
   }
 
   defines = []

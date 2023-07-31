@@ -4,13 +4,13 @@ static_library("DataFormatters") {
   output_name = "lldbDataFormatters"
   configs += [ "//${llvm_build_root}build:lldb_code" ]
   deps = [
-    "//lldb/source/Core",
+    "//${llvm_root}lldb/source/Core",
 
-    #"//lldb/source/Interpreter", # FIXME: Dependency cycle.
-    #"//lldb/source/Symbol", # FIXME: 3-hop Dependency cycle (DataFormatters->Symbol->Expression->Interpreter->DataFormatters)
-    #"//lldb/source/Target",  # FIXME: 3-hop Dependency cycle (DataFormatters->Target->Expression->Interpreter->DataFormatters)
-    "//lldb/source/Utility",
-    "//llvm/lib/Support",
+    #"//${llvm_root}lldb/source/Interpreter", # FIXME: Dependency cycle.
+    #"//${llvm_root}lldb/source/Symbol", # FIXME: 3-hop Dependency cycle (DataFormatters->Symbol->Expression->Interpreter->DataFormatters)
+    #"//${llvm_root}lldb/source/Target",  # FIXME: 3-hop Dependency cycle (DataFormatters->Target->Expression->Interpreter->DataFormatters)
+    "//${llvm_root}lldb/source/Utility",
+    "//${llvm_root}llvm/lib/Support",
   ]
   sources = [
     "CXXFunctionPointer.cpp",

@@ -1,7 +1,7 @@
 import("//build_overrides/llvm.gni")
 
 action("HTMLForestResources") {
-  script = "//clang/utils/bundle_resources.py"
+  script = "//${llvm_root}clang/utils/bundle_resources.py"
   inputs = [
     "HTMLForest.css",
     "HTMLForest.js",
@@ -16,10 +16,10 @@ executable("clang-pseudo") {
   configs += [ "//${llvm_build_root}build:clang_code" ]
   deps = [
     ":HTMLForestResources",
-    "//clang-tools-extra/pseudo/lib",
-    "//clang-tools-extra/pseudo/lib/cli",
-    "//clang/lib/Basic",
-    "//llvm/lib/Support",
+    "//${llvm_root}clang-tools-extra/pseudo/lib",
+    "//${llvm_root}clang-tools-extra/pseudo/lib/cli",
+    "//${llvm_root}clang/lib/Basic",
+    "//${llvm_root}llvm/lib/Support",
   ]
   include_dirs = [
     "../include",

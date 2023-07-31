@@ -5,21 +5,21 @@ import("//third-party/unittest/unittest.gni")
 unittest("ClangDocTests") {
   configs += [ "//${llvm_build_root}build:clang_code" ]
   deps = [
-    "//clang-tools-extra/clang-doc",
-    "//clang/lib/AST",
-    "//clang/lib/ASTMatchers",
-    "//clang/lib/Basic",
-    "//clang/lib/Format",
-    "//clang/lib/Frontend",
-    "//clang/lib/Rewrite",
-    "//clang/lib/Serialization",
-    "//clang/lib/Tooling",
-    "//clang/lib/Tooling/Core",
-    "//llvm/lib/Bitcode/Reader",
-    "//llvm/lib/Bitcode/Writer",
-    "//llvm/lib/Support",
+    "//${llvm_root}clang-tools-extra/clang-doc",
+    "//${llvm_root}clang/lib/AST",
+    "//${llvm_root}clang/lib/ASTMatchers",
+    "//${llvm_root}clang/lib/Basic",
+    "//${llvm_root}clang/lib/Format",
+    "//${llvm_root}clang/lib/Frontend",
+    "//${llvm_root}clang/lib/Rewrite",
+    "//${llvm_root}clang/lib/Serialization",
+    "//${llvm_root}clang/lib/Tooling",
+    "//${llvm_root}clang/lib/Tooling/Core",
+    "//${llvm_root}llvm/lib/Bitcode/Reader",
+    "//${llvm_root}llvm/lib/Bitcode/Writer",
+    "//${llvm_root}llvm/lib/Support",
   ]
-  include_dirs = [ "//clang-tools-extra/clang-doc" ]
+  include_dirs = [ "//${llvm_root}clang-tools-extra/clang-doc" ]
   sources = [
     "BitcodeTest.cpp",
     "ClangDocTest.cpp",

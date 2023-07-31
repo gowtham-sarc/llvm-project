@@ -20,21 +20,21 @@ target(liblldb_type, "liblldb") {
   output_name = "liblldb"  # XXX lib prefix?
   configs += [ "//${llvm_build_root}build:lldb_code" ]
   deps = [
-    "//lldb/include/lldb/Host:Config",
-    "//lldb/source/Breakpoint",
-    "//lldb/source/Core",
-    "//lldb/source/DataFormatters",
-    "//lldb/source/Expression",
-    "//lldb/source/Host",
-    "//lldb/source/Initialization",
-    "//lldb/source/Interpreter",
-    "//lldb/source/Plugins:LldbAllPlugins",
-    "//lldb/source/Symbol",
-    "//lldb/source/Target",
-    "//lldb/source/Utility",
-    "//lldb/source/Version",
-    "//lldb/tools/argdumper:lldb-argdumper",
-    "//llvm/lib/Support",
+    "//${llvm_root}lldb/include/lldb/Host:Config",
+    "//${llvm_root}lldb/source/Breakpoint",
+    "//${llvm_root}lldb/source/Core",
+    "//${llvm_root}lldb/source/DataFormatters",
+    "//${llvm_root}lldb/source/Expression",
+    "//${llvm_root}lldb/source/Host",
+    "//${llvm_root}lldb/source/Initialization",
+    "//${llvm_root}lldb/source/Interpreter",
+    "//${llvm_root}lldb/source/Plugins:LldbAllPlugins",
+    "//${llvm_root}lldb/source/Symbol",
+    "//${llvm_root}lldb/source/Target",
+    "//${llvm_root}lldb/source/Utility",
+    "//${llvm_root}lldb/source/Version",
+    "//${llvm_root}lldb/tools/argdumper:lldb-argdumper",
+    "//${llvm_root}llvm/lib/Support",
   ]
 
   # SBTarget.cpp includes Commands-internal header Commands/CommandObjectBreakpoint.h

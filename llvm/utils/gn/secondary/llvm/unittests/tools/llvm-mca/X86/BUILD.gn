@@ -4,17 +4,17 @@ import("//build_overrides/llvm.gni")
 source_set("X86") {
   testonly = true
   deps = [
-    "//llvm/lib/Target/X86",
+    "//${llvm_root}llvm/lib/Target/X86",
     "//third-party/unittest:gtest",
 
     # This test target reaches inside the Target/X86 tablegen internals and must
     # depend on this Target/X86-internal build target.
-    "//llvm/lib/Target/X86/MCTargetDesc",
+    "//${llvm_root}llvm/lib/Target/X86/MCTargetDesc",
   ]
   include_dirs = [
     "..",
-    "//llvm/lib/Target/X86",
-    "//llvm/tools/llvm-mca",
+    "//${llvm_root}llvm/lib/Target/X86",
+    "//${llvm_root}llvm/tools/llvm-mca",
   ]
   sources = [
     "TestIncrementalMCA.cpp",

@@ -3,15 +3,15 @@ import("//build_overrides/llvm.gni")
 static_library("LogicalView") {
   output_name = "LLVMDebugInfoLogicalView"
   deps = [
-    "//llvm/lib/BinaryFormat",
-    "//llvm/lib/DebugInfo/CodeView",
-    "//llvm/lib/DebugInfo/DWARF",
-    "//llvm/lib/DebugInfo/PDB",
-    "//llvm/lib/Demangle",
-    "//llvm/lib/MC",
-    "//llvm/lib/Object",
-    "//llvm/lib/Support",
-    "//llvm/lib/TargetParser",
+    "//${llvm_root}llvm/lib/BinaryFormat",
+    "//${llvm_root}llvm/lib/DebugInfo/CodeView",
+    "//${llvm_root}llvm/lib/DebugInfo/DWARF",
+    "//${llvm_root}llvm/lib/DebugInfo/PDB",
+    "//${llvm_root}llvm/lib/Demangle",
+    "//${llvm_root}llvm/lib/MC",
+    "//${llvm_root}llvm/lib/Object",
+    "//${llvm_root}llvm/lib/Support",
+    "//${llvm_root}llvm/lib/TargetParser",
   ]
   sources = [
     "Core/LVCompare.cpp",

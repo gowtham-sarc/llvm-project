@@ -1,25 +1,25 @@
 import("//build_overrides/llvm.gni")
 
-import("//llvm/utils/TableGen/tablegen.gni")
+import("//${llvm_root}llvm/utils/TableGen/tablegen.gni")
 
 tablegen("Attributes") {
   visibility = [ ":public_tablegen" ]
   args = [ "-gen-attrs" ]
-  tblgen_target = "//llvm/utils/TableGen:llvm-min-tblgen"
+  tblgen_target = "//${llvm_root}llvm/utils/TableGen:llvm-min-tblgen"
 }
 
 tablegen("IntrinsicImpl") {
-  visibility = [ "//llvm/lib/IR" ]
+  visibility = [ "//${llvm_root}llvm/lib/IR" ]
   args = [ "-gen-intrinsic-impl" ]
   td_file = "Intrinsics.td"
-  tblgen_target = "//llvm/utils/TableGen:llvm-min-tblgen"
+  tblgen_target = "//${llvm_root}llvm/utils/TableGen:llvm-min-tblgen"
 }
 
 tablegen("IntrinsicEnums") {
   visibility = [ ":public_tablegen" ]
   args = [ "-gen-intrinsic-enums" ]
   td_file = "Intrinsics.td"
-  tblgen_target = "//llvm/utils/TableGen:llvm-min-tblgen"
+  tblgen_target = "//${llvm_root}llvm/utils/TableGen:llvm-min-tblgen"
 }
 
 template("gen_arch_intrinsics") {
@@ -31,7 +31,7 @@ template("gen_arch_intrinsics") {
       "-intrinsic-prefix=${invoker.intrinsic_prefix}",
     ]
     td_file = "Intrinsics.td"
-    tblgen_target = "//llvm/utils/TableGen:llvm-min-tblgen"
+    tblgen_target = "//${llvm_root}llvm/utils/TableGen:llvm-min-tblgen"
   }
 }
 
@@ -104,8 +104,8 @@ gen_arch_intrinsics("IntrinsicsXCore") {
 }
 
 # Groups all tablegen() calls that create .inc files that are included in
-# IR's public headers.  //llvm/lib/IR has this as a public_dep, so targets
-# depending on //llvm/lib/IR don't need to depend on this.  This exists
+# IR's public headers.  //${llvm_root}llvm/lib/IR has this as a public_dep, so targets
+# depending on //${llvm_root}llvm/lib/IR don't need to depend on this.  This exists
 # solely for targets that use IR's public headers but don't link against IR.
 group("public_tablegen") {
   public_deps = [

@@ -5,8 +5,8 @@ import("//third-party/unittest/unittest.gni")
 unittest("LLDAsLibELFTests") {
   configs += [ "//${llvm_build_root}build:lld_code" ]
   deps = [
-    "//lld/Common",
-    "//lld/ELF",
+    "//${llvm_root}lld/Common",
+    "//${llvm_root}lld/ELF",
   ]
   sources = [
     "ROCm.cpp",

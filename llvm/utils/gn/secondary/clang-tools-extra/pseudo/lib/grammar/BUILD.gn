@@ -4,8 +4,8 @@ static_library("grammar") {
   output_name = "clangPseudoGrammar"
   configs += [ "//${llvm_build_root}build:clang_code" ]
   deps = [
-    "//clang/include/clang/Basic:AttrTokenKinds",
-    "//llvm/lib/Support",
+    "//${llvm_root}clang/include/clang/Basic:AttrTokenKinds",
+    "//${llvm_root}llvm/lib/Support",
   ]
   include_dirs = [ "../../include" ]
   sources = [

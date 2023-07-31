@@ -3,15 +3,15 @@ import("//build_overrides/llvm.gni")
 executable("llvm-cfi-verify") {
   deps = [
     "lib",
-    "//llvm/lib/DebugInfo/Symbolize",
-    "//llvm/lib/MC",
-    "//llvm/lib/MC/MCParser",
-    "//llvm/lib/Object",
-    "//llvm/lib/Support",
-    "//llvm/lib/Target:AllTargetsAsmParsers",
-    "//llvm/lib/Target:AllTargetsDescs",
-    "//llvm/lib/Target:AllTargetsDisassemblers",
-    "//llvm/lib/Target:AllTargetsInfos",
+    "//${llvm_root}llvm/lib/DebugInfo/Symbolize",
+    "//${llvm_root}llvm/lib/MC",
+    "//${llvm_root}llvm/lib/MC/MCParser",
+    "//${llvm_root}llvm/lib/Object",
+    "//${llvm_root}llvm/lib/Support",
+    "//${llvm_root}llvm/lib/Target:AllTargetsAsmParsers",
+    "//${llvm_root}llvm/lib/Target:AllTargetsDescs",
+    "//${llvm_root}llvm/lib/Target:AllTargetsDisassemblers",
+    "//${llvm_root}llvm/lib/Target:AllTargetsInfos",
   ]
   sources = [ "llvm-cfi-verify.cpp" ]
 }

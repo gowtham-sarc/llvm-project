@@ -1,7 +1,7 @@
 import("//build_overrides/llvm.gni")
 
-import("//clang/runtimes.gni")
-import("//compiler-rt/target.gni")
+import("//${llvm_root}clang/runtimes.gni")
+import("//${llvm_root}compiler-rt/target.gni")
 
 declare_args() {
   # Build libunwind as a shared library.
@@ -70,7 +70,7 @@ config("unwind_config") {
   cflags_c = [ "-std=c99" ]
   cflags_cc = [ "-fno-rtti" ]
   defines = [ "_LIBUNWIND_IS_NATIVE_ONLY" ]
-  include_dirs = [ "//libunwind/include" ]
+  include_dirs = [ "//${llvm_root}libunwind/include" ]
   if (current_os == "mac") {
     cflags += [ "-U__STRICT_ANSI__" ]
   }
@@ -100,7 +100,7 @@ if (libunwind_enable_shared && current_os != "android") {
     }
     sources = unwind_sources
     public = unwind_headers
-    deps = [ "//compiler-rt/lib/builtins" ]
+    deps = [ "//${llvm_root}compiler-rt/lib/builtins" ]
     configs += [ ":unwind_config" ]
     configs -= [
       "//${llvm_build_root}build:no_exceptions",
@@ -123,7 +123,7 @@ if (libunwind_enable_static) {
         cflags_cc = [ "-fvisibility-global-new-delete-hidden" ]
         defines = [ "_LIBUNWIND_HIDE_SYMBOLS" ]
       }
-      deps = [ "//compiler-rt/lib/builtins" ]
+      deps = [ "//${llvm_root}compiler-rt/lib/builtins" ]
       configs += [ ":unwind_config" ]
       configs -= [
         "//${llvm_build_root}build:no_exceptions",

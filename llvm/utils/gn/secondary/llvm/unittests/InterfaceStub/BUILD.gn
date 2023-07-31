@@ -4,8 +4,8 @@ import("//third-party/unittest/unittest.gni")
 
 unittest("InterfaceStubTests") {
   deps = [
-    "//llvm/lib/InterfaceStub",
-    "//llvm/lib/Testing/Support",
+    "//${llvm_root}llvm/lib/InterfaceStub",
+    "//${llvm_root}llvm/lib/Testing/Support",
   ]
   sources = [ "ELFYAMLTest.cpp" ]
 }

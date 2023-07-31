@@ -4,17 +4,17 @@ static_library("elf-core") {
   output_name = "lldbPluginProcessElfCore"
   configs += [ "//${llvm_build_root}build:lldb_code" ]
   deps = [
-    "//lldb/source/Core",
-    "//lldb/source/Plugins/DynamicLoader/POSIX-DYLD",
-    "//lldb/source/Plugins/ObjectFile/ELF",
-    "//lldb/source/Plugins/Process/Utility",
-    "//lldb/source/Target",
-    "//llvm/lib/BinaryFormat",
-    "//llvm/lib/Support",
+    "//${llvm_root}lldb/source/Core",
+    "//${llvm_root}lldb/source/Plugins/DynamicLoader/POSIX-DYLD",
+    "//${llvm_root}lldb/source/Plugins/ObjectFile/ELF",
+    "//${llvm_root}lldb/source/Plugins/Process/Utility",
+    "//${llvm_root}lldb/source/Target",
+    "//${llvm_root}llvm/lib/BinaryFormat",
+    "//${llvm_root}llvm/lib/Support",
   ]
 
   # Reaches into Plugins/DynamicLoader/POSIX-DYLD.
-  include_dirs = [ "//lldb/source" ]
+  include_dirs = [ "//${llvm_root}lldb/source" ]
   sources = [
     "ProcessElfCore.cpp",
     "RegisterContextPOSIXCore_arm.cpp",

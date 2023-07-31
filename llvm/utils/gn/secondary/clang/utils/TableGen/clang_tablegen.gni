@@ -25,7 +25,7 @@ import("//build_overrides/llvm.gni")
 #     td_file = "Diagnostic.td"
 #   }
 
-import("//llvm/utils/TableGen/tablegen.gni")
+import("//${llvm_root}llvm/utils/TableGen/tablegen.gni")
 
 template("clang_tablegen") {
   tablegen(target_name) {
@@ -38,8 +38,8 @@ template("clang_tablegen") {
 
     args = [
              "-I",
-             rebase_path("//clang/include", root_build_dir),
+             rebase_path("//${llvm_root}clang/include", root_build_dir),
            ] + invoker.args
-    tblgen_target = "//clang/utils/TableGen:clang-tblgen"
+    tblgen_target = "//${llvm_root}clang/utils/TableGen:clang-tblgen"
   }
 }

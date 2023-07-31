@@ -4,15 +4,15 @@ static_library("Analysis") {
   output_name = "LLVMAnalysis"
   public_deps = [
     # Must be a public_dep because Analysis's headers include llvm-config.h.
-    "//llvm/include/llvm/Config:llvm-config",
+    "//${llvm_root}llvm/include/llvm/Config:llvm-config",
   ]
   deps = [
-    "//llvm/include/llvm/Config:config",
-    "//llvm/lib/BinaryFormat",
-    "//llvm/lib/IR",
-    "//llvm/lib/ProfileData",
-    "//llvm/lib/Support",
-    "//llvm/lib/TargetParser",
+    "//${llvm_root}llvm/include/llvm/Config:config",
+    "//${llvm_root}llvm/lib/BinaryFormat",
+    "//${llvm_root}llvm/lib/IR",
+    "//${llvm_root}llvm/lib/ProfileData",
+    "//${llvm_root}llvm/lib/Support",
+    "//${llvm_root}llvm/lib/TargetParser",
   ]
   sources = [
     "AliasAnalysis.cpp",

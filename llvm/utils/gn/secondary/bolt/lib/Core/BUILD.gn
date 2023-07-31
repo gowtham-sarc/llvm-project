@@ -4,16 +4,16 @@ static_library("Core") {
   output_name = "LLVMBOLTCore"
   configs += [ "//${llvm_build_root}build:bolt_code" ]
   deps = [
-    "//bolt/lib/Utils",
-    "//llvm/lib/BinaryFormat",
-    "//llvm/lib/CodeGen/AsmPrinter",
-    "//llvm/lib/DebugInfo/DWARF",
-    "//llvm/lib/Demangle",
-    "//llvm/lib/MC",
-    "//llvm/lib/MC/MCDisassembler",
-    "//llvm/lib/Object",
-    "//llvm/lib/Support",
-    "//llvm/lib/TargetParser",
+    "//${llvm_root}bolt/lib/Utils",
+    "//${llvm_root}llvm/lib/BinaryFormat",
+    "//${llvm_root}llvm/lib/CodeGen/AsmPrinter",
+    "//${llvm_root}llvm/lib/DebugInfo/DWARF",
+    "//${llvm_root}llvm/lib/Demangle",
+    "//${llvm_root}llvm/lib/MC",
+    "//${llvm_root}llvm/lib/MC/MCDisassembler",
+    "//${llvm_root}llvm/lib/Object",
+    "//${llvm_root}llvm/lib/Support",
+    "//${llvm_root}llvm/lib/TargetParser",
     "//${llvm_build_root}build/libs/pthread",
   ]
   sources = [

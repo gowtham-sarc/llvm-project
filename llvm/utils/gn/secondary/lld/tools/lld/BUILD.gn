@@ -28,15 +28,15 @@ group("symlinks") {
 driver_executable("lld") {
   configs += [ "//${llvm_build_root}build:lld_code" ]
   deps = [
-    "//lld/COFF",
-    "//lld/ELF",
-    "//lld/MachO:MachO",
-    "//lld/MinGW",
-    "//lld/wasm",
-    "//llvm/lib/Support",
-    "//llvm/lib/TargetParser",
+    "//${llvm_root}lld/COFF",
+    "//${llvm_root}lld/ELF",
+    "//${llvm_root}lld/MachO:MachO",
+    "//${llvm_root}lld/MinGW",
+    "//${llvm_root}lld/wasm",
+    "//${llvm_root}llvm/lib/Support",
+    "//${llvm_root}llvm/lib/TargetParser",
     "//${llvm_build_root}build/libs/xar",
   ]
-  assert_no_deps = [ "//llvm/lib/Debuginfod" ]
+  assert_no_deps = [ "//${llvm_root}llvm/lib/Debuginfod" ]
   sources = [ "lld.cpp" ]
 }

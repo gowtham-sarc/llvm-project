@@ -1,6 +1,6 @@
 import("//build_overrides/llvm.gni")
 
-import("//llvm/lib/Target/targets.gni")
+import("//${llvm_root}llvm/lib/Target/targets.gni")
 
 group("unittests") {
   deps = [
@@ -63,7 +63,7 @@ group("unittests") {
     "tools/llvm-mca:LLVMMCATests",
     "tools/llvm-profdata:LLVMProfdataTests",
     "tools/llvm-profgen:LLVMProfgenTests",
-    "//llvm/lib/TargetParser",
+    "//${llvm_root}llvm/lib/TargetParser",
   ]
 
   # Target-dependent unit tests.

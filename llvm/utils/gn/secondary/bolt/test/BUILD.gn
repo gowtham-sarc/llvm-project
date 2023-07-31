@@ -1,7 +1,7 @@
 import("//build_overrides/llvm.gni")
 
-import("//llvm/lib/Target/targets_string.gni")
-import("//llvm/triples.gni")
+import("//${llvm_root}llvm/lib/Target/targets_string.gni")
+import("//${llvm_root}llvm/triples.gni")
 import("//${llvm_build_root}build/write_cmake_config.gni")
 import("bolt_lit_site_cfg_files.gni")
 
@@ -38,7 +38,7 @@ write_lit_config("lit_site_cfg") {
   }
 
   # Fully-qualified instead of relative for LIT_SITE_CFG_IN_HEADER.
-  input = "//bolt/test/lit.site.cfg.py.in"
+  input = "//${llvm_root}bolt/test/lit.site.cfg.py.in"
   output = bolt_lit_site_cfg_file
   dir = get_path_info(output, "dir")
   extra_values = [
@@ -72,7 +72,7 @@ write_lit_config("lit_site_cfg") {
 
 write_lit_config("lit_unit_site_cfg") {
   # Fully-qualified instead of relative for LIT_SITE_CFG_IN_HEADER.
-  input = "//bolt/test/Unit/lit.site.cfg.py.in"
+  input = "//${llvm_root}bolt/test/Unit/lit.site.cfg.py.in"
   output = bolt_lit_unit_site_cfg_file
   extra_values = [ "LLVM_BUILD_MODE=." ]
 }
@@ -84,25 +84,25 @@ group("test") {
   deps = [
     ":lit_site_cfg",
     ":lit_unit_site_cfg",
-    "//bolt/tools/bat-dump:llvm-bat-dump",
-    "//bolt/tools/driver:symlinks",
-    "//bolt/tools/heatmap:llvm-bolt-heatmap",
-    "//bolt/tools/merge-fdata",
-    "//bolt/unittests",
-    "//clang/tools/driver:symlinks",
-    "//lld/tools/lld:symlinks",
-    "//llvm/tools/llc",
-    "//llvm/tools/llvm-config",
-    "//llvm/tools/llvm-dwarfdump",
-    "//llvm/tools/llvm-dwp",
-    "//llvm/tools/llvm-mc",
-    "//llvm/tools/llvm-nm:symlinks",
-    "//llvm/tools/llvm-objcopy:symlinks",
-    "//llvm/tools/llvm-objdump:symlinks",
-    "//llvm/tools/yaml2obj",
-    "//llvm/utils/FileCheck",
-    "//llvm/utils/count",
-    "//llvm/utils/not",
+    "//${llvm_root}bolt/tools/bat-dump:llvm-bat-dump",
+    "//${llvm_root}bolt/tools/driver:symlinks",
+    "//${llvm_root}bolt/tools/heatmap:llvm-bolt-heatmap",
+    "//${llvm_root}bolt/tools/merge-fdata",
+    "//${llvm_root}bolt/unittests",
+    "//${llvm_root}clang/tools/driver:symlinks",
+    "//${llvm_root}lld/tools/lld:symlinks",
+    "//${llvm_root}llvm/tools/llc",
+    "//${llvm_root}llvm/tools/llvm-config",
+    "//${llvm_root}llvm/tools/llvm-dwarfdump",
+    "//${llvm_root}llvm/tools/llvm-dwp",
+    "//${llvm_root}llvm/tools/llvm-mc",
+    "//${llvm_root}llvm/tools/llvm-nm:symlinks",
+    "//${llvm_root}llvm/tools/llvm-objcopy:symlinks",
+    "//${llvm_root}llvm/tools/llvm-objdump:symlinks",
+    "//${llvm_root}llvm/tools/yaml2obj",
+    "//${llvm_root}llvm/utils/FileCheck",
+    "//${llvm_root}llvm/utils/count",
+    "//${llvm_root}llvm/utils/not",
   ]
 
   testonly = true

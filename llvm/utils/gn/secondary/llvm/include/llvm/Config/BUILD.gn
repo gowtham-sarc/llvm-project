@@ -1,12 +1,12 @@
 import("//build_overrides/llvm.gni")
 
-import("//llvm/lib/DebugInfo/PDB/enable_dia.gni")
-import("//llvm/lib/Target/targets.gni")
-import("//llvm/lib/Target/targets_with_asm_parsers.gni")
-import("//llvm/lib/Target/targets_with_disassemblers.gni")
-import("//llvm/lib/Target/targets_with_exegesis.gni")
-import("//llvm/lib/Target/targets_with_mcas.gni")
-import("//llvm/triples.gni")
+import("//${llvm_root}llvm/lib/DebugInfo/PDB/enable_dia.gni")
+import("//${llvm_root}llvm/lib/Target/targets.gni")
+import("//${llvm_root}llvm/lib/Target/targets_with_asm_parsers.gni")
+import("//${llvm_root}llvm/lib/Target/targets_with_disassemblers.gni")
+import("//${llvm_root}llvm/lib/Target/targets_with_exegesis.gni")
+import("//${llvm_root}llvm/lib/Target/targets_with_mcas.gni")
+import("//${llvm_root}llvm/triples.gni")
 import("//${llvm_build_root}build/buildflags.gni")
 import("//${llvm_build_root}build/libs/curl/enable.gni")
 import("//${llvm_build_root}build/libs/edit/enable.gni")
@@ -16,7 +16,7 @@ import("//${llvm_build_root}build/libs/xar/enable.gni")
 import("//${llvm_build_root}build/libs/xml/enable.gni")
 import("//${llvm_build_root}build/libs/zlib/enable.gni")
 import("//${llvm_build_root}build/write_cmake_config.gni")
-import("//llvm/version.gni")
+import("//${llvm_root}llvm/version.gni")
 
 # Contains actions to create config.h, llvm-config.h, abi-breaking.h,
 # and the various .def files used by llvm/lib/Target.
@@ -483,8 +483,8 @@ write_target_def_file("TargetExegesis.def") {
 
 group("write_target_def_files") {
   visibility = [
-    "//llvm/lib/Support",
-    "//llvm/lib/Target",
+    "//${llvm_root}llvm/lib/Support",
+    "//${llvm_root}llvm/lib/Target",
   ]
   deps = [
     ":AsmParsers.def",

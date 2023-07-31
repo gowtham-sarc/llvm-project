@@ -3,5 +3,5 @@ import("//build_overrides/llvm.gni")
 static_library("Extensions") {
   output_name = "LLVMExtensions"
   sources = [ "Extensions.cpp" ]
-  deps = [ "//llvm/lib/Support" ]
+  deps = [ "//${llvm_root}llvm/lib/Support" ]
 }

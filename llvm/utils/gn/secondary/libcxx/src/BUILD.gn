@@ -1,7 +1,7 @@
 import("//build_overrides/llvm.gni")
 
-import("//clang/runtimes.gni")
-import("//libcxx/config.gni")
+import("//${llvm_root}clang/runtimes.gni")
+import("//${llvm_root}libcxx/config.gni")
 import("//${llvm_build_root}build/symlink_or_copy.gni")
 
 declare_args() {
@@ -37,7 +37,7 @@ declare_args() {
 }
 
 config("cxx_config") {
-  include_dirs = [ "//libcxxabi/include" ]
+  include_dirs = [ "//${llvm_root}libcxxabi/include" ]
   cflags = [
     "-Wall",
     "-Wextra",
@@ -238,10 +238,10 @@ if (libcxx_enable_shared) {
     sources = cxx_sources
     include_dirs = [ "." ]
     deps = [
-      "//compiler-rt/lib/builtins",
-      "//libcxx/include",
-      "//libcxxabi/src:cxxabi_shared",
-      "//libunwind/src:unwind_shared",
+      "//${llvm_root}compiler-rt/lib/builtins",
+      "//${llvm_root}libcxx/include",
+      "//${llvm_root}libcxxabi/src:cxxabi_shared",
+      "//${llvm_root}libunwind/src:unwind_shared",
     ]
     configs += [ ":cxx_config" ]
     configs -= [
@@ -289,10 +289,10 @@ if (libcxx_enable_static) {
       defines = [ "_LIBCPP_DISABLE_VISIBILITY_ANNOTATIONS" ]
     }
     deps = [
-      "//compiler-rt/lib/builtins",
-      "//libcxx/include",
-      "//libcxxabi/src:cxxabi_static",
-      "//libunwind/src:unwind_static",
+      "//${llvm_root}compiler-rt/lib/builtins",
+      "//${llvm_root}libcxx/include",
+      "//${llvm_root}libcxxabi/src:cxxabi_static",
+      "//${llvm_root}libunwind/src:unwind_static",
     ]
     configs += [ ":cxx_config" ]
     configs -= [
@@ -307,7 +307,7 @@ if (libcxx_enable_experimental) {
     output_dir = runtimes_dir
     output_name = "c++experimental"
     sources = [ "experimental/memory_resource.cpp" ]
-    deps = [ "//libcxx/include" ]
+    deps = [ "//${llvm_root}libcxx/include" ]
     configs += [ ":cxx_config" ]
     configs -= [
       "//${llvm_build_root}build:no_exceptions",

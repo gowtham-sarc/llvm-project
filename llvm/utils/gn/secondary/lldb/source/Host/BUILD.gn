@@ -1,15 +1,15 @@
 import("//build_overrides/llvm.gni")
 
-import("//lldb/include/lldb/Host/libedit.gni")
+import("//${llvm_root}lldb/include/lldb/Host/libedit.gni")
 
 static_library("Host") {
   output_name = "lldbHost"
   configs += [ "//${llvm_build_root}build:lldb_code" ]
   deps = [
-    "//lldb/include/lldb/Host:Config",
-    "//lldb/source/Utility",
-    "//llvm/lib/Object",
-    "//llvm/lib/Support",
+    "//${llvm_root}lldb/include/lldb/Host:Config",
+    "//${llvm_root}lldb/source/Utility",
+    "//${llvm_root}llvm/lib/Object",
+    "//${llvm_root}llvm/lib/Support",
 
     # FIXME:
     # LINK_LIBS

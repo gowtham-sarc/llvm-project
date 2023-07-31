@@ -4,13 +4,13 @@ import("//third-party/unittest/unittest.gni")
 
 unittest("LoongArchTests") {
   deps = [
-    "//llvm/lib/CodeGen/MIRParser",
-    "//llvm/lib/Support",
-    "//llvm/lib/Target",
-    "//llvm/lib/Target/LoongArch:LLVMLoongArchCodeGen",
-    "//llvm/lib/Target/LoongArch/MCTargetDesc",
-    "//llvm/lib/Target/LoongArch/TargetInfo",
+    "//${llvm_root}llvm/lib/CodeGen/MIRParser",
+    "//${llvm_root}llvm/lib/Support",
+    "//${llvm_root}llvm/lib/Target",
+    "//${llvm_root}llvm/lib/Target/LoongArch:LLVMLoongArchCodeGen",
+    "//${llvm_root}llvm/lib/Target/LoongArch/MCTargetDesc",
+    "//${llvm_root}llvm/lib/Target/LoongArch/TargetInfo",
   ]
-  include_dirs = [ "//llvm/lib/Target/LoongArch" ]
+  include_dirs = [ "//${llvm_root}llvm/lib/Target/LoongArch" ]
   sources = [ "InstSizes.cpp" ]
 }

@@ -5,8 +5,8 @@ source_set("common_sources") {
   configs += [ "//${llvm_build_root}build:crt_code" ]
   defines = [ "UBSAN_CAN_USE_CXXABI" ]
   deps = [
-    "//compiler-rt/lib/interception:sources",
-    "//compiler-rt/lib/sanitizer_common:sources",
+    "//${llvm_root}compiler-rt/lib/interception:sources",
+    "//${llvm_root}compiler-rt/lib/sanitizer_common:sources",
   ]
   sources = [
     "lsan_common.cpp",
@@ -22,8 +22,8 @@ source_set("sources") {
   configs += [ "//${llvm_build_root}build:crt_code" ]
   defines = [ "UBSAN_CAN_USE_CXXABI" ]
   deps = [
-    "//compiler-rt/lib/interception:sources",
-    "//compiler-rt/lib/sanitizer_common:sources",
+    "//${llvm_root}compiler-rt/lib/interception:sources",
+    "//${llvm_root}compiler-rt/lib/sanitizer_common:sources",
   ]
   sources = [
     "lsan.cpp",

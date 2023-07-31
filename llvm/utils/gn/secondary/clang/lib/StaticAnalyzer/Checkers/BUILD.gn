@@ -4,15 +4,15 @@ static_library("Checkers") {
   output_name = "clangStaticAnalyzerCheckers"
   configs += [ "//${llvm_build_root}build:clang_code" ]
   deps = [
-    "//clang/include/clang/StaticAnalyzer/Checkers",
-    "//clang/lib/AST",
-    "//clang/lib/ASTMatchers",
-    "//clang/lib/Analysis",
-    "//clang/lib/Basic",
-    "//clang/lib/Lex",
-    "//clang/lib/StaticAnalyzer/Core",
-    "//llvm/lib/Support",
-    "//llvm/lib/TargetParser",
+    "//${llvm_root}clang/include/clang/StaticAnalyzer/Checkers",
+    "//${llvm_root}clang/lib/AST",
+    "//${llvm_root}clang/lib/ASTMatchers",
+    "//${llvm_root}clang/lib/Analysis",
+    "//${llvm_root}clang/lib/Basic",
+    "//${llvm_root}clang/lib/Lex",
+    "//${llvm_root}clang/lib/StaticAnalyzer/Core",
+    "//${llvm_root}llvm/lib/Support",
+    "//${llvm_root}llvm/lib/TargetParser",
   ]
   include_dirs = [ "." ]
   sources = [

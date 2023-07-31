@@ -1,8 +1,8 @@
 import("//build_overrides/llvm.gni")
 
-import("//llvm/utils/TableGen/tablegen.gni")
+import("//${llvm_root}llvm/utils/TableGen/tablegen.gni")
 import("//${llvm_build_root}build/write_cmake_config.gni")
-import("//llvm/version.gni")
+import("//${llvm_root}llvm/version.gni")
 
 tablegen("Options") {
   visibility = [ ":lldb-vscode" ]
@@ -21,9 +21,9 @@ executable("lldb-vscode") {
   configs += [ "//${llvm_build_root}build:lldb_code" ]
   deps = [
     ":Options",
-    "//lldb/source/API:liblldb",
-    "//llvm/lib/Option",
-    "//llvm/lib/Support",
+    "//${llvm_root}lldb/source/API:liblldb",
+    "//${llvm_root}llvm/lib/Option",
+    "//${llvm_root}llvm/lib/Support",
   ]
   if (host_os == "mac") {
     deps += [ ":write_info_plist" ]
@@ -35,7 +35,7 @@ executable("lldb-vscode") {
     libs = [ "ws2_32.lib" ]
   }
 
-  # FIXME: link in //lldb/source/Host on Win (and netbsd)
+  # FIXME: link in //${llvm_root}lldb/source/Host on Win (and netbsd)
   # FIXME: link in pthread
   # FIXME: rpath/install_name stuff on macOS for framework on macOS
 

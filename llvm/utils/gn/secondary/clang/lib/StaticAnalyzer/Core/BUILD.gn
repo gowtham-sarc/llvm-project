@@ -4,15 +4,15 @@ static_library("Core") {
   output_name = "clangStaticAnalyzerCore"
   configs += [ "//${llvm_build_root}build:clang_code" ]
   deps = [
-    "//clang/include/clang/Config",
-    "//clang/lib/AST",
-    "//clang/lib/ASTMatchers",
-    "//clang/lib/Analysis",
-    "//clang/lib/Basic",
-    "//clang/lib/CrossTU",
-    "//clang/lib/Lex",
-    "//clang/lib/Rewrite",
-    "//llvm/lib/Support",
+    "//${llvm_root}clang/include/clang/Config",
+    "//${llvm_root}clang/lib/AST",
+    "//${llvm_root}clang/lib/ASTMatchers",
+    "//${llvm_root}clang/lib/Analysis",
+    "//${llvm_root}clang/lib/Basic",
+    "//${llvm_root}clang/lib/CrossTU",
+    "//${llvm_root}clang/lib/Lex",
+    "//${llvm_root}clang/lib/Rewrite",
+    "//${llvm_root}llvm/lib/Support",
   ]
   sources = [
     "APSIntType.cpp",

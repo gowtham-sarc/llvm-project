@@ -4,10 +4,10 @@ import("//third-party/unittest/unittest.gni")
 
 unittest("ProfileDataTests") {
   deps = [
-    "//llvm/lib/IR",
-    "//llvm/lib/ProfileData",
-    "//llvm/lib/ProfileData/Coverage",
-    "//llvm/lib/Testing/Support",
+    "//${llvm_root}llvm/lib/IR",
+    "//${llvm_root}llvm/lib/ProfileData",
+    "//${llvm_root}llvm/lib/ProfileData/Coverage",
+    "//${llvm_root}llvm/lib/Testing/Support",
   ]
   sources = [
     "BPFunctionNodeTest.cpp",

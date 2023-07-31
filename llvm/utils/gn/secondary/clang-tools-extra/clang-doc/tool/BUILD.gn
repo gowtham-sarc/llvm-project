@@ -3,13 +3,13 @@ import("//build_overrides/llvm.gni")
 executable("clang-doc") {
   configs += [ "//${llvm_build_root}build:clang_code" ]
   deps = [
-    "//clang-tools-extra/clang-doc",
-    "//clang/lib/AST",
-    "//clang/lib/ASTMatchers",
-    "//clang/lib/Basic",
-    "//clang/lib/Frontend",
-    "//clang/lib/Tooling",
-    "//clang/lib/Tooling/Core",
+    "//${llvm_root}clang-tools-extra/clang-doc",
+    "//${llvm_root}clang/lib/AST",
+    "//${llvm_root}clang/lib/ASTMatchers",
+    "//${llvm_root}clang/lib/Basic",
+    "//${llvm_root}clang/lib/Frontend",
+    "//${llvm_root}clang/lib/Tooling",
+    "//${llvm_root}clang/lib/Tooling/Core",
   ]
   include_dirs = [ ".." ]
   sources = [ "ClangDocMain.cpp" ]

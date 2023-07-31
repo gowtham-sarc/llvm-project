@@ -4,14 +4,14 @@ static_library("Rewrite") {
   output_name = "clangRewriteFrontend"
   configs += [ "//${llvm_build_root}build:clang_code" ]
   deps = [
-    "//clang/lib/AST",
-    "//clang/lib/Basic",
-    "//clang/lib/Edit",
-    "//clang/lib/Frontend",
-    "//clang/lib/Lex",
-    "//clang/lib/Rewrite",
-    "//clang/lib/Serialization",
-    "//llvm/lib/Support",
+    "//${llvm_root}clang/lib/AST",
+    "//${llvm_root}clang/lib/Basic",
+    "//${llvm_root}clang/lib/Edit",
+    "//${llvm_root}clang/lib/Frontend",
+    "//${llvm_root}clang/lib/Lex",
+    "//${llvm_root}clang/lib/Rewrite",
+    "//${llvm_root}clang/lib/Serialization",
+    "//${llvm_root}llvm/lib/Support",
   ]
   sources = [
     "FixItRewriter.cpp",

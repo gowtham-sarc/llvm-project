@@ -2,10 +2,10 @@ import("//build_overrides/llvm.gni")
 
 executable("lli-child-target") {
   deps = [
-    "//llvm/lib/ExecutionEngine/Orc",
-    "//llvm/lib/ExecutionEngine/Orc/Shared",
-    "//llvm/lib/ExecutionEngine/RuntimeDyld",
-    "//llvm/lib/Support",
+    "//${llvm_root}llvm/lib/ExecutionEngine/Orc",
+    "//${llvm_root}llvm/lib/ExecutionEngine/Orc/Shared",
+    "//${llvm_root}llvm/lib/ExecutionEngine/RuntimeDyld",
+    "//${llvm_root}llvm/lib/Support",
   ]
   sources = [ "ChildTarget.cpp" ]
 }

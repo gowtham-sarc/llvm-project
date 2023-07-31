@@ -7,16 +7,16 @@ static_library("POSIX") {
     "//${llvm_build_root}build:lldb_code",
   ]
   deps = [
-    "//lldb/source/Core",
-    "//lldb/source/Expression",
-    "//lldb/source/Host",
-    "//lldb/source/Interpreter",
-    "//lldb/source/Plugins/Platform/gdb-server",
-    "//lldb/source/Plugins/TypeSystem/Clang",
-    "//lldb/source/Target",
+    "//${llvm_root}lldb/source/Core",
+    "//${llvm_root}lldb/source/Expression",
+    "//${llvm_root}lldb/source/Host",
+    "//${llvm_root}lldb/source/Interpreter",
+    "//${llvm_root}lldb/source/Plugins/Platform/gdb-server",
+    "//${llvm_root}lldb/source/Plugins/TypeSystem/Clang",
+    "//${llvm_root}lldb/source/Target",
   ]
 
   # Reaches into Plugins/TypeSystem/Clang.
-  include_dirs = [ "//lldb/source" ]
+  include_dirs = [ "//${llvm_root}lldb/source" ]
   sources = [ "PlatformPOSIX.cpp" ]
 }

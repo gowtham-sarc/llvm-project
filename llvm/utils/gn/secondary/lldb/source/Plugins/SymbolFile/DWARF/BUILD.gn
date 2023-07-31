@@ -1,6 +1,6 @@
 import("//build_overrides/llvm.gni")
 
-import("//lldb/utils/TableGen/lldb_tablegen.gni")
+import("//${llvm_root}lldb/utils/TableGen/lldb_tablegen.gni")
 
 lldb_tablegen("SymbolFileDWARFProperties") {
   args = [ "-gen-lldb-property-defs" ]
@@ -20,27 +20,27 @@ static_library("DWARF") {
   deps = [
     ":SymbolFileDWARFProperties",
     ":SymbolFileDWARFPropertiesEnum",
-    "//clang/lib/AST",
-    "//clang/lib/Basic",
-    "//lldb/source/Core",
-    "//lldb/source/Expression",
-    "//lldb/source/Host",
-    "//lldb/source/Interpreter",
-    "//lldb/source/Plugins/ExpressionParser/Clang",
+    "//${llvm_root}clang/lib/AST",
+    "//${llvm_root}clang/lib/Basic",
+    "//${llvm_root}lldb/source/Core",
+    "//${llvm_root}lldb/source/Expression",
+    "//${llvm_root}lldb/source/Host",
+    "//${llvm_root}lldb/source/Interpreter",
+    "//${llvm_root}lldb/source/Plugins/ExpressionParser/Clang",
 
-    #"//lldb/source/Plugins/Language/CPlusPlus", # 3-hop dependency cycle.
-    "//lldb/source/Plugins/Language/ObjC",
-    "//lldb/source/Symbol",
-    "//lldb/source/Target",
-    "//lldb/source/Utility",
+    #"//${llvm_root}lldb/source/Plugins/Language/CPlusPlus", # 3-hop dependency cycle.
+    "//${llvm_root}lldb/source/Plugins/Language/ObjC",
+    "//${llvm_root}lldb/source/Symbol",
+    "//${llvm_root}lldb/source/Target",
+    "//${llvm_root}lldb/source/Utility",
 
-    #"//lldb/source/Plugins/TypeSystem/Clang", # Dependency cycle.
-    "//llvm/lib/DebugInfo/DWARF",
-    "//llvm/lib/Support",
+    #"//${llvm_root}lldb/source/Plugins/TypeSystem/Clang", # Dependency cycle.
+    "//${llvm_root}llvm/lib/DebugInfo/DWARF",
+    "//${llvm_root}llvm/lib/Support",
   ]
 
   # Uses source-relative includes for own headers.
-  include_dirs = [ "//lldb/source" ]
+  include_dirs = [ "//${llvm_root}lldb/source" ]
   sources = [
     "AppleDWARFIndex.cpp",
     "DIERef.cpp",

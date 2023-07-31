@@ -3,13 +3,13 @@ import("//build_overrides/llvm.gni")
 executable("clang-reorder-fields") {
   configs += [ "//${llvm_build_root}build:clang_code" ]
   deps = [
-    "//clang-tools-extra/clang-reorder-fields",
-    "//clang/lib/Basic",
-    "//clang/lib/Frontend",
-    "//clang/lib/Rewrite",
-    "//clang/lib/Serialization",
-    "//clang/lib/Tooling",
-    "//clang/lib/Tooling/Core",
+    "//${llvm_root}clang-tools-extra/clang-reorder-fields",
+    "//${llvm_root}clang/lib/Basic",
+    "//${llvm_root}clang/lib/Frontend",
+    "//${llvm_root}clang/lib/Rewrite",
+    "//${llvm_root}clang/lib/Serialization",
+    "//${llvm_root}clang/lib/Tooling",
+    "//${llvm_root}clang/lib/Tooling/Core",
   ]
   sources = [ "ClangReorderFields.cpp" ]
 }

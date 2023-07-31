@@ -4,10 +4,10 @@ static_library("Core") {
   output_name = "clangToolingCore"
   configs += [ "//${llvm_build_root}build:clang_code" ]
   deps = [
-    "//clang/lib/Basic",
-    "//clang/lib/Lex",
-    "//clang/lib/Rewrite",
-    "//llvm/lib/Support",
+    "//${llvm_root}clang/lib/Basic",
+    "//${llvm_root}clang/lib/Lex",
+    "//${llvm_root}clang/lib/Rewrite",
+    "//${llvm_root}llvm/lib/Support",
   ]
   sources = [
     "Diagnostic.cpp",

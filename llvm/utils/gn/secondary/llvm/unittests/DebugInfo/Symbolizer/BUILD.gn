@@ -4,8 +4,8 @@ import("//third-party/unittest/unittest.gni")
 
 unittest("DebugInfoSymbolizerTests") {
   deps = [
-    "//llvm/lib/DebugInfo/Symbolize",
-    "//llvm/lib/Testing/Support",
+    "//${llvm_root}llvm/lib/DebugInfo/Symbolize",
+    "//${llvm_root}llvm/lib/Testing/Support",
   ]
   sources = [ "MarkupTest.cpp" ]
 }

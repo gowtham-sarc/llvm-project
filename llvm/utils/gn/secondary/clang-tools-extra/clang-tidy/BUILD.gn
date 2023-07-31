@@ -1,6 +1,6 @@
 import("//build_overrides/llvm.gni")
 
-import("//clang/lib/StaticAnalyzer/Frontend/enable.gni")
+import("//${llvm_root}clang/lib/StaticAnalyzer/Frontend/enable.gni")
 import("//${llvm_build_root}build/write_cmake_config.gni")
 import("enable.gni")
 
@@ -29,25 +29,25 @@ static_library("clang-tidy") {
   configs += [ "//${llvm_build_root}build:clang_code" ]
   deps = [
     ":clang-tidy-config",
-    "//clang/include/clang/StaticAnalyzer/Checkers",
-    "//clang/lib/AST",
-    "//clang/lib/ASTMatchers",
-    "//clang/lib/Basic",
-    "//clang/lib/Format",
-    "//clang/lib/Frontend",
-    "//clang/lib/Lex",
-    "//clang/lib/Rewrite",
-    "//clang/lib/Sema",
-    "//clang/lib/Serialization",
-    "//clang/lib/Tooling",
-    "//clang/lib/Tooling/Core",
-    "//llvm/lib/Support",
+    "//${llvm_root}clang/include/clang/StaticAnalyzer/Checkers",
+    "//${llvm_root}clang/lib/AST",
+    "//${llvm_root}clang/lib/ASTMatchers",
+    "//${llvm_root}clang/lib/Basic",
+    "//${llvm_root}clang/lib/Format",
+    "//${llvm_root}clang/lib/Frontend",
+    "//${llvm_root}clang/lib/Lex",
+    "//${llvm_root}clang/lib/Rewrite",
+    "//${llvm_root}clang/lib/Sema",
+    "//${llvm_root}clang/lib/Serialization",
+    "//${llvm_root}clang/lib/Tooling",
+    "//${llvm_root}clang/lib/Tooling/Core",
+    "//${llvm_root}llvm/lib/Support",
   ]
 
   if (clang_tidy_enable_static_analyzer) {
     deps += [
-      "//clang/lib/StaticAnalyzer/Core",
-      "//clang/lib/StaticAnalyzer/Frontend",
+      "//${llvm_root}clang/lib/StaticAnalyzer/Core",
+      "//${llvm_root}clang/lib/StaticAnalyzer/Frontend",
     ]
   }
 
@@ -67,31 +67,31 @@ static_library("clang-tidy") {
 group("all-checks") {
   # If you add a check, also add it to ClangTidyForceLinker.h.
   deps = [
-    "//clang-tools-extra/clang-tidy/abseil",
-    "//clang-tools-extra/clang-tidy/altera",
-    "//clang-tools-extra/clang-tidy/android",
-    "//clang-tools-extra/clang-tidy/boost",
-    "//clang-tools-extra/clang-tidy/bugprone",
-    "//clang-tools-extra/clang-tidy/cert",
-    "//clang-tools-extra/clang-tidy/concurrency",
-    "//clang-tools-extra/clang-tidy/cppcoreguidelines",
-    "//clang-tools-extra/clang-tidy/darwin",
-    "//clang-tools-extra/clang-tidy/fuchsia",
-    "//clang-tools-extra/clang-tidy/google",
-    "//clang-tools-extra/clang-tidy/hicpp",
-    "//clang-tools-extra/clang-tidy/linuxkernel",
-    "//clang-tools-extra/clang-tidy/llvm",
-    "//clang-tools-extra/clang-tidy/llvmlibc",
-    "//clang-tools-extra/clang-tidy/misc",
-    "//clang-tools-extra/clang-tidy/modernize",
-    "//clang-tools-extra/clang-tidy/objc",
-    "//clang-tools-extra/clang-tidy/openmp",
-    "//clang-tools-extra/clang-tidy/performance",
-    "//clang-tools-extra/clang-tidy/portability",
-    "//clang-tools-extra/clang-tidy/readability",
-    "//clang-tools-extra/clang-tidy/zircon",
+    "//${llvm_root}clang-tools-extra/clang-tidy/abseil",
+    "//${llvm_root}clang-tools-extra/clang-tidy/altera",
+    "//${llvm_root}clang-tools-extra/clang-tidy/android",
+    "//${llvm_root}clang-tools-extra/clang-tidy/boost",
+    "//${llvm_root}clang-tools-extra/clang-tidy/bugprone",
+    "//${llvm_root}clang-tools-extra/clang-tidy/cert",
+    "//${llvm_root}clang-tools-extra/clang-tidy/concurrency",
+    "//${llvm_root}clang-tools-extra/clang-tidy/cppcoreguidelines",
+    "//${llvm_root}clang-tools-extra/clang-tidy/darwin",
+    "//${llvm_root}clang-tools-extra/clang-tidy/fuchsia",
+    "//${llvm_root}clang-tools-extra/clang-tidy/google",
+    "//${llvm_root}clang-tools-extra/clang-tidy/hicpp",
+    "//${llvm_root}clang-tools-extra/clang-tidy/linuxkernel",
+    "//${llvm_root}clang-tools-extra/clang-tidy/llvm",
+    "//${llvm_root}clang-tools-extra/clang-tidy/llvmlibc",
+    "//${llvm_root}clang-tools-extra/clang-tidy/misc",
+    "//${llvm_root}clang-tools-extra/clang-tidy/modernize",
+    "//${llvm_root}clang-tools-extra/clang-tidy/objc",
+    "//${llvm_root}clang-tools-extra/clang-tidy/openmp",
+    "//${llvm_root}clang-tools-extra/clang-tidy/performance",
+    "//${llvm_root}clang-tools-extra/clang-tidy/portability",
+    "//${llvm_root}clang-tools-extra/clang-tidy/readability",
+    "//${llvm_root}clang-tools-extra/clang-tidy/zircon",
   ]
   if (clang_tidy_enable_static_analyzer) {
-    deps += [ "//clang-tools-extra/clang-tidy/mpi" ]
+    deps += [ "//${llvm_root}clang-tools-extra/clang-tidy/mpi" ]
   }
 }

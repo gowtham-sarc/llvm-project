@@ -1,10 +1,10 @@
 import("//build_overrides/llvm.gni")
 
-import("//clang/lib/ARCMigrate/enable.gni")
-import("//clang/lib/StaticAnalyzer/Frontend/enable.gni")
+import("//${llvm_root}clang/lib/ARCMigrate/enable.gni")
+import("//${llvm_root}clang/lib/StaticAnalyzer/Frontend/enable.gni")
 import("//${llvm_build_root}build/libs/xml/enable.gni")
 import("//${llvm_build_root}build/write_cmake_config.gni")
-import("//llvm/version.gni")
+import("//${llvm_root}llvm/version.gni")
 
 write_cmake_config("Config") {
   input = "config.h.cmake"

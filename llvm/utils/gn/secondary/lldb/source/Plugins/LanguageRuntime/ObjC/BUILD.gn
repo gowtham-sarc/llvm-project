@@ -7,13 +7,13 @@ static_library("ObjC") {
     "//${llvm_build_root}build:lldb_code",
   ]
   deps = [
-    "//lldb/source/Core",
-    "//lldb/source/Symbol",
-    "//lldb/source/Target",
-    "//lldb/source/Utility",
+    "//${llvm_root}lldb/source/Core",
+    "//${llvm_root}lldb/source/Symbol",
+    "//${llvm_root}lldb/source/Target",
+    "//${llvm_root}lldb/source/Utility",
   ]
 
   # Reaches into Plugins/TypeSystem/Clang.
-  include_dirs = [ "//lldb/source" ]
+  include_dirs = [ "//${llvm_root}lldb/source" ]
   sources = [ "ObjCLanguageRuntime.cpp" ]
 }

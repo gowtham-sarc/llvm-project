@@ -4,22 +4,22 @@ import("//third-party/unittest/unittest.gni")
 
 unittest("LLVMExegesisAArch64Tests") {
   deps = [
-    "//llvm/lib/DebugInfo/Symbolize",
-    "//llvm/lib/MC",
-    "//llvm/lib/MC/MCParser",
-    "//llvm/lib/Object",
-    "//llvm/lib/Support",
-    "//llvm/lib/Target/AArch64",
+    "//${llvm_root}llvm/lib/DebugInfo/Symbolize",
+    "//${llvm_root}llvm/lib/MC",
+    "//${llvm_root}llvm/lib/MC/MCParser",
+    "//${llvm_root}llvm/lib/Object",
+    "//${llvm_root}llvm/lib/Support",
+    "//${llvm_root}llvm/lib/Target/AArch64",
 
     # Exegesis reaches inside the Target/AArch64 tablegen internals and must
     # depend on this Target/AArch64-internal build target.
-    "//llvm/lib/Target/AArch64/MCTargetDesc",
-    "//llvm/tools/llvm-exegesis/lib",
-    "//llvm/tools/llvm-exegesis/lib/AArch64",
+    "//${llvm_root}llvm/lib/Target/AArch64/MCTargetDesc",
+    "//${llvm_root}llvm/tools/llvm-exegesis/lib",
+    "//${llvm_root}llvm/tools/llvm-exegesis/lib/AArch64",
   ]
   include_dirs = [
-    "//llvm/lib/Target/AArch64",
-    "//llvm/tools/llvm-exegesis/lib",
+    "//${llvm_root}llvm/lib/Target/AArch64",
+    "//${llvm_root}llvm/tools/llvm-exegesis/lib",
   ]
   sources = [ "TargetTest.cpp" ]
 }

@@ -4,13 +4,13 @@ static_library("MacOSX") {
   output_name = "lldbPluginSymbolVendorMacOSX"
   configs += [ "//${llvm_build_root}build:lldb_code" ]
   deps = [
-    "//lldb/source/Core",
-    "//lldb/source/Host",
-    "//lldb/source/Plugins/ObjectFile/Mach-O",
-    "//lldb/source/Symbol",
+    "//${llvm_root}lldb/source/Core",
+    "//${llvm_root}lldb/source/Host",
+    "//${llvm_root}lldb/source/Plugins/ObjectFile/Mach-O",
+    "//${llvm_root}lldb/source/Symbol",
   ]
 
   # Reaches into Plugins/ObjectFile/Mach-O.
-  include_dirs = [ "//lldb/source" ]
+  include_dirs = [ "//${llvm_root}lldb/source" ]
   sources = [ "SymbolVendorMacOSX.cpp" ]
 }

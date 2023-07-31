@@ -1,29 +1,29 @@
 import("//build_overrides/llvm.gni")
 
-import("//clang-tools-extra/clangd/xpc/enable.gni")
+import("//${llvm_root}clang-tools-extra/clangd/xpc/enable.gni")
 
 executable("clangd") {
   configs += [ "//${llvm_build_root}build:clang_code" ]
   deps = [
-    "//clang-tools-extra/clang-tidy",
-    "//clang-tools-extra/clangd",
-    "//clang-tools-extra/clangd:features",
-    "//clang-tools-extra/clangd/index/remote/unimplemented",
-    "//clang-tools-extra/clangd/refactor/tweaks",
-    "//clang/lib/AST",
-    "//clang/lib/Basic",
-    "//clang/lib/Format",
-    "//clang/lib/Frontend",
-    "//clang/lib/Headers",
-    "//clang/lib/Sema",
-    "//clang/lib/Tooling",
-    "//clang/lib/Tooling/Core",
-    "//llvm/lib/Support",
+    "//${llvm_root}clang-tools-extra/clang-tidy",
+    "//${llvm_root}clang-tools-extra/clangd",
+    "//${llvm_root}clang-tools-extra/clangd:features",
+    "//${llvm_root}clang-tools-extra/clangd/index/remote/unimplemented",
+    "//${llvm_root}clang-tools-extra/clangd/refactor/tweaks",
+    "//${llvm_root}clang/lib/AST",
+    "//${llvm_root}clang/lib/Basic",
+    "//${llvm_root}clang/lib/Format",
+    "//${llvm_root}clang/lib/Frontend",
+    "//${llvm_root}clang/lib/Headers",
+    "//${llvm_root}clang/lib/Sema",
+    "//${llvm_root}clang/lib/Tooling",
+    "//${llvm_root}clang/lib/Tooling/Core",
+    "//${llvm_root}llvm/lib/Support",
   ]
   if (clangd_build_xpc) {
     deps += [
-      "//clang-tools-extra/clangd/xpc:conversions",
-      "//clang-tools-extra/clangd/xpc:transport",
+      "//${llvm_root}clang-tools-extra/clangd/xpc:conversions",
+      "//${llvm_root}clang-tools-extra/clangd/xpc:transport",
     ]
   }
 
@@ -31,7 +31,7 @@ executable("clangd") {
     "..",
 
     # For "clang-include-cleaner/..." includes.
-    "//clang-tools-extra/include-cleaner/include",
+    "//${llvm_root}clang-tools-extra/include-cleaner/include",
   ]
   sources = [
     "Check.cpp",

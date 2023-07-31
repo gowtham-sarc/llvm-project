@@ -1,47 +1,47 @@
 import("//build_overrides/llvm.gni")
 
-import("//clang/lib/ARCMigrate/enable.gni")
-import("//clang/lib/StaticAnalyzer/Frontend/enable.gni")
+import("//${llvm_root}clang/lib/ARCMigrate/enable.gni")
+import("//${llvm_root}clang/lib/StaticAnalyzer/Frontend/enable.gni")
 import("//${llvm_build_root}build/toolchain/compiler.gni")
 
 group("default") {
   deps = [
-    "//clang-tools-extra/clangd/test",
-    "//clang-tools-extra/pseudo/test",
-    "//clang-tools-extra/test",
-    "//clang/test",
-    "//clang/tools/scan-build",
-    "//compiler-rt",
-    "//compiler-rt/include",
-    "//compiler-rt/lib/scudo",
-    "//lld/test",
-    "//lldb/test",
-    "//llvm/test",
+    "//${llvm_root}clang-tools-extra/clangd/test",
+    "//${llvm_root}clang-tools-extra/pseudo/test",
+    "//${llvm_root}clang-tools-extra/test",
+    "//${llvm_root}clang/test",
+    "//${llvm_root}clang/tools/scan-build",
+    "//${llvm_root}compiler-rt",
+    "//${llvm_root}compiler-rt/include",
+    "//${llvm_root}compiler-rt/lib/scudo",
+    "//${llvm_root}lld/test",
+    "//${llvm_root}lldb/test",
+    "//${llvm_root}llvm/test",
   ]
   if (current_os == "linux") {
     deps += [
-      "//libcxx",
-      "//libcxxabi",
+      "//${llvm_root}libcxx",
+      "//${llvm_root}libcxxabi",
     ]
   }
   if (current_os == "linux" || current_os == "win" || current_os=="mac") {
-    deps += [ "//compiler-rt/test/asan" ]
+    deps += [ "//${llvm_root}compiler-rt/test/asan" ]
   }
 
   if (current_os == "linux" || current_os == "mac") {
-    deps += [ "//compiler-rt/test/lsan"]
+    deps += [ "//${llvm_root}compiler-rt/test/lsan"]
   }
 
   if (current_os == "linux" || current_os == "android") {
-    deps += [ "//compiler-rt/test/hwasan" ]
+    deps += [ "//${llvm_root}compiler-rt/test/hwasan" ]
   }
   if (current_os == "linux" || current_os == "mac") {
-    deps += [ "//libunwind" ]
+    deps += [ "//${llvm_root}libunwind" ]
   }
 
   # FIXME: Add this on win after testing that it builds.
   if (current_os != "win") {
-    deps += [ "//bolt/test" ]
+    deps += [ "//${llvm_root}bolt/test" ]
   }
 
   testonly = true
@@ -70,60 +70,60 @@ group("default") {
 # new locations).
 # That seems simpler, more explicit, and good enough.
 group("clang") {
-  deps = [ "//clang/tools/driver:symlinks" ]
+  deps = [ "//${llvm_root}clang/tools/driver:symlinks" ]
 }
 group("lld") {
-  deps = [ "//lld/tools/lld:symlinks" ]
+  deps = [ "//${llvm_root}lld/tools/lld:symlinks" ]
 }
 group("llvm-ar") {
-  deps = [ "//llvm/tools/llvm-ar:symlinks" ]
+  deps = [ "//${llvm_root}llvm/tools/llvm-ar:symlinks" ]
 }
 if (current_os == "mac") {
   group("llvm-bolt") {
-    deps = [ "//bolt/tools/driver:symlinks" ]
+    deps = [ "//${llvm_root}bolt/tools/driver:symlinks" ]
   }
 }
 group("llvm-dwp") {
-  deps = [ "//llvm/tools/llvm-dwp:symlinks" ]
+  deps = [ "//${llvm_root}llvm/tools/llvm-dwp:symlinks" ]
 }
 group("llvm-nm") {
-  deps = [ "//llvm/tools/llvm-nm:symlinks" ]
+  deps = [ "//${llvm_root}llvm/tools/llvm-nm:symlinks" ]
 }
 group("llvm-cxxfilt") {
-  deps = [ "//llvm/tools/llvm-cxxfilt:symlinks" ]
+  deps = [ "//${llvm_root}llvm/tools/llvm-cxxfilt:symlinks" ]
 }
 group("llvm-debuginfod") {
-  deps = [ "//llvm/tools/llvm-debuginfod:symlinks" ]
+  deps = [ "//${llvm_root}llvm/tools/llvm-debuginfod:symlinks" ]
 }
 group("llvm-debuginfod-find") {
-  deps = [ "//llvm/tools/llvm-debuginfod-find:symlinks" ]
+  deps = [ "//${llvm_root}llvm/tools/llvm-debuginfod-find:symlinks" ]
 }
 group("llvm-libtool-darwin") {
-  deps = [ "//llvm/tools/llvm-libtool-darwin:symlinks" ]
+  deps = [ "//${llvm_root}llvm/tools/llvm-libtool-darwin:symlinks" ]
 }
 group("llvm-lipo") {
-  deps = [ "//llvm/tools/llvm-lipo:symlinks" ]
+  deps = [ "//${llvm_root}llvm/tools/llvm-lipo:symlinks" ]
 }
 group("llvm-objcopy") {
-  deps = [ "//llvm/tools/llvm-objcopy:symlinks" ]
+  deps = [ "//${llvm_root}llvm/tools/llvm-objcopy:symlinks" ]
 }
 group("llvm-objdump") {
-  deps = [ "//llvm/tools/llvm-objdump:symlinks" ]
+  deps = [ "//${llvm_root}llvm/tools/llvm-objdump:symlinks" ]
 }
 group("llvm-rc") {
-  deps = [ "//llvm/tools/llvm-rc:symlinks" ]
+  deps = [ "//${llvm_root}llvm/tools/llvm-rc:symlinks" ]
 }
 group("llvm-readobj") {
-  deps = [ "//llvm/tools/llvm-readobj:symlinks" ]
+  deps = [ "//${llvm_root}llvm/tools/llvm-readobj:symlinks" ]
 }
 group("llvm-size") {
-  deps = [ "//llvm/tools/llvm-size:symlinks" ]
+  deps = [ "//${llvm_root}llvm/tools/llvm-size:symlinks" ]
 }
 group("llvm-strings") {
-  deps = [ "//llvm/tools/llvm-strings:symlinks" ]
+  deps = [ "//${llvm_root}llvm/tools/llvm-strings:symlinks" ]
 }
 group("llvm-symbolizer") {
-  deps = [ "//llvm/tools/llvm-symbolizer:symlinks" ]
+  deps = [ "//${llvm_root}llvm/tools/llvm-symbolizer:symlinks" ]
 }
 
 # A pool called "console" in the root BUILD.gn is magic and represents ninja's

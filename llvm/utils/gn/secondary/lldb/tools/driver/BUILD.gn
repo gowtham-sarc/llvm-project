@@ -1,10 +1,10 @@
 import("//build_overrides/llvm.gni")
 
-import("//llvm/lib/Target/targets.gni")
-import("//llvm/utils/TableGen/tablegen.gni")
+import("//${llvm_root}llvm/lib/Target/targets.gni")
+import("//${llvm_root}llvm/utils/TableGen/tablegen.gni")
 import("//${llvm_build_root}build/toolchain/compiler.gni")
 import("//${llvm_build_root}build/write_cmake_config.gni")
-import("//llvm/version.gni")
+import("//${llvm_root}llvm/version.gni")
 
 tablegen("Options") {
   visibility = [ ":lldb" ]
@@ -25,10 +25,10 @@ executable("lldb") {
   configs += [ "//${llvm_build_root}build:lldb_code" ]
   deps = [
     ":Options",
-    "//lldb/include/lldb/Host:Config",
-    "//lldb/source/API:liblldb",
-    "//llvm/lib/Option",
-    "//llvm/lib/Support",
+    "//${llvm_root}lldb/include/lldb/Host:Config",
+    "//${llvm_root}lldb/source/API:liblldb",
+    "//${llvm_root}llvm/lib/Option",
+    "//${llvm_root}llvm/lib/Support",
     "//${llvm_build_root}build/libs/xar",
   ]
   if (current_os == "mac") {
@@ -38,10 +38,10 @@ executable("lldb") {
                 rebase_path(plist[0], root_out_dir) ]
   }
   if (current_os == "linux") {
-    deps += [ "//lldb/tools/lldb-server" ]
+    deps += [ "//${llvm_root}lldb/tools/lldb-server" ]
   }
   foreach(toolchain, supported_toolchains) {
-    deps += [ "//lldb/tools/lldb-server($toolchain)" ]
+    deps += [ "//${llvm_root}lldb/tools/lldb-server($toolchain)" ]
   }
 
   sources = [

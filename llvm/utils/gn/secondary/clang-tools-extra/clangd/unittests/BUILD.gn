@@ -1,6 +1,6 @@
 import("//build_overrides/llvm.gni")
 
-import("//clang-tools-extra/clangd/quality/gen_decision_forest.gni")
+import("//${llvm_root}clang-tools-extra/clangd/quality/gen_decision_forest.gni")
 import("//third-party/unittest/unittest.gni")
 
 gen_decision_forest("DecisionForestRuntimeTest") {
@@ -13,34 +13,34 @@ unittest("ClangdTests") {
   configs += [ "//${llvm_build_root}build:clang_code" ]
   deps = [
     ":DecisionForestRuntimeTest",
-    "//clang-tools-extra/clang-tidy",
-    "//clang-tools-extra/clangd",
-    "//clang-tools-extra/clangd:features",
-    "//clang-tools-extra/clangd/refactor/tweaks",
-    "//clang/lib/AST",
-    "//clang/lib/Basic",
-    "//clang/lib/Format",
-    "//clang/lib/Frontend",
-    "//clang/lib/Index",
-    "//clang/lib/Lex",
-    "//clang/lib/Sema",
-    "//clang/lib/Serialization",
-    "//clang/lib/Testing",
-    "//clang/lib/Tooling",
-    "//clang/lib/Tooling/Core",
-    "//clang/lib/Tooling/Inclusions",
-    "//clang/lib/Tooling/Syntax",
-    "//llvm/include/llvm/Config:llvm-config",
-    "//llvm/lib/Support",
-    "//llvm/lib/Testing/Annotations",
-    "//llvm/lib/Testing/Support",
+    "//${llvm_root}clang-tools-extra/clang-tidy",
+    "//${llvm_root}clang-tools-extra/clangd",
+    "//${llvm_root}clang-tools-extra/clangd:features",
+    "//${llvm_root}clang-tools-extra/clangd/refactor/tweaks",
+    "//${llvm_root}clang/lib/AST",
+    "//${llvm_root}clang/lib/Basic",
+    "//${llvm_root}clang/lib/Format",
+    "//${llvm_root}clang/lib/Frontend",
+    "//${llvm_root}clang/lib/Index",
+    "//${llvm_root}clang/lib/Lex",
+    "//${llvm_root}clang/lib/Sema",
+    "//${llvm_root}clang/lib/Serialization",
+    "//${llvm_root}clang/lib/Testing",
+    "//${llvm_root}clang/lib/Tooling",
+    "//${llvm_root}clang/lib/Tooling/Core",
+    "//${llvm_root}clang/lib/Tooling/Inclusions",
+    "//${llvm_root}clang/lib/Tooling/Syntax",
+    "//${llvm_root}llvm/include/llvm/Config:llvm-config",
+    "//${llvm_root}llvm/lib/Support",
+    "//${llvm_root}llvm/lib/Testing/Annotations",
+    "//${llvm_root}llvm/lib/Testing/Support",
   ]
   include_dirs = [
     ".",
-    "//clang-tools-extra/clangd",
+    "//${llvm_root}clang-tools-extra/clangd",
 
     # For "clang-include-cleaner/..." includes.
-    "//clang-tools-extra/include-cleaner/include",
+    "//${llvm_root}clang-tools-extra/include-cleaner/include",
 
     # To pick up the generated inc files.
     "$target_gen_dir/../../clangd/tool",

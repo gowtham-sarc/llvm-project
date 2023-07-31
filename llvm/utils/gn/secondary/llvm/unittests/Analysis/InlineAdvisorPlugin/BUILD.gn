@@ -6,7 +6,7 @@ if (host_os != "win") {
   loadable_module("InlineAdvisorPlugin") {
     # Put plugin next to the unit test executable.
     output_dir =
-        rebase_path(get_label_info("//llvm/unittests/Analysis:AnalysisTests",
+        rebase_path(get_label_info("//${llvm_root}llvm/unittests/Analysis:AnalysisTests",
                                    "target_out_dir"))
 
     sources = [ "InlineAdvisorPlugin.cpp" ]
@@ -14,7 +14,7 @@ if (host_os != "win") {
     deps = [
       # TestPlugin doesn't want to link in any LLVM code, it just needs its
       # headers.
-      "//llvm/include/llvm/IR:public_tablegen",
+      "//${llvm_root}llvm/include/llvm/IR:public_tablegen",
     ]
 
     if (host_os != "mac" && host_os != "win") {

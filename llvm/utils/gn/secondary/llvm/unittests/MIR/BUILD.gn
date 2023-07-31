@@ -4,16 +4,16 @@ import("//third-party/unittest/unittest.gni")
 
 unittest("MIRTests") {
   deps = [
-    "//llvm/lib/CodeGen",
-    "//llvm/lib/CodeGen/MIRParser",
-    "//llvm/lib/FileCheck",
-    "//llvm/lib/IR",
-    "//llvm/lib/MC",
-    "//llvm/lib/Support",
-    "//llvm/lib/Target",
-    "//llvm/lib/Target:TargetsToBuild",
-    "//llvm/lib/TargetParser",
-    "//llvm/lib/Testing/Support",
+    "//${llvm_root}llvm/lib/CodeGen",
+    "//${llvm_root}llvm/lib/CodeGen/MIRParser",
+    "//${llvm_root}llvm/lib/FileCheck",
+    "//${llvm_root}llvm/lib/IR",
+    "//${llvm_root}llvm/lib/MC",
+    "//${llvm_root}llvm/lib/Support",
+    "//${llvm_root}llvm/lib/Target",
+    "//${llvm_root}llvm/lib/Target:TargetsToBuild",
+    "//${llvm_root}llvm/lib/TargetParser",
+    "//${llvm_root}llvm/lib/Testing/Support",
   ]
   sources = [ "MachineMetadata.cpp" ]
 }

@@ -8,7 +8,7 @@ test_cflags = [ "-DSCUDO_DEBUG=1" ]
 unittest("ScudoUnitTest") {
   configs += [ "//${llvm_build_root}build:crt_code" ]
   cflags = test_cflags
-  deps = [ "//compiler-rt/lib/scudo/standalone:sources" ]
+  deps = [ "//${llvm_root}compiler-rt/lib/scudo/standalone:sources" ]
   sources = [
     "atomic_test.cpp",
     "bytemap_test.cpp",
@@ -42,8 +42,8 @@ unittest("ScudoCUnitTest") {
   configs += [ "//${llvm_build_root}build:crt_code" ]
   cflags = test_cflags
   deps = [
-    "//compiler-rt/lib/scudo/standalone:c_wrapper_sources",
-    "//compiler-rt/lib/scudo/standalone:sources",
+    "//${llvm_root}compiler-rt/lib/scudo/standalone:c_wrapper_sources",
+    "//${llvm_root}compiler-rt/lib/scudo/standalone:sources",
   ]
   sources = [
     "scudo_unit_test_main.cpp",
@@ -56,9 +56,9 @@ unittest("ScudoCxxUnitTest") {
   configs += [ "//${llvm_build_root}build:crt_code" ]
   cflags = test_cflags
   deps = [
-    "//compiler-rt/lib/scudo/standalone:c_wrapper_sources",
-    "//compiler-rt/lib/scudo/standalone:cxx_wrapper_sources",
-    "//compiler-rt/lib/scudo/standalone:sources",
+    "//${llvm_root}compiler-rt/lib/scudo/standalone:c_wrapper_sources",
+    "//${llvm_root}compiler-rt/lib/scudo/standalone:cxx_wrapper_sources",
+    "//${llvm_root}compiler-rt/lib/scudo/standalone:sources",
   ]
   sources = [
     "scudo_unit_test_main.cpp",
@@ -74,8 +74,8 @@ unittest("ScudoHooksUnitTest") {
   configs += [ "//${llvm_build_root}build:crt_code" ]
   cflags = test_cflags
   deps = [
-    "//compiler-rt/lib/scudo/standalone:c_wrapper_sources",
-    "//compiler-rt/lib/scudo/standalone:sources",
+    "//${llvm_root}compiler-rt/lib/scudo/standalone:c_wrapper_sources",
+    "//${llvm_root}compiler-rt/lib/scudo/standalone:sources",
   ]
   sources = [
     "scudo_hooks_test.cpp",

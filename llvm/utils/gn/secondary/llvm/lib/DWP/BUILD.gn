@@ -3,11 +3,11 @@ import("//build_overrides/llvm.gni")
 static_library("DWP") {
   output_name = "LLVMDWP"
   deps = [
-    "//llvm/lib/DebugInfo/DWARF",
-    "//llvm/lib/MC",
-    "//llvm/lib/Object",
-    "//llvm/lib/Support",
-    "//llvm/lib/Target",
+    "//${llvm_root}llvm/lib/DebugInfo/DWARF",
+    "//${llvm_root}llvm/lib/MC",
+    "//${llvm_root}llvm/lib/Object",
+    "//${llvm_root}llvm/lib/Support",
+    "//${llvm_root}llvm/lib/Target",
   ]
   sources = [
     "DWP.cpp",

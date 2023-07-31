@@ -4,13 +4,13 @@ import("//third-party/unittest/unittest.gni")
 
 unittest("DebugInfoLogicalViewTests") {
   deps = [
-    "//llvm/lib/DebugInfo/LogicalView",
-    "//llvm/lib/MC/MCDisassembler",
-    "//llvm/lib/Target:AllTargetsDescs",
-    "//llvm/lib/Target:AllTargetsDisassemblers",
-    "//llvm/lib/Target:AllTargetsInfos",
-    "//llvm/lib/TargetParser",
-    "//llvm/lib/Testing/Support",
+    "//${llvm_root}llvm/lib/DebugInfo/LogicalView",
+    "//${llvm_root}llvm/lib/MC/MCDisassembler",
+    "//${llvm_root}llvm/lib/Target:AllTargetsDescs",
+    "//${llvm_root}llvm/lib/Target:AllTargetsDisassemblers",
+    "//${llvm_root}llvm/lib/Target:AllTargetsInfos",
+    "//${llvm_root}llvm/lib/TargetParser",
+    "//${llvm_root}llvm/lib/Testing/Support",
   ]
   sources = [
     "CodeViewReaderTest.cpp",

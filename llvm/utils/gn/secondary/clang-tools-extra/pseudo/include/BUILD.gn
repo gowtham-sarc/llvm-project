@@ -4,7 +4,7 @@ import("//${llvm_build_root}build/compiled_action.gni")
 
 template("gen") {
   compiled_action(target_name) {
-    tool = "//clang-tools-extra/pseudo/gen:clang-pseudo-gen"
+    tool = "//${llvm_root}clang-tools-extra/pseudo/gen:clang-pseudo-gen"
     inputs = [ "../lib/cxx/cxx.bnf" ]
     outputs = [ "$target_gen_dir/$target_name" ]
     args = [

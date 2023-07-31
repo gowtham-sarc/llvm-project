@@ -1,6 +1,6 @@
 import("//build_overrides/llvm.gni")
 
-import("//llvm/utils/TableGen/tablegen.gni")
+import("//${llvm_root}llvm/utils/TableGen/tablegen.gni")
 
 tablegen("AArch64GenCallingConv") {
   visibility = [ ":LLVMAArch64CodeGen" ]
@@ -92,19 +92,19 @@ static_library("LLVMAArch64CodeGen") {
     "MCTargetDesc",
     "TargetInfo",
     "Utils",
-    "//llvm/lib/Analysis",
-    "//llvm/lib/CodeGen",
-    "//llvm/lib/CodeGen/AsmPrinter",
-    "//llvm/lib/CodeGen/GlobalISel",
-    "//llvm/lib/CodeGen/SelectionDAG",
-    "//llvm/lib/IR",
-    "//llvm/lib/MC",
-    "//llvm/lib/Support",
-    "//llvm/lib/Target",
-    "//llvm/lib/TargetParser",
-    "//llvm/lib/Transforms/CFGuard",
-    "//llvm/lib/Transforms/Scalar",
-    "//llvm/lib/Transforms/Utils",
+    "//${llvm_root}llvm/lib/Analysis",
+    "//${llvm_root}llvm/lib/CodeGen",
+    "//${llvm_root}llvm/lib/CodeGen/AsmPrinter",
+    "//${llvm_root}llvm/lib/CodeGen/GlobalISel",
+    "//${llvm_root}llvm/lib/CodeGen/SelectionDAG",
+    "//${llvm_root}llvm/lib/IR",
+    "//${llvm_root}llvm/lib/MC",
+    "//${llvm_root}llvm/lib/Support",
+    "//${llvm_root}llvm/lib/Target",
+    "//${llvm_root}llvm/lib/TargetParser",
+    "//${llvm_root}llvm/lib/Transforms/CFGuard",
+    "//${llvm_root}llvm/lib/Transforms/Scalar",
+    "//${llvm_root}llvm/lib/Transforms/Utils",
   ]
   include_dirs = [ "." ]
   sources = [
@@ -168,10 +168,10 @@ static_library("LLVMAArch64CodeGen") {
 }
 
 # This is a bit different from most build files: Due to this group
-# having the directory's name, "//llvm/lib/Target/AArch64" will refer to this
+# having the directory's name, "//${llvm_root}llvm/lib/Target/AArch64" will refer to this
 # target, which pulls in the code in this directory *and all subdirectories*.
-# For most other directories, "//llvm/lib/Foo" only pulls in the code directly
-# in "llvm/lib/Foo". The forwarding targets in //llvm/lib/Target expect this
+# For most other directories, "//${llvm_root}llvm/lib/Foo" only pulls in the code directly
+# in "llvm/lib/Foo". The forwarding targets in //${llvm_root}llvm/lib/Target expect this
 # different behavior.
 group("AArch64") {
   deps = [

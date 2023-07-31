@@ -2,17 +2,17 @@ import("//build_overrides/llvm.gni")
 
 executable("sancov") {
   deps = [
-    "//llvm/lib/DebugInfo/DWARF",
-    "//llvm/lib/DebugInfo/PDB",
-    "//llvm/lib/DebugInfo/Symbolize",
-    "//llvm/lib/MC",
-    "//llvm/lib/MC/MCDisassembler",
-    "//llvm/lib/Object",
-    "//llvm/lib/Support",
-    "//llvm/lib/Target:AllTargetsDescs",
-    "//llvm/lib/Target:AllTargetsDisassemblers",
-    "//llvm/lib/Target:AllTargetsInfos",
-    "//llvm/lib/TargetParser",
+    "//${llvm_root}llvm/lib/DebugInfo/DWARF",
+    "//${llvm_root}llvm/lib/DebugInfo/PDB",
+    "//${llvm_root}llvm/lib/DebugInfo/Symbolize",
+    "//${llvm_root}llvm/lib/MC",
+    "//${llvm_root}llvm/lib/MC/MCDisassembler",
+    "//${llvm_root}llvm/lib/Object",
+    "//${llvm_root}llvm/lib/Support",
+    "//${llvm_root}llvm/lib/Target:AllTargetsDescs",
+    "//${llvm_root}llvm/lib/Target:AllTargetsDisassemblers",
+    "//${llvm_root}llvm/lib/Target:AllTargetsInfos",
+    "//${llvm_root}llvm/lib/TargetParser",
   ]
   sources = [ "sancov.cpp" ]
 }

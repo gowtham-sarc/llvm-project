@@ -1,6 +1,6 @@
 import("//build_overrides/llvm.gni")
 
-import("//llvm/utils/TableGen/tablegen.gni")
+import("//${llvm_root}llvm/utils/TableGen/tablegen.gni")
 
 tablegen("X86GenAsmWriter") {
   visibility = [ ":MCTargetDesc" ]
@@ -59,13 +59,13 @@ static_library("MCTargetDesc") {
   deps = [
     ":X86GenAsmWriter",
     ":X86GenAsmWriter1",
-    "//llvm/lib/CodeGen",
-    "//llvm/lib/MC",
-    "//llvm/lib/MC/MCDisassembler",
-    "//llvm/lib/Object",
-    "//llvm/lib/Support",
-    "//llvm/lib/Target/X86/TargetInfo",
-    "//llvm/lib/TargetParser",
+    "//${llvm_root}llvm/lib/CodeGen",
+    "//${llvm_root}llvm/lib/MC",
+    "//${llvm_root}llvm/lib/MC/MCDisassembler",
+    "//${llvm_root}llvm/lib/Object",
+    "//${llvm_root}llvm/lib/Support",
+    "//${llvm_root}llvm/lib/Target/X86/TargetInfo",
+    "//${llvm_root}llvm/lib/TargetParser",
   ]
   include_dirs = [ ".." ]
   sources = [

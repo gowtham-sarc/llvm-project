@@ -4,12 +4,12 @@ import("//third-party/unittest/unittest.gni")
 
 unittest("RISCVTests") {
   deps = [
-    "//llvm/lib/MC",
-    "//llvm/lib/Target/RISCV:LLVMRISCVCodeGen",
-    "//llvm/lib/Target/RISCV/MCTargetDesc",
-    "//llvm/lib/Target/RISCV/TargetInfo",
-    "//llvm/lib/TargetParser",
+    "//${llvm_root}llvm/lib/MC",
+    "//${llvm_root}llvm/lib/Target/RISCV:LLVMRISCVCodeGen",
+    "//${llvm_root}llvm/lib/Target/RISCV/MCTargetDesc",
+    "//${llvm_root}llvm/lib/Target/RISCV/TargetInfo",
+    "//${llvm_root}llvm/lib/TargetParser",
   ]
-  include_dirs = [ "//llvm/lib/Target/RISCV" ]
+  include_dirs = [ "//${llvm_root}llvm/lib/Target/RISCV" ]
   sources = [ "MCInstrAnalysisTest.cpp" ]
 }

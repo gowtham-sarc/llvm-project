@@ -4,13 +4,13 @@ import("//third-party/unittest/unittest.gni")
 
 unittest("ExecutionEngineTests") {
   deps = [
-    "//llvm/lib/ExecutionEngine",
-    "//llvm/lib/ExecutionEngine/Interpreter",
-    "//llvm/lib/ExecutionEngine/Orc",
-    "//llvm/lib/ExecutionEngine/RuntimeDyld",
-    "//llvm/lib/IR",
-    "//llvm/lib/MC",
-    "//llvm/lib/Support",
+    "//${llvm_root}llvm/lib/ExecutionEngine",
+    "//${llvm_root}llvm/lib/ExecutionEngine/Interpreter",
+    "//${llvm_root}llvm/lib/ExecutionEngine/Orc",
+    "//${llvm_root}llvm/lib/ExecutionEngine/RuntimeDyld",
+    "//${llvm_root}llvm/lib/IR",
+    "//${llvm_root}llvm/lib/MC",
+    "//${llvm_root}llvm/lib/Support",
   ]
   sources = [ "ExecutionEngineTest.cpp" ]
 }

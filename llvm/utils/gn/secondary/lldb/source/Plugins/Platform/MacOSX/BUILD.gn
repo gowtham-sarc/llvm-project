@@ -1,6 +1,6 @@
 import("//build_overrides/llvm.gni")
 
-import("//lldb/utils/TableGen/lldb_tablegen.gni")
+import("//${llvm_root}lldb/utils/TableGen/lldb_tablegen.gni")
 
 lldb_tablegen("PlatformMacOSXProperties") {
   args = [ "-gen-lldb-property-defs" ]
@@ -20,23 +20,23 @@ static_library("MacOSX") {
   deps = [
     ":PlatformMacOSXProperties",
     ":PlatformMacOSXPropertiesEnum",
-    "//clang/lib/Basic",
-    "//lldb/source/Breakpoint",
-    "//lldb/source/Core",
-    "//lldb/source/Host",
-    "//lldb/source/Interpreter",
-    "//lldb/source/Plugins/DynamicLoader/Darwin-Kernel",
-    "//lldb/source/Plugins/ObjectContainer/Mach-O-Fileset",
-    "//lldb/source/Plugins/Platform/POSIX",
-    "//lldb/source/Symbol",
-    "//lldb/source/Target",
-    "//lldb/source/Utility",
-    "//llvm/lib/Support",
-    "//llvm/lib/TargetParser",
+    "//${llvm_root}clang/lib/Basic",
+    "//${llvm_root}lldb/source/Breakpoint",
+    "//${llvm_root}lldb/source/Core",
+    "//${llvm_root}lldb/source/Host",
+    "//${llvm_root}lldb/source/Interpreter",
+    "//${llvm_root}lldb/source/Plugins/DynamicLoader/Darwin-Kernel",
+    "//${llvm_root}lldb/source/Plugins/ObjectContainer/Mach-O-Fileset",
+    "//${llvm_root}lldb/source/Plugins/Platform/POSIX",
+    "//${llvm_root}lldb/source/Symbol",
+    "//${llvm_root}lldb/source/Target",
+    "//${llvm_root}lldb/source/Utility",
+    "//${llvm_root}llvm/lib/Support",
+    "//${llvm_root}llvm/lib/TargetParser",
   ]
 
   # Reaches into Plugins/Platform/POSIX.
-  include_dirs = [ "//lldb/source" ]
+  include_dirs = [ "//${llvm_root}lldb/source" ]
   sources = [
     "PlatformDarwin.cpp",
     "PlatformDarwinDevice.cpp",

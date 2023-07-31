@@ -4,15 +4,15 @@ static_library("Frontend") {
   output_name = "clangStaticAnalyzerFrontend"
   configs += [ "//${llvm_build_root}build:clang_code" ]
   deps = [
-    "//clang/lib/AST",
-    "//clang/lib/Analysis",
-    "//clang/lib/Basic",
-    "//clang/lib/CrossTU",
-    "//clang/lib/Frontend",
-    "//clang/lib/Lex",
-    "//clang/lib/StaticAnalyzer/Checkers",
-    "//clang/lib/StaticAnalyzer/Core",
-    "//llvm/lib/Support",
+    "//${llvm_root}clang/lib/AST",
+    "//${llvm_root}clang/lib/Analysis",
+    "//${llvm_root}clang/lib/Basic",
+    "//${llvm_root}clang/lib/CrossTU",
+    "//${llvm_root}clang/lib/Frontend",
+    "//${llvm_root}clang/lib/Lex",
+    "//${llvm_root}clang/lib/StaticAnalyzer/Checkers",
+    "//${llvm_root}clang/lib/StaticAnalyzer/Core",
+    "//${llvm_root}llvm/lib/Support",
   ]
   sources = [
     "AnalysisConsumer.cpp",

@@ -4,10 +4,10 @@ static_library("BSD-Archive") {
   output_name = "lldbPluginObjectContainerBSDArchive"
   configs += [ "//${llvm_build_root}build:lldb_code" ]
   deps = [
-    "//lldb/source/Core",
-    "//lldb/source/Host",
-    "//lldb/source/Symbol",
-    "//llvm/lib/Support",
+    "//${llvm_root}lldb/source/Core",
+    "//${llvm_root}lldb/source/Host",
+    "//${llvm_root}lldb/source/Symbol",
+    "//${llvm_root}llvm/lib/Support",
   ]
   sources = [ "ObjectContainerBSDArchive.cpp" ]
 }

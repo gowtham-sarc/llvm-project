@@ -34,8 +34,8 @@ unittest("DynamicLibraryTests") {
   deps = [
     ":PipSqueak",
     ":SecondLib",
-    "//llvm/include/llvm/Config:config",
-    "//llvm/lib/Support",
+    "//${llvm_root}llvm/include/llvm/Config:config",
+    "//${llvm_root}llvm/lib/Support",
   ]
   sources = [
     "DynamicLibraryTest.cpp",

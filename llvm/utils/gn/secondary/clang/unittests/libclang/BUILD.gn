@@ -4,7 +4,7 @@ import("//third-party/unittest/unittest.gni")
 
 unittest("libclangTests") {
   configs += [ "//${llvm_build_root}build:clang_code" ]
-  deps = [ "//clang/tools/libclang" ]
+  deps = [ "//${llvm_root}clang/tools/libclang" ]
   sources = [ "LibclangTest.cpp" ]
   if (host_os == "mac") {
     ldflags = [ "-Wl,-rpath," + rebase_path("$root_out_dir/lib") ]

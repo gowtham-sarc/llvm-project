@@ -1,13 +1,13 @@
 import("//build_overrides/llvm.gni")
 
-import("//clang/lib/ARCMigrate/enable.gni")
-import("//clang/lib/StaticAnalyzer/Frontend/enable.gni")
-import("//llvm/lib/Target/targets.gni")
-import("//llvm/triples.gni")
+import("//${llvm_root}clang/lib/ARCMigrate/enable.gni")
+import("//${llvm_root}clang/lib/StaticAnalyzer/Frontend/enable.gni")
+import("//${llvm_root}llvm/lib/Target/targets.gni")
+import("//${llvm_root}llvm/triples.gni")
 import("//${llvm_build_root}build/libs/pthread/enable.gni")
 import("//${llvm_build_root}build/libs/zlib/enable.gni")
 import("//${llvm_build_root}build/write_cmake_config.gni")
-import("//llvm/utils/llvm-lit/lit_path_function.gni")
+import("//${llvm_root}llvm/utils/llvm-lit/lit_path_function.gni")
 import("clang_lit_site_cfg_files.gni")
 
 template("write_lit_config") {
@@ -40,7 +40,7 @@ template("write_lit_config") {
 
 write_lit_config("lit_site_cfg") {
   # Fully-qualified instead of relative for LIT_SITE_CFG_IN_HEADER.
-  input = "//clang/test/lit.site.cfg.py.in"
+  input = "//${llvm_root}clang/test/lit.site.cfg.py.in"
   output = clang_lit_site_cfg_file
   dir = get_path_info(output, "dir")
   extra_values = [
@@ -133,7 +133,7 @@ write_lit_config("lit_site_cfg") {
 
 write_lit_config("lit_unit_site_cfg") {
   # Fully-qualified instead of relative for LIT_SITE_CFG_IN_HEADER.
-  input = "//clang/test/Unit/lit.site.cfg.py.in"
+  input = "//${llvm_root}clang/test/Unit/lit.site.cfg.py.in"
   output = clang_lit_unit_site_cfg_file
   extra_values = [ "LLVM_BUILD_MODE=." ]
 }
@@ -145,62 +145,62 @@ group("test") {
   deps = [
     ":lit_site_cfg",
     ":lit_unit_site_cfg",
-    "//clang/lib/Headers",
-    "//clang/tools/apinotes-test",
-    "//clang/tools/c-index-test",
-    "//clang/tools/clang-diff",
-    "//clang/tools/clang-format",
-    "//clang/tools/clang-fuzzer/dictionary:clang-fuzzer-dictionary",
-    "//clang/tools/clang-import-test",
-    "//clang/tools/clang-offload-bundler",
-    "//clang/tools/clang-refactor",
-    "//clang/tools/clang-rename",
-    "//clang/tools/clang-repl",
-    "//clang/tools/clang-scan-deps",
-    "//clang/tools/diagtool",
-    "//clang/tools/driver:symlinks",
-    "//clang/unittests",
-    "//clang/utils/TableGen:clang-tblgen",
-    "//clang/utils/hmaptool",
-    "//llvm/tools/llc",
-    "//llvm/tools/llvm-ar:symlinks",
-    "//llvm/tools/llvm-as",
-    "//llvm/tools/llvm-bcanalyzer",
-    "//llvm/tools/llvm-cat",
-    "//llvm/tools/llvm-config",
-    "//llvm/tools/llvm-cxxfilt",
-    "//llvm/tools/llvm-dis",
-    "//llvm/tools/llvm-dwarfdump",
-    "//llvm/tools/llvm-ifs",
-    "//llvm/tools/llvm-lto",
-    "//llvm/tools/llvm-lto2",
-    "//llvm/tools/llvm-modextract",
-    "//llvm/tools/llvm-nm:symlinks",
-    "//llvm/tools/llvm-objcopy:symlinks",
-    "//llvm/tools/llvm-objdump:symlinks",
-    "//llvm/tools/llvm-pdbutil",
-    "//llvm/tools/llvm-profdata",
-    "//llvm/tools/llvm-rc:symlinks",
-    "//llvm/tools/llvm-readobj:symlinks",
-    "//llvm/tools/llvm-symbolizer:symlinks",
-    "//llvm/tools/opt",
-    "//llvm/tools/yaml2obj",
-    "//llvm/utils/FileCheck",
-    "//llvm/utils/count",
-    "//llvm/utils/llvm-lit",
-    "//llvm/utils/not",
-    "//llvm/utils/split-file",
+    "//${llvm_root}clang/lib/Headers",
+    "//${llvm_root}clang/tools/apinotes-test",
+    "//${llvm_root}clang/tools/c-index-test",
+    "//${llvm_root}clang/tools/clang-diff",
+    "//${llvm_root}clang/tools/clang-format",
+    "//${llvm_root}clang/tools/clang-fuzzer/dictionary:clang-fuzzer-dictionary",
+    "//${llvm_root}clang/tools/clang-import-test",
+    "//${llvm_root}clang/tools/clang-offload-bundler",
+    "//${llvm_root}clang/tools/clang-refactor",
+    "//${llvm_root}clang/tools/clang-rename",
+    "//${llvm_root}clang/tools/clang-repl",
+    "//${llvm_root}clang/tools/clang-scan-deps",
+    "//${llvm_root}clang/tools/diagtool",
+    "//${llvm_root}clang/tools/driver:symlinks",
+    "//${llvm_root}clang/unittests",
+    "//${llvm_root}clang/utils/TableGen:clang-tblgen",
+    "//${llvm_root}clang/utils/hmaptool",
+    "//${llvm_root}llvm/tools/llc",
+    "//${llvm_root}llvm/tools/llvm-ar:symlinks",
+    "//${llvm_root}llvm/tools/llvm-as",
+    "//${llvm_root}llvm/tools/llvm-bcanalyzer",
+    "//${llvm_root}llvm/tools/llvm-cat",
+    "//${llvm_root}llvm/tools/llvm-config",
+    "//${llvm_root}llvm/tools/llvm-cxxfilt",
+    "//${llvm_root}llvm/tools/llvm-dis",
+    "//${llvm_root}llvm/tools/llvm-dwarfdump",
+    "//${llvm_root}llvm/tools/llvm-ifs",
+    "//${llvm_root}llvm/tools/llvm-lto",
+    "//${llvm_root}llvm/tools/llvm-lto2",
+    "//${llvm_root}llvm/tools/llvm-modextract",
+    "//${llvm_root}llvm/tools/llvm-nm:symlinks",
+    "//${llvm_root}llvm/tools/llvm-objcopy:symlinks",
+    "//${llvm_root}llvm/tools/llvm-objdump:symlinks",
+    "//${llvm_root}llvm/tools/llvm-pdbutil",
+    "//${llvm_root}llvm/tools/llvm-profdata",
+    "//${llvm_root}llvm/tools/llvm-rc:symlinks",
+    "//${llvm_root}llvm/tools/llvm-readobj:symlinks",
+    "//${llvm_root}llvm/tools/llvm-symbolizer:symlinks",
+    "//${llvm_root}llvm/tools/opt",
+    "//${llvm_root}llvm/tools/yaml2obj",
+    "//${llvm_root}llvm/utils/FileCheck",
+    "//${llvm_root}llvm/utils/count",
+    "//${llvm_root}llvm/utils/llvm-lit",
+    "//${llvm_root}llvm/utils/not",
+    "//${llvm_root}llvm/utils/split-file",
   ]
   if (clang_enable_arcmt) {
     deps += [
-      "//clang/tools/arcmt-test",
-      "//clang/tools/c-arcmt-test",
+      "//${llvm_root}clang/tools/arcmt-test",
+      "//${llvm_root}clang/tools/c-arcmt-test",
     ]
   }
   if (clang_enable_static_analyzer) {
     deps += [
-      "//clang/tools/clang-check",
-      "//clang/tools/clang-extdef-mapping",
+      "//${llvm_root}clang/tools/clang-check",
+      "//${llvm_root}clang/tools/clang-extdef-mapping",
     ]
   }
 

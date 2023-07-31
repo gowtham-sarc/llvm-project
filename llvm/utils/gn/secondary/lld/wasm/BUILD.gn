@@ -1,6 +1,6 @@
 import("//build_overrides/llvm.gni")
 
-import("//llvm/utils/TableGen/tablegen.gni")
+import("//${llvm_root}llvm/utils/TableGen/tablegen.gni")
 
 tablegen("Options") {
   visibility = [ ":wasm" ]
@@ -12,13 +12,13 @@ static_library("wasm") {
   configs += [ "//${llvm_build_root}build:lld_code" ]
   deps = [
     ":Options",
-    "//lld/Common",
-    "//llvm/lib/BinaryFormat",
-    "//llvm/lib/Demangle",
-    "//llvm/lib/IR",
-    "//llvm/lib/Object",
-    "//llvm/lib/Option",
-    "//llvm/lib/TargetParser",
+    "//${llvm_root}lld/Common",
+    "//${llvm_root}llvm/lib/BinaryFormat",
+    "//${llvm_root}llvm/lib/Demangle",
+    "//${llvm_root}llvm/lib/IR",
+    "//${llvm_root}llvm/lib/Object",
+    "//${llvm_root}llvm/lib/Option",
+    "//${llvm_root}llvm/lib/TargetParser",
   ]
   sources = [
     "Driver.cpp",

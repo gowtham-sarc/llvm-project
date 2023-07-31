@@ -1,6 +1,6 @@
 import("//build_overrides/llvm.gni")
 
-import("//llvm/utils/TableGen/tablegen.gni")
+import("//${llvm_root}llvm/utils/TableGen/tablegen.gni")
 import("//third-party/unittest/unittest.gni")
 
 tablegen("AutomataAutomata") {
@@ -19,11 +19,11 @@ unittest("TableGenTests") {
   deps = [
     ":AutomataAutomata",
     ":AutomataTables",
-    "//llvm/lib/Support",
-    "//llvm/lib/TableGen",
-    "//llvm/utils/TableGen/GlobalISel",
+    "//${llvm_root}llvm/lib/Support",
+    "//${llvm_root}llvm/lib/TableGen",
+    "//${llvm_root}llvm/utils/TableGen/GlobalISel",
   ]
-  include_dirs = [ "//llvm/utils/TableGen" ]
+  include_dirs = [ "//${llvm_root}llvm/utils/TableGen" ]
   sources = [
     "AutomataTest.cpp",
     "CodeExpanderTest.cpp",

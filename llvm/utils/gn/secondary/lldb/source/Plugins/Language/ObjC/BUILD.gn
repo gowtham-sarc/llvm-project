@@ -7,23 +7,23 @@ static_library("ObjC") {
     "//${llvm_build_root}build:lldb_code",
   ]
   deps = [
-    "//clang/lib/AST",
-    "//lldb/source/Core",
-    "//lldb/source/DataFormatters",
-    "//lldb/source/Expression",
-    "//lldb/source/Host",
-    "//lldb/source/Plugins/Language/ClangCommon",
-    "//lldb/source/Plugins/LanguageRuntime/ObjC/AppleObjCRuntime",
-    "//lldb/source/Symbol",
-    "//lldb/source/Target",
-    "//lldb/source/Utility",
+    "//${llvm_root}clang/lib/AST",
+    "//${llvm_root}lldb/source/Core",
+    "//${llvm_root}lldb/source/DataFormatters",
+    "//${llvm_root}lldb/source/Expression",
+    "//${llvm_root}lldb/source/Host",
+    "//${llvm_root}lldb/source/Plugins/Language/ClangCommon",
+    "//${llvm_root}lldb/source/Plugins/LanguageRuntime/ObjC/AppleObjCRuntime",
+    "//${llvm_root}lldb/source/Symbol",
+    "//${llvm_root}lldb/source/Target",
+    "//${llvm_root}lldb/source/Utility",
 
-    #"//lldb/source/Plugins/TypeSystem/Clang", # 3-hop dependency cycle.
-    "//llvm/lib/Support",
+    #"//${llvm_root}lldb/source/Plugins/TypeSystem/Clang", # 3-hop dependency cycle.
+    "//${llvm_root}llvm/lib/Support",
   ]
 
   # Uses source-relative includes for own headers.
-  include_dirs = [ "//lldb/source" ]
+  include_dirs = [ "//${llvm_root}lldb/source" ]
   sources = [
     "CF.cpp",
     "CFBasicHash.cpp",

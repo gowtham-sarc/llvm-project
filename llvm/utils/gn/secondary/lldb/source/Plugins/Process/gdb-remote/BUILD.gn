@@ -1,6 +1,6 @@
 import("//build_overrides/llvm.gni")
 
-import("//lldb/utils/TableGen/lldb_tablegen.gni")
+import("//${llvm_root}lldb/utils/TableGen/lldb_tablegen.gni")
 
 lldb_tablegen("ProcessGDBRemoteProperties") {
   args = [ "-gen-lldb-property-defs" ]
@@ -17,23 +17,23 @@ static_library("gdb-remote") {
   deps = [
     ":ProcessGDBRemoteProperties",
     ":ProcessGDBRemotePropertiesEnum",
-    "//lldb/source/Breakpoint",
-    "//lldb/source/Core",
-    "//lldb/source/DataFormatters",
-    "//lldb/source/Host",
-    "//lldb/source/Interpreter",
-    "//lldb/source/Plugins/Platform/MacOSX",
-    "//lldb/source/Plugins/Process/Utility",
-    "//lldb/source/Symbol",
-    "//lldb/source/Target",
-    "//lldb/source/Utility",
-    "//llvm/lib/Support",
-    "//llvm/lib/TargetParser",
+    "//${llvm_root}lldb/source/Breakpoint",
+    "//${llvm_root}lldb/source/Core",
+    "//${llvm_root}lldb/source/DataFormatters",
+    "//${llvm_root}lldb/source/Host",
+    "//${llvm_root}lldb/source/Interpreter",
+    "//${llvm_root}lldb/source/Plugins/Platform/MacOSX",
+    "//${llvm_root}lldb/source/Plugins/Process/Utility",
+    "//${llvm_root}lldb/source/Symbol",
+    "//${llvm_root}lldb/source/Target",
+    "//${llvm_root}lldb/source/Utility",
+    "//${llvm_root}llvm/lib/Support",
+    "//${llvm_root}llvm/lib/TargetParser",
   ]
 
   # XXX if (have_libcompression) { deps += [ compression } }
   # Reaches into Plugins/Process/Utility.
-  include_dirs = [ "//lldb/source" ]
+  include_dirs = [ "//${llvm_root}lldb/source" ]
   sources = [
     "GDBRemoteClientBase.cpp",
     "GDBRemoteCommunication.cpp",

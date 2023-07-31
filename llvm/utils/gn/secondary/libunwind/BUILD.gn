@@ -1,6 +1,6 @@
 import("//build_overrides/llvm.gni")
 
-import("//llvm/lib/Target/targets.gni")
+import("//${llvm_root}llvm/lib/Target/targets.gni")
 import("//${llvm_build_root}build/toolchain/compiler.gni")
 
 supported_toolchains = [ "//${llvm_build_root}build/toolchain:stage2_unix" ] +
@@ -9,6 +9,6 @@ supported_toolchains = [ "//${llvm_build_root}build/toolchain:stage2_unix" ] +
 group("libunwind") {
   deps = []
   foreach(toolchain, supported_toolchains) {
-    deps += [ "//libunwind/src($toolchain)" ]
+    deps += [ "//${llvm_root}libunwind/src($toolchain)" ]
   }
 }

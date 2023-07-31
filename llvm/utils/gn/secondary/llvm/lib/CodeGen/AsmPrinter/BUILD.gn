@@ -3,19 +3,19 @@ import("//build_overrides/llvm.gni")
 static_library("AsmPrinter") {
   output_name = "LLVMAsmPrinter"
   deps = [
-    "//llvm/lib/Analysis",
-    "//llvm/lib/BinaryFormat",
-    "//llvm/lib/CodeGen",
-    "//llvm/lib/DebugInfo/CodeView",
-    "//llvm/lib/DebugInfo/DWARF",
-    "//llvm/lib/DebugInfo/MSF",
-    "//llvm/lib/IR",
-    "//llvm/lib/MC",
-    "//llvm/lib/MC/MCParser",
-    "//llvm/lib/Remarks",
-    "//llvm/lib/Support",
-    "//llvm/lib/Target",
-    "//llvm/lib/TargetParser",
+    "//${llvm_root}llvm/lib/Analysis",
+    "//${llvm_root}llvm/lib/BinaryFormat",
+    "//${llvm_root}llvm/lib/CodeGen",
+    "//${llvm_root}llvm/lib/DebugInfo/CodeView",
+    "//${llvm_root}llvm/lib/DebugInfo/DWARF",
+    "//${llvm_root}llvm/lib/DebugInfo/MSF",
+    "//${llvm_root}llvm/lib/IR",
+    "//${llvm_root}llvm/lib/MC",
+    "//${llvm_root}llvm/lib/MC/MCParser",
+    "//${llvm_root}llvm/lib/Remarks",
+    "//${llvm_root}llvm/lib/Support",
+    "//${llvm_root}llvm/lib/Target",
+    "//${llvm_root}llvm/lib/TargetParser",
   ]
   sources = [
     "AIXException.cpp",

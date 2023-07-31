@@ -25,7 +25,7 @@ import("//build_overrides/llvm.gni")
 #     td_file = "CoreProperties.td"
 #   }
 
-import("//llvm/utils/TableGen/tablegen.gni")
+import("//${llvm_root}llvm/utils/TableGen/tablegen.gni")
 
 template("lldb_tablegen") {
   tablegen(target_name) {
@@ -38,8 +38,8 @@ template("lldb_tablegen") {
 
     args = [
              #"-I",
-             #rebase_path("//lldb/include", root_build_dir),
+             #rebase_path("//${llvm_root}lldb/include", root_build_dir),
            ] + invoker.args
-    tblgen_target = "//lldb/utils/TableGen:lldb-tblgen"
+    tblgen_target = "//${llvm_root}lldb/utils/TableGen:lldb-tblgen"
   }
 }

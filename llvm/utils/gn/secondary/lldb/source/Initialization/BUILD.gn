@@ -4,16 +4,16 @@ static_library("Initialization") {
   output_name = "lldbInitialization"
   configs += [ "//${llvm_build_root}build:lldb_code" ]
   deps = [
-    "//lldb/source/Core",
-    "//lldb/source/Host",
-    "//lldb/source/Plugins/Process/gdb-remote",
-    "//llvm/lib/Support",
+    "//${llvm_root}lldb/source/Core",
+    "//${llvm_root}lldb/source/Host",
+    "//${llvm_root}lldb/source/Plugins/Process/gdb-remote",
+    "//${llvm_root}llvm/lib/Support",
   ]
 
   if (current_os == "linux" || current_os == "android") {
-    deps += [ "//lldb/source/Plugins/Process/POSIX" ]
+    deps += [ "//${llvm_root}lldb/source/Plugins/Process/POSIX" ]
   } else if (current_os == "win") {
-    deps += [ "//lldb/source/Plugins/Process/Windows/Common" ]
+    deps += [ "//${llvm_root}lldb/source/Plugins/Process/Windows/Common" ]
   }
 
   # SystemInitializerCommon.cpp includes headers from Plugins/Process/....

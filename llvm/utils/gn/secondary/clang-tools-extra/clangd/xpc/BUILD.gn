@@ -4,9 +4,9 @@ static_library("conversions") {
   output_name = "clangdXpcJsonConversions"
   configs += [ "//${llvm_build_root}build:clang_code" ]
   deps = [
-    "//clang-tools-extra/clangd",
-    "//clang-tools-extra/clangd/support",
-    "//llvm/lib/Support",
+    "//${llvm_root}clang-tools-extra/clangd",
+    "//${llvm_root}clang-tools-extra/clangd/support",
+    "//${llvm_root}llvm/lib/Support",
   ]
   include_dirs = [ ".." ]
   sources = [ "Conversion.cpp" ]
@@ -17,10 +17,10 @@ static_library("transport") {
   configs += [ "//${llvm_build_root}build:clang_code" ]
   deps = [
     ":conversions",
-    "//clang-tools-extra/clangd",
-    "//clang-tools-extra/clangd:features",
-    "//clang-tools-extra/clangd/support",
-    "//llvm/lib/Support",
+    "//${llvm_root}clang-tools-extra/clangd",
+    "//${llvm_root}clang-tools-extra/clangd:features",
+    "//${llvm_root}clang-tools-extra/clangd/support",
+    "//${llvm_root}llvm/lib/Support",
   ]
   include_dirs = [ ".." ]
   sources = [ "XPCTransport.cpp" ]

@@ -3,14 +3,14 @@ import("//build_overrides/llvm.gni")
 executable("clang-rename") {
   configs += [ "//${llvm_build_root}build:clang_code" ]
   deps = [
-    "//clang/lib/Basic",
-    "//clang/lib/Frontend",
-    "//clang/lib/Rewrite",
-    "//clang/lib/Tooling",
-    "//clang/lib/Tooling/Core",
-    "//clang/lib/Tooling/Refactoring",
-    "//llvm/lib/Option",
-    "//llvm/lib/Support",
+    "//${llvm_root}clang/lib/Basic",
+    "//${llvm_root}clang/lib/Frontend",
+    "//${llvm_root}clang/lib/Rewrite",
+    "//${llvm_root}clang/lib/Tooling",
+    "//${llvm_root}clang/lib/Tooling/Core",
+    "//${llvm_root}clang/lib/Tooling/Refactoring",
+    "//${llvm_root}llvm/lib/Option",
+    "//${llvm_root}llvm/lib/Support",
   ]
   sources = [ "ClangRename.cpp" ]
 }

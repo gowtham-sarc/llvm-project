@@ -1,6 +1,6 @@
 import("//build_overrides/llvm.gni")
 
-import("//llvm/utils/TableGen/tablegen.gni")
+import("//${llvm_root}llvm/utils/TableGen/tablegen.gni")
 
 tablegen("Options") {
   visibility = [ ":llvm-dwarfutil" ]
@@ -10,20 +10,20 @@ tablegen("Options") {
 executable("llvm-dwarfutil") {
   deps = [
     ":Options",
-    "//llvm/lib/CodeGen",
-    "//llvm/lib/DWARFLinker",
-    "//llvm/lib/DWARFLinkerParallel",
-    "//llvm/lib/DebugInfo/DWARF",
-    "//llvm/lib/MC",
-    "//llvm/lib/ObjCopy",
-    "//llvm/lib/Object",
-    "//llvm/lib/Option",
-    "//llvm/lib/Support",
-    "//llvm/lib/Target",
-    "//llvm/lib/Target:AllTargetsCodeGens",
-    "//llvm/lib/Target:AllTargetsDescs",
-    "//llvm/lib/Target:AllTargetsInfos",
-    "//llvm/lib/TargetParser",
+    "//${llvm_root}llvm/lib/CodeGen",
+    "//${llvm_root}llvm/lib/DWARFLinker",
+    "//${llvm_root}llvm/lib/DWARFLinkerParallel",
+    "//${llvm_root}llvm/lib/DebugInfo/DWARF",
+    "//${llvm_root}llvm/lib/MC",
+    "//${llvm_root}llvm/lib/ObjCopy",
+    "//${llvm_root}llvm/lib/Object",
+    "//${llvm_root}llvm/lib/Option",
+    "//${llvm_root}llvm/lib/Support",
+    "//${llvm_root}llvm/lib/Target",
+    "//${llvm_root}llvm/lib/Target:AllTargetsCodeGens",
+    "//${llvm_root}llvm/lib/Target:AllTargetsDescs",
+    "//${llvm_root}llvm/lib/Target:AllTargetsInfos",
+    "//${llvm_root}llvm/lib/TargetParser",
   ]
   sources = [
     "DebugInfoLinker.cpp",

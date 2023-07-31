@@ -1,6 +1,6 @@
 import("//build_overrides/llvm.gni")
 
-import("//llvm/tools/binutils_symlinks.gni")
+import("//${llvm_root}llvm/tools/binutils_symlinks.gni")
 import("//${llvm_build_root}build/driver_executable.gni")
 import("//${llvm_build_root}build/symlink_or_copy.gni")
 
@@ -34,13 +34,13 @@ group("symlinks") {
 
 driver_executable("llvm-ar") {
   deps = [
-    "//llvm/lib/IR",
-    "//llvm/lib/Object",
-    "//llvm/lib/Support",
-    "//llvm/lib/Target:TargetsToBuild",
-    "//llvm/lib/TargetParser",
-    "//llvm/lib/ToolDrivers/llvm-dlltool:DlltoolDriver",
-    "//llvm/lib/ToolDrivers/llvm-lib:LibDriver",
+    "//${llvm_root}llvm/lib/IR",
+    "//${llvm_root}llvm/lib/Object",
+    "//${llvm_root}llvm/lib/Support",
+    "//${llvm_root}llvm/lib/Target:TargetsToBuild",
+    "//${llvm_root}llvm/lib/TargetParser",
+    "//${llvm_root}llvm/lib/ToolDrivers/llvm-dlltool:DlltoolDriver",
+    "//${llvm_root}llvm/lib/ToolDrivers/llvm-lib:LibDriver",
   ]
   sources = [ "llvm-ar.cpp" ]
 }

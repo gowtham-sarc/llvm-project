@@ -1,6 +1,6 @@
 import("//build_overrides/llvm.gni")
 
-import("//llvm/utils/TableGen/tablegen.gni")
+import("//${llvm_root}llvm/utils/TableGen/tablegen.gni")
 
 tablegen("Options") {
   visibility = [ ":MinGW" ]
@@ -12,11 +12,11 @@ static_library("MinGW") {
   configs += [ "//${llvm_build_root}build:lld_code" ]
   deps = [
     ":Options",
-    "//lld/COFF",
-    "//lld/Common",
-    "//llvm/lib/Option",
-    "//llvm/lib/Support",
-    "//llvm/lib/TargetParser",
+    "//${llvm_root}lld/COFF",
+    "//${llvm_root}lld/Common",
+    "//${llvm_root}llvm/lib/Option",
+    "//${llvm_root}llvm/lib/Support",
+    "//${llvm_root}llvm/lib/TargetParser",
   ]
   sources = [ "Driver.cpp" ]
 }

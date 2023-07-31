@@ -3,9 +3,9 @@ import("//build_overrides/llvm.gni")
 executable("llvm-bat-dump") {
   configs += [ "//${llvm_build_root}build:bolt_code" ]
   deps = [
-    "//bolt/lib/Profile",
-    "//llvm/lib/Object",
-    "//llvm/lib/Support",
+    "//${llvm_root}bolt/lib/Profile",
+    "//${llvm_root}llvm/lib/Object",
+    "//${llvm_root}llvm/lib/Support",
   ]
   sources = [ "bat-dump.cpp" ]
 }

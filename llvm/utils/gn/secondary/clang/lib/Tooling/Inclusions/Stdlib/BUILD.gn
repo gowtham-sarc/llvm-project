@@ -3,6 +3,6 @@ import("//build_overrides/llvm.gni")
 static_library("Stdlib") {
   output_name = "clangToolingInclusionsStdlib"
   configs += [ "//${llvm_build_root}build:clang_code" ]
-  deps = [ "//clang/lib/AST" ]
+  deps = [ "//${llvm_root}clang/lib/AST" ]
   sources = [ "StandardLibrary.cpp" ]
 }

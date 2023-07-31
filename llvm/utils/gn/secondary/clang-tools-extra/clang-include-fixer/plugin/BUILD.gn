@@ -4,13 +4,13 @@ static_library("plugin") {
   output_name = "clangIncludeFixerPlugin"
   configs += [ "//${llvm_build_root}build:clang_code" ]
   deps = [
-    "//clang-tools-extra/clang-include-fixer",
-    "//clang/lib/AST",
-    "//clang/lib/Basic",
-    "//clang/lib/Frontend",
-    "//clang/lib/Parse",
-    "//clang/lib/Sema",
-    "//clang/lib/Tooling",
+    "//${llvm_root}clang-tools-extra/clang-include-fixer",
+    "//${llvm_root}clang/lib/AST",
+    "//${llvm_root}clang/lib/Basic",
+    "//${llvm_root}clang/lib/Frontend",
+    "//${llvm_root}clang/lib/Parse",
+    "//${llvm_root}clang/lib/Sema",
+    "//${llvm_root}clang/lib/Tooling",
     "//${llvm_build_root}build/libs/pthread",
   ]
 

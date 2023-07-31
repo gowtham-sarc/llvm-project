@@ -4,9 +4,9 @@ static_library("Utility") {
   output_name = "lldbUtility"
   configs += [ "//${llvm_build_root}build:lldb_code" ]
   deps = [
-    "//llvm/lib/BinaryFormat",
-    "//llvm/lib/Support",
-    "//llvm/lib/TargetParser",
+    "//${llvm_root}llvm/lib/BinaryFormat",
+    "//${llvm_root}llvm/lib/Support",
+    "//${llvm_root}llvm/lib/TargetParser",
   ]
   sources = [
     "ArchSpec.cpp",

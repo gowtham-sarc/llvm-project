@@ -1,7 +1,7 @@
 import("//build_overrides/llvm.gni")
 
-import("//compiler-rt/target.gni")
-import("//llvm/utils/TableGen/tablegen.gni")
+import("//${llvm_root}compiler-rt/target.gni")
+import("//${llvm_root}llvm/utils/TableGen/tablegen.gni")
 
 tablegen("LLGSOptions") {
   visibility = [ ":lldb-server" ]
@@ -16,53 +16,53 @@ executable("lldb-server") {
   deps = [
     ":LLGSOptions",
 
-    #"//lldb/include/lldb/Host:Config",
-    "//lldb/source/Host",
-    "//lldb/source/Initialization",
-    "//lldb/source/Plugins/Instruction/ARM",
-    "//lldb/source/Version",
+    #"//${llvm_root}lldb/include/lldb/Host:Config",
+    "//${llvm_root}lldb/source/Host",
+    "//${llvm_root}lldb/source/Initialization",
+    "//${llvm_root}lldb/source/Plugins/Instruction/ARM",
+    "//${llvm_root}lldb/source/Version",
 
-    #"//lldb/source/Plugins/Instruction/MIPS", # XXX
-    #"//lldb/source/Plugins/Instruction/MIPS64", # XXX
-    "//llvm/lib/Option",
-    "//llvm/lib/Support",
+    #"//${llvm_root}lldb/source/Plugins/Instruction/MIPS", # XXX
+    #"//${llvm_root}lldb/source/Plugins/Instruction/MIPS64", # XXX
+    "//${llvm_root}llvm/lib/Option",
+    "//${llvm_root}llvm/lib/Support",
 
-    # Dep of //lldb/source/Core, but omitted there due to a
+    # Dep of //${llvm_root}lldb/source/Core, but omitted there due to a
     # dependency cyle. Need to add dep here.
-    "//lldb/source/Plugins/Language/CPlusPlus",
+    "//${llvm_root}lldb/source/Plugins/Language/CPlusPlus",
   ]
 
   if (current_os == "android" || current_os == "linux") {
-    deps += [ "//lldb/source/Plugins/Process/Linux" ]
+    deps += [ "//${llvm_root}lldb/source/Plugins/Process/Linux" ]
     if (current_os == "linux") {
-      deps += [ "//lldb/source/Plugins/Platform/Linux" ]
+      deps += [ "//${llvm_root}lldb/source/Plugins/Platform/Linux" ]
     } else {
       # XXX
-      #deps += [ "//lldb/source/Plugins/Platform/Android" ]
+      #deps += [ "//${llvm_root}lldb/source/Plugins/Platform/Android" ]
     }
   }
 
   #} else if (current_os == "freebsd") {
-  #deps += [ "//lldb/source/Platform/Process/FreeBSD" ]
-  #deps += [ "//lldb/source/Plugins/Process/FreeBSD" ]
+  #deps += [ "//${llvm_root}lldb/source/Platform/Process/FreeBSD" ]
+  #deps += [ "//${llvm_root}lldb/source/Plugins/Process/FreeBSD" ]
   #} else if (current_os == "netbsd") {
-  #deps += [ "//lldb/source/Platform/Process/NetBSD" ]
-  #deps += [ "//lldb/source/Plugins/Process/NetBSD" ]
+  #deps += [ "//${llvm_root}lldb/source/Platform/Process/NetBSD" ]
+  #deps += [ "//${llvm_root}lldb/source/Plugins/Process/NetBSD" ]
 
   if (current_os == "mac") {
-    deps += [ "//lldb/source/Plugins/ObjectFile/Mach-O" ]
-    deps += [ "//lldb/source/Plugins/Platform/MacOSX" ]
+    deps += [ "//${llvm_root}lldb/source/Plugins/ObjectFile/Mach-O" ]
+    deps += [ "//${llvm_root}lldb/source/Plugins/Platform/MacOSX" ]
   } else if (current_os == "win") {
-    deps += [ "//lldb/source/Plugins/ObjectFile/PECOFF" ]
-    deps += [ "//lldb/source/Plugins/Platform/Windows" ]
+    deps += [ "//${llvm_root}lldb/source/Plugins/ObjectFile/PECOFF" ]
+    deps += [ "//${llvm_root}lldb/source/Plugins/Platform/Windows" ]
   } else {
-    deps += [ "//lldb/source/Plugins/ObjectFile/ELF" ]
+    deps += [ "//${llvm_root}lldb/source/Plugins/ObjectFile/ELF" ]
   }
 
   # FIXME: codesign stuff on macos; default to "lldb_codesign"
 
   # Reaches into Plugins/ObjectFile/Mach-O.
-  include_dirs = [ "//lldb/source" ]
+  include_dirs = [ "//${llvm_root}lldb/source" ]
   sources = [
     "Acceptor.cpp",
     "LLDBServerUtilities.cpp",

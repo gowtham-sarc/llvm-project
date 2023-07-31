@@ -5,8 +5,8 @@ static_library("Testing") {
   configs += [ "//${llvm_build_root}build:clang_code" ]
   testonly = true
   deps = [
-    "//clang/lib/Basic",
-    "//llvm/lib/Support",
+    "//${llvm_root}clang/lib/Basic",
+    "//${llvm_root}llvm/lib/Support",
     "//third-party/unittest:gtest",
   ]
   sources = [

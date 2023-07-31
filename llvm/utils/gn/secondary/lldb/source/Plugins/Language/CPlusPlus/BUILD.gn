@@ -7,20 +7,20 @@ static_library("CPlusPlus") {
     "//${llvm_build_root}build:lldb_code",
   ]
   deps = [
-    "//lldb/source/Core",
-    "//lldb/source/DataFormatters",
-    "//lldb/source/Host",
-    "//lldb/source/Plugins/Language/ClangCommon",
-    "//lldb/source/Plugins/LanguageRuntime/CPlusPlus",
-    "//lldb/source/Plugins/TypeSystem/Clang",
-    "//lldb/source/Symbol",
-    "//lldb/source/Target",
-    "//lldb/source/Utility",
-    "//llvm/lib/Support",
+    "//${llvm_root}lldb/source/Core",
+    "//${llvm_root}lldb/source/DataFormatters",
+    "//${llvm_root}lldb/source/Host",
+    "//${llvm_root}lldb/source/Plugins/Language/ClangCommon",
+    "//${llvm_root}lldb/source/Plugins/LanguageRuntime/CPlusPlus",
+    "//${llvm_root}lldb/source/Plugins/TypeSystem/Clang",
+    "//${llvm_root}lldb/source/Symbol",
+    "//${llvm_root}lldb/source/Target",
+    "//${llvm_root}lldb/source/Utility",
+    "//${llvm_root}llvm/lib/Support",
   ]
 
   # Reaches into Plugins/Language/ClangCommon.
-  include_dirs = [ "//lldb/source" ]
+  include_dirs = [ "//${llvm_root}lldb/source" ]
   sources = [
     "BlockPointer.cpp",
     "CPlusPlusLanguage.cpp",

@@ -5,15 +5,15 @@ static_library("ExecutionEngine") {
   public_deps = [
     # Must be a public_dep because ExecutionEngine's headers include
     # llvm-config.h.
-    "//llvm/include/llvm/Config:llvm-config",
+    "//${llvm_root}llvm/include/llvm/Config:llvm-config",
   ]
   deps = [
-    "//llvm/lib/ExecutionEngine/Orc/TargetProcess",
-    "//llvm/lib/IR",
-    "//llvm/lib/MC",
-    "//llvm/lib/Object",
-    "//llvm/lib/Target",
-    "//llvm/lib/TargetParser",
+    "//${llvm_root}llvm/lib/ExecutionEngine/Orc/TargetProcess",
+    "//${llvm_root}llvm/lib/IR",
+    "//${llvm_root}llvm/lib/MC",
+    "//${llvm_root}llvm/lib/Object",
+    "//${llvm_root}llvm/lib/Target",
+    "//${llvm_root}llvm/lib/TargetParser",
   ]
   sources = [
     "ExecutionEngine.cpp",

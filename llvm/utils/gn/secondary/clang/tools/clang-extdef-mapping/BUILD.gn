@@ -3,15 +3,15 @@ import("//build_overrides/llvm.gni")
 executable("clang-extdef-mapping") {
   configs += [ "//${llvm_build_root}build:clang_code" ]
   deps = [
-    "//clang/lib/AST",
-    "//clang/lib/Basic",
-    "//clang/lib/CrossTU",
-    "//clang/lib/Frontend",
-    "//clang/lib/Index",
-    "//clang/lib/Tooling",
-    "//llvm/lib/AsmParser",
-    "//llvm/lib/MC",
-    "//llvm/lib/Support",
+    "//${llvm_root}clang/lib/AST",
+    "//${llvm_root}clang/lib/Basic",
+    "//${llvm_root}clang/lib/CrossTU",
+    "//${llvm_root}clang/lib/Frontend",
+    "//${llvm_root}clang/lib/Index",
+    "//${llvm_root}clang/lib/Tooling",
+    "//${llvm_root}llvm/lib/AsmParser",
+    "//${llvm_root}llvm/lib/MC",
+    "//${llvm_root}llvm/lib/Support",
   ]
   sources = [ "ClangExtDefMapGen.cpp" ]
 }

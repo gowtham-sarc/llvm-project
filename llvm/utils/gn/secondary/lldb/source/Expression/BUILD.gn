@@ -4,18 +4,18 @@ static_library("Expression") {
   output_name = "lldbExpression"
   configs += [ "//${llvm_build_root}build:lldb_code" ]
   deps = [
-    "//lldb/source/Core",
-    "//lldb/source/Host",
-    "//lldb/source/Interpreter",
+    "//${llvm_root}lldb/source/Core",
+    "//${llvm_root}lldb/source/Host",
+    "//${llvm_root}lldb/source/Interpreter",
 
-    #"//lldb/source/Symbol", # FIXME: Dependency cycle.
-    #"//lldb/source/Target", # FIXME: Dependency cycle.
-    "//lldb/source/Utility",
-    "//llvm/lib/ExecutionEngine",
-    "//llvm/lib/IR",
-    "//llvm/lib/Support",
+    #"//${llvm_root}lldb/source/Symbol", # FIXME: Dependency cycle.
+    #"//${llvm_root}lldb/source/Target", # FIXME: Dependency cycle.
+    "//${llvm_root}lldb/source/Utility",
+    "//${llvm_root}llvm/lib/ExecutionEngine",
+    "//${llvm_root}llvm/lib/IR",
+    "//${llvm_root}llvm/lib/Support",
 
-    #"//lldb/source/Plugins/Language/CPlusPlus", # 4-hop dependency cycle.
+    #"//${llvm_root}lldb/source/Plugins/Language/CPlusPlus", # 4-hop dependency cycle.
 
     # FIXME:
     # DEPENDS

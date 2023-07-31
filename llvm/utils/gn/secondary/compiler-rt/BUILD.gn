@@ -1,6 +1,6 @@
 import("//build_overrides/llvm.gni")
 
-import("//llvm/lib/Target/targets.gni")
+import("//${llvm_root}llvm/lib/Target/targets.gni")
 import("//${llvm_build_root}build/mac_sdk.gni")
 import("//${llvm_build_root}build/toolchain/compiler.gni")
 
@@ -21,19 +21,19 @@ if (llvm_build_AArch64) {
       [ "//${llvm_build_root}build/toolchain:stage2_baremetal_aarch64" ]
 }
 group("compiler-rt") {
-  deps = [ "//compiler-rt/include($host_toolchain)" ]
+  deps = [ "//${llvm_root}compiler-rt/include($host_toolchain)" ]
   foreach(toolchain, supported_toolchains) {
-    deps += [ "//compiler-rt/lib($toolchain)" ]
+    deps += [ "//${llvm_root}compiler-rt/lib($toolchain)" ]
   }
 
   # FIXME: Do this only if a gn arg compiler_rt_enable_ios is set?
   # That would match the cmake build.
   if (host_os == "mac" && have_ios_sdks) {
     if (llvm_build_AArch64) {
-      deps += [ "//compiler-rt/lib/builtins(//${llvm_build_root}build/toolchain:stage2_ios_aarch64)" ]
+      deps += [ "//${llvm_root}compiler-rt/lib/builtins(//${llvm_build_root}build/toolchain:stage2_ios_aarch64)" ]
     }
     if (llvm_build_X86) {
-      deps += [ "//compiler-rt/lib/builtins(//${llvm_build_root}build/toolchain:stage2_iossim_x64)" ]
+      deps += [ "//${llvm_root}compiler-rt/lib/builtins(//${llvm_build_root}build/toolchain:stage2_iossim_x64)" ]
     }
   }
 }

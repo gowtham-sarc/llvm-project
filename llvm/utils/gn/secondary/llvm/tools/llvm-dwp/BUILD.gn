@@ -1,8 +1,8 @@
 import("//build_overrides/llvm.gni")
 
-import("//llvm/tools/binutils_symlinks.gni")
+import("//${llvm_root}llvm/tools/binutils_symlinks.gni")
 import("//${llvm_build_root}build/symlink_or_copy.gni")
-import("//llvm/utils/TableGen/tablegen.gni")
+import("//${llvm_root}llvm/utils/TableGen/tablegen.gni")
 
 tablegen("Opts") {
   visibility = [ ":llvm-dwp" ]
@@ -28,14 +28,14 @@ group("symlinks") {
 executable("llvm-dwp") {
   deps = [
     ":Opts",
-    "//llvm/lib/DWP",
-    "//llvm/lib/DebugInfo/DWARF",
-    "//llvm/lib/MC",
-    "//llvm/lib/Object",
-    "//llvm/lib/Option",
-    "//llvm/lib/Support",
-    "//llvm/lib/Target:TargetsToBuild",
-    "//llvm/lib/TargetParser",
+    "//${llvm_root}llvm/lib/DWP",
+    "//${llvm_root}llvm/lib/DebugInfo/DWARF",
+    "//${llvm_root}llvm/lib/MC",
+    "//${llvm_root}llvm/lib/Object",
+    "//${llvm_root}llvm/lib/Option",
+    "//${llvm_root}llvm/lib/Support",
+    "//${llvm_root}llvm/lib/Target:TargetsToBuild",
+    "//${llvm_root}llvm/lib/TargetParser",
   ]
   sources = [ "llvm-dwp.cpp" ]
 }

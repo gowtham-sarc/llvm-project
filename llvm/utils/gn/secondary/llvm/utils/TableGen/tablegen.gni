@@ -43,7 +43,7 @@ template("tablegen") {
     if (defined(invoker.tblgen_target)) {
       tool = invoker.tblgen_target
     } else {
-      tool = "//llvm/utils/TableGen:llvm-tblgen"
+      tool = "//${llvm_root}llvm/utils/TableGen:llvm-tblgen"
     }
     if (defined(invoker.td_file)) {
       td_file = invoker.td_file
@@ -63,7 +63,7 @@ template("tablegen") {
              "--write-if-changed",
 
              "-I",
-             rebase_path("//llvm/include", root_build_dir),
+             rebase_path("//${llvm_root}llvm/include", root_build_dir),
 
              # FIXME: Rather than duplicating this -I flag in both the CMake and
              # the gn build, let tablegen add input dir to include search path

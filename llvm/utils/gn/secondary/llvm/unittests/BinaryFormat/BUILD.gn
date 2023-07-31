@@ -4,8 +4,8 @@ import("//third-party/unittest/unittest.gni")
 
 unittest("BinaryFormatTests") {
   deps = [
-    "//llvm/lib/BinaryFormat",
-    "//llvm/lib/TargetParser",
+    "//${llvm_root}llvm/lib/BinaryFormat",
+    "//${llvm_root}llvm/lib/TargetParser",
   ]
   sources = [
     "DwarfTest.cpp",

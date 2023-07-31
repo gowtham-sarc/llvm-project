@@ -1,25 +1,25 @@
 import("//build_overrides/llvm.gni")
 
-import("//llvm/lib/Target/targets.gni")
+import("//${llvm_root}llvm/lib/Target/targets.gni")
 
 static_library("Rewrite") {
   output_name = "LLVMBOLTRewrite"
   configs += [ "//${llvm_build_root}build:bolt_code" ]
   deps = [
-    "//bolt/lib/Core",
-    "//bolt/lib/Passes",
-    "//bolt/lib/Profile",
-    "//bolt/lib/RuntimeLibs",
-    "//bolt/lib/Utils",
-    "//llvm/lib/CodeGen/AsmPrinter",
-    "//llvm/lib/DWARFLinker",
-    "//llvm/lib/DWP",
-    "//llvm/lib/DebugInfo/DWARF",
-    "//llvm/lib/ExecutionEngine/JITLink",
-    "//llvm/lib/MC",
-    "//llvm/lib/Object",
-    "//llvm/lib/Support",
-    "//llvm/lib/TargetParser",
+    "//${llvm_root}bolt/lib/Core",
+    "//${llvm_root}bolt/lib/Passes",
+    "//${llvm_root}bolt/lib/Profile",
+    "//${llvm_root}bolt/lib/RuntimeLibs",
+    "//${llvm_root}bolt/lib/Utils",
+    "//${llvm_root}llvm/lib/CodeGen/AsmPrinter",
+    "//${llvm_root}llvm/lib/DWARFLinker",
+    "//${llvm_root}llvm/lib/DWP",
+    "//${llvm_root}llvm/lib/DebugInfo/DWARF",
+    "//${llvm_root}llvm/lib/ExecutionEngine/JITLink",
+    "//${llvm_root}llvm/lib/MC",
+    "//${llvm_root}llvm/lib/Object",
+    "//${llvm_root}llvm/lib/Support",
+    "//${llvm_root}llvm/lib/TargetParser",
     "//${llvm_build_root}build/libs/pthread",
   ]
   sources = [
@@ -39,10 +39,10 @@ static_library("Rewrite") {
   defines = []
   if (llvm_build_AArch64) {
     defines += [ "AARCH64_AVAILABLE" ]
-    deps += [ "//bolt/lib/Target/AArch64" ]
+    deps += [ "//${llvm_root}bolt/lib/Target/AArch64" ]
   }
   if (llvm_build_X86) {
     defines += [ "X86_AVAILABLE" ]
-    deps += [ "//bolt/lib/Target/X86" ]
+    deps += [ "//${llvm_root}bolt/lib/Target/X86" ]
   }
 }

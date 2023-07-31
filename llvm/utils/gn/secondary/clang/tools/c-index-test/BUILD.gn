@@ -3,15 +3,15 @@ import("//build_overrides/llvm.gni")
 executable("c-index-test") {
   configs += [ "//${llvm_build_root}build:clang_code" ]
   deps = [
-    "//clang/include/clang/Config",
-    "//clang/lib/AST",
-    "//clang/lib/Basic",
-    "//clang/lib/CodeGen",
-    "//clang/lib/Frontend",
-    "//clang/lib/Index",
-    "//clang/lib/Serialization",
-    "//clang/tools/libclang",
-    "//llvm/lib/Support",
+    "//${llvm_root}clang/include/clang/Config",
+    "//${llvm_root}clang/lib/AST",
+    "//${llvm_root}clang/lib/Basic",
+    "//${llvm_root}clang/lib/CodeGen",
+    "//${llvm_root}clang/lib/Frontend",
+    "//${llvm_root}clang/lib/Index",
+    "//${llvm_root}clang/lib/Serialization",
+    "//${llvm_root}clang/tools/libclang",
+    "//${llvm_root}llvm/lib/Support",
     "//${llvm_build_root}build/libs/xml",
   ]
   if (host_os != "win") {

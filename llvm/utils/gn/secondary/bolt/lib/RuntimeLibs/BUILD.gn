@@ -4,15 +4,15 @@ static_library("RuntimeLibs") {
   output_name = "LLVMBOLTRuntimeLibs"
   configs += [ "//${llvm_build_root}build:bolt_code" ]
   deps = [
-    "//bolt/include/bolt/RuntimeLibs:RuntimeLibraryVariables",
-    "//bolt/lib/Core",
-    "//bolt/lib/Passes",
-    "//bolt/lib/Utils",
-    "//llvm/lib/BinaryFormat",
-    "//llvm/lib/ExecutionEngine/JITLink",
-    "//llvm/lib/MC",
-    "//llvm/lib/Object",
-    "//llvm/lib/Support",
+    "//${llvm_root}bolt/include/bolt/RuntimeLibs:RuntimeLibraryVariables",
+    "//${llvm_root}bolt/lib/Core",
+    "//${llvm_root}bolt/lib/Passes",
+    "//${llvm_root}bolt/lib/Utils",
+    "//${llvm_root}llvm/lib/BinaryFormat",
+    "//${llvm_root}llvm/lib/ExecutionEngine/JITLink",
+    "//${llvm_root}llvm/lib/MC",
+    "//${llvm_root}llvm/lib/Object",
+    "//${llvm_root}llvm/lib/Support",
   ]
   include_dirs = [ target_gen_dir ]
   sources = [

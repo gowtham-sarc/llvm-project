@@ -1,6 +1,6 @@
 import("//build_overrides/llvm.gni")
 
-import("//clang/runtimes.gni")
+import("//${llvm_root}clang/runtimes.gni")
 
 declare_args() {
   # Use exceptions.
@@ -62,10 +62,10 @@ if (target_os == "linux" || target_os == "fuchsia") {
 
 config("cxxabi_config") {
   include_dirs = [
-    "//libcxxabi/include",
+    "//${llvm_root}libcxxabi/include",
 
     # Some files depend on libc++ internals.
-    "//libcxx/src",
+    "//${llvm_root}libcxx/src",
   ]
   cflags_cc = [
     "-std=c++20",
@@ -95,9 +95,9 @@ if (libcxxabi_enable_shared) {
     sources = cxxabi_sources
     public = cxxabi_headers
     deps = [
-      "//compiler-rt/lib/builtins",
-      "//libcxx/include",
-      "//libunwind/src:unwind_shared",
+      "//${llvm_root}compiler-rt/lib/builtins",
+      "//${llvm_root}libcxx/include",
+      "//${llvm_root}libunwind/src:unwind_shared",
     ]
     configs += [ ":cxxabi_config" ]
     configs -= [
@@ -126,9 +126,9 @@ if (libcxxabi_enable_static) {
       ]
     }
     deps = [
-      "//compiler-rt/lib/builtins",
-      "//libcxx/include",
-      "//libunwind/src:unwind_static",
+      "//${llvm_root}compiler-rt/lib/builtins",
+      "//${llvm_root}libcxx/include",
+      "//${llvm_root}libunwind/src:unwind_static",
     ]
     configs += [ ":cxxabi_config" ]
     configs -= [

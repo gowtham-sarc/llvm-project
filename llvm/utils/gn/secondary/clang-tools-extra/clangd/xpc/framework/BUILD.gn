@@ -29,7 +29,7 @@ bundle_data("clangxpc_bundle_xpc_service_info_plist") {
 }
 
 bundle_data("clangxpc_bundle_xpc_service_executable") {
-  public_deps = [ "//clang-tools-extra/clangd/tool:clangd" ]
+  public_deps = [ "//${llvm_root}clang-tools-extra/clangd/tool:clangd" ]
   sources = [ "$root_out_dir/bin/clangd" ]
   outputs = [ "{{bundle_executable_dir}}/{{source_file_part}}" ]
 }
@@ -64,7 +64,7 @@ bundle_data("clangdxpc_bundle_info_plist") {
 }
 
 shared_library("ClangdXPCLib") {
-  deps = [ "//clang-tools-extra/clangd/tool:clangd" ]
+  deps = [ "//${llvm_root}clang-tools-extra/clangd/tool:clangd" ]
   sources = [ "ClangdXPC.cpp" ]
 }
 

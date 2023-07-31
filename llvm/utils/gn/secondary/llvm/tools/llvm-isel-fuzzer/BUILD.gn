@@ -4,21 +4,21 @@ import("//${llvm_build_root}build/fuzzer.gni")
 
 fuzzer("llvm-isel-fuzzer") {
   deps = [
-    "//llvm/lib/Analysis",
-    "//llvm/lib/Bitcode/Reader",
-    "//llvm/lib/Bitcode/Writer",
-    "//llvm/lib/CodeGen",
-    "//llvm/lib/CodeGen/AsmPrinter",
-    "//llvm/lib/CodeGen/SelectionDAG",
-    "//llvm/lib/FuzzMutate",
-    "//llvm/lib/IR",
-    "//llvm/lib/IRReader",
-    "//llvm/lib/MC",
-    "//llvm/lib/Support",
-    "//llvm/lib/Target",
-    "//llvm/lib/Target:TargetsToBuild",
-    "//llvm/lib/TargetParser",
-    "//llvm/lib/Transforms/Scalar",
+    "//${llvm_root}llvm/lib/Analysis",
+    "//${llvm_root}llvm/lib/Bitcode/Reader",
+    "//${llvm_root}llvm/lib/Bitcode/Writer",
+    "//${llvm_root}llvm/lib/CodeGen",
+    "//${llvm_root}llvm/lib/CodeGen/AsmPrinter",
+    "//${llvm_root}llvm/lib/CodeGen/SelectionDAG",
+    "//${llvm_root}llvm/lib/FuzzMutate",
+    "//${llvm_root}llvm/lib/IR",
+    "//${llvm_root}llvm/lib/IRReader",
+    "//${llvm_root}llvm/lib/MC",
+    "//${llvm_root}llvm/lib/Support",
+    "//${llvm_root}llvm/lib/Target",
+    "//${llvm_root}llvm/lib/Target:TargetsToBuild",
+    "//${llvm_root}llvm/lib/TargetParser",
+    "//${llvm_root}llvm/lib/Transforms/Scalar",
   ]
   dummy_main = "DummyISelFuzzer.cpp"
   sources = [ "llvm-isel-fuzzer.cpp" ]

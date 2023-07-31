@@ -1,6 +1,6 @@
 import("//build_overrides/llvm.gni")
 
-import("//compiler-rt/target.gni")
+import("//${llvm_root}compiler-rt/target.gni")
 
 static_library("msan") {
   configs -= [ "//${llvm_build_root}build:llvm_code" ]
@@ -11,9 +11,9 @@ static_library("msan") {
   output_name = "clang_rt.msan$crt_current_target_suffix"
 
   deps = [
-    "//compiler-rt/lib/interception:sources",
-    "//compiler-rt/lib/sanitizer_common:sources",
-    "//compiler-rt/lib/ubsan:sources",
+    "//${llvm_root}compiler-rt/lib/interception:sources",
+    "//${llvm_root}compiler-rt/lib/sanitizer_common:sources",
+    "//${llvm_root}compiler-rt/lib/ubsan:sources",
   ]
 
   complete_static_lib = true
@@ -64,7 +64,7 @@ static_library("msan_cxx") {
   complete_static_lib = true
   configs -= [ "//${llvm_build_root}build:thin_archive" ]
 
-  deps = [ "//compiler-rt/lib/ubsan:cxx_sources" ]
+  deps = [ "//${llvm_root}compiler-rt/lib/ubsan:cxx_sources" ]
 
   sources = [ "msan_new_delete.cpp" ]
 }

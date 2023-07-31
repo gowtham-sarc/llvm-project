@@ -1,6 +1,6 @@
 import("//build_overrides/llvm.gni")
 
-import("//lldb/utils/TableGen/lldb_tablegen.gni")
+import("//${llvm_root}lldb/utils/TableGen/lldb_tablegen.gni")
 
 lldb_tablegen("TargetProperties") {
   args = [ "-gen-lldb-property-defs" ]
@@ -18,17 +18,17 @@ static_library("Target") {
     ":TargetProperties",
     ":TargetPropertiesEnum",
 
-    #"//lldb/source/Breakpoint", # FIXME: Dependency cycle
-    "//lldb/source/Core",
-    "//lldb/source/Core",
-    "//lldb/source/Expression",
-    "//lldb/source/Host",
-    "//lldb/source/Interpreter",
-    "//lldb/source/Plugins/Process/Utility",
-    "//lldb/source/Symbol",
-    "//lldb/source/Utility",
-    "//llvm/lib/MC",
-    "//llvm/lib/Support",
+    #"//${llvm_root}lldb/source/Breakpoint", # FIXME: Dependency cycle
+    "//${llvm_root}lldb/source/Core",
+    "//${llvm_root}lldb/source/Core",
+    "//${llvm_root}lldb/source/Expression",
+    "//${llvm_root}lldb/source/Host",
+    "//${llvm_root}lldb/source/Interpreter",
+    "//${llvm_root}lldb/source/Plugins/Process/Utility",
+    "//${llvm_root}lldb/source/Symbol",
+    "//${llvm_root}lldb/source/Utility",
+    "//${llvm_root}llvm/lib/MC",
+    "//${llvm_root}llvm/lib/Support",
   ]
   include_dirs = [ ".." ]  # FIXME: Reaches into Plugins internals.
   sources = [

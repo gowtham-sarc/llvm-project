@@ -1,11 +1,11 @@
 import("//build_overrides/llvm.gni")
 
-import("//compiler-rt/target.gni")
-import("//compiler-rt/test/test.gni")
-import("//llvm/lib/Target/targets.gni")
+import("//${llvm_root}compiler-rt/target.gni")
+import("//${llvm_root}compiler-rt/test/test.gni")
+import("//${llvm_root}llvm/lib/Target/targets.gni")
 import("//${llvm_build_root}build/toolchain/compiler.gni")
 import("//${llvm_build_root}build/write_cmake_config.gni")
-import("//llvm/version.gni")
+import("//${llvm_root}llvm/version.gni")
 
 write_cmake_config("asan_mode_cfg") {
   input = "lit.site.cfg.py.in"
@@ -26,17 +26,17 @@ if (current_toolchain != host_toolchain) {
   group("lsan_toolchain") {
     deps = [
       ":asan_mode_cfg",
-      "//compiler-rt/include($host_toolchain)",
-      "//compiler-rt/lib/asan",
-      "//compiler-rt/lib/lsan:common_sources",
-      "//compiler-rt/lib/profile",
-      "//compiler-rt/test:lit_common_configured",
-      "//llvm/tools/llvm-readobj($host_toolchain)",
-      "//llvm/tools/llvm-symbolizer($host_toolchain)",
-      "//llvm/utils/FileCheck($host_toolchain)",
-      "//llvm/utils/count($host_toolchain)",
-      "//llvm/utils/llvm-lit($host_toolchain)",
-      "//llvm/utils/not($host_toolchain)",
+      "//${llvm_root}compiler-rt/include($host_toolchain)",
+      "//${llvm_root}compiler-rt/lib/asan",
+      "//${llvm_root}compiler-rt/lib/lsan:common_sources",
+      "//${llvm_root}compiler-rt/lib/profile",
+      "//${llvm_root}compiler-rt/test:lit_common_configured",
+      "//${llvm_root}llvm/tools/llvm-readobj($host_toolchain)",
+      "//${llvm_root}llvm/tools/llvm-symbolizer($host_toolchain)",
+      "//${llvm_root}llvm/utils/FileCheck($host_toolchain)",
+      "//${llvm_root}llvm/utils/count($host_toolchain)",
+      "//${llvm_root}llvm/utils/llvm-lit($host_toolchain)",
+      "//${llvm_root}llvm/utils/not($host_toolchain)",
     ]
   }
 }

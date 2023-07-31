@@ -1,6 +1,6 @@
 import("//build_overrides/llvm.gni")
 
-import("//lldb/utils/TableGen/lldb_tablegen.gni")
+import("//${llvm_root}lldb/utils/TableGen/lldb_tablegen.gni")
 
 lldb_tablegen("CommandOptions") {
   args = [ "-gen-lldb-option-defs" ]
@@ -15,20 +15,20 @@ static_library("Commands") {
   ]
   deps = [
     ":CommandOptions",
-    "//llvm/lib/Support",
+    "//${llvm_root}llvm/lib/Support",
 
-    #"//lldb/source/Breakpoint", # FIXME: many-hop dependency cycle.
-    "//lldb/source/Core",
-    "//lldb/source/DataFormatters",
+    #"//${llvm_root}lldb/source/Breakpoint", # FIXME: many-hop dependency cycle.
+    "//${llvm_root}lldb/source/Core",
+    "//${llvm_root}lldb/source/DataFormatters",
 
-    #"//lldb/source/Expression", # FIXME: 2-hop dependency cycle.
-    "//lldb/source/Host",
+    #"//${llvm_root}lldb/source/Expression", # FIXME: 2-hop dependency cycle.
+    "//${llvm_root}lldb/source/Host",
 
-    #"//lldb/source/Interpreter", # FIXME: Dependency cycle.
-    #"//lldb/source/Symbol", # FIXME: many-hop dependency cycle.
-    #"//lldb/source/Target", # FIXME: 2-hop dependency cycle.
-    "//lldb/source/Utility",
-    "//lldb/source/Version",
+    #"//${llvm_root}lldb/source/Interpreter", # FIXME: Dependency cycle.
+    #"//${llvm_root}lldb/source/Symbol", # FIXME: many-hop dependency cycle.
+    #"//${llvm_root}lldb/source/Target", # FIXME: 2-hop dependency cycle.
+    "//${llvm_root}lldb/source/Utility",
+    "//${llvm_root}lldb/source/Version",
   ]
   sources = [
     "CommandCompletions.cpp",

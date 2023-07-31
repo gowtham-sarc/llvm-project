@@ -4,13 +4,13 @@ static_library("Windows-DYLD") {
   output_name = "lldbPluginDynamicLoaderWindowsDYLD"
   configs += [ "//${llvm_build_root}build:lldb_code" ]
   deps = [
-    "//lldb/source/Core",
-    "//lldb/source/Target",
-    "//llvm/lib/Support",
-    "//llvm/lib/TargetParser",
+    "//${llvm_root}lldb/source/Core",
+    "//${llvm_root}lldb/source/Target",
+    "//${llvm_root}llvm/lib/Support",
+    "//${llvm_root}llvm/lib/TargetParser",
   ]
 
   # Uses source-relative includes for own headers.
-  include_dirs = [ "//lldb/source" ]
+  include_dirs = [ "//${llvm_root}lldb/source" ]
   sources = [ "DynamicLoaderWindowsDYLD.cpp" ]
 }

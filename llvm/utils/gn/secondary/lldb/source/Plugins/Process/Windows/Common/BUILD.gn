@@ -4,13 +4,13 @@ static_library("Common") {
   output_name = "lldbPluginProcessWindowsCommon"
   configs += [ "//${llvm_build_root}build:lldb_code" ]
   deps = [
-    "//lldb/source/Core",
-    "//lldb/source/Host",
-    "//lldb/source/Interpreter",
-    "//lldb/source/Plugins/DynamicLoader/Windows-DYLD",
-    "//lldb/source/Symbol",
-    "//lldb/source/Target",
-    "//llvm/lib/Support",
+    "//${llvm_root}lldb/source/Core",
+    "//${llvm_root}lldb/source/Host",
+    "//${llvm_root}lldb/source/Interpreter",
+    "//${llvm_root}lldb/source/Plugins/DynamicLoader/Windows-DYLD",
+    "//${llvm_root}lldb/source/Symbol",
+    "//${llvm_root}lldb/source/Target",
+    "//${llvm_root}llvm/lib/Support",
   ]
   libs = [
     "psapi.lib",
@@ -24,7 +24,7 @@ static_library("Common") {
     ".",
 
     # Reaches into Plugins/Process/Utility.
-    "//lldb/source",
+    "//${llvm_root}lldb/source",
   ]
   sources = [
     "DebuggerThread.cpp",

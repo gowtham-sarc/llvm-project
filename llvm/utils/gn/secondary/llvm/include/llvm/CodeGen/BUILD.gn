@@ -1,9 +1,9 @@
 import("//build_overrides/llvm.gni")
 
-import("//llvm/utils/TableGen/tablegen.gni")
+import("//${llvm_root}llvm/utils/TableGen/tablegen.gni")
 
 tablegen("GenVT") {
   args = [ "-gen-vt" ]
-  td_file = "//llvm/include/llvm/CodeGen/ValueTypes.td"
-  tblgen_target = "//llvm/utils/TableGen:llvm-min-tblgen"
+  td_file = "//${llvm_root}llvm/include/llvm/CodeGen/ValueTypes.td"
+  tblgen_target = "//${llvm_root}llvm/utils/TableGen:llvm-min-tblgen"
 }

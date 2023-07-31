@@ -1,6 +1,6 @@
 import("//build_overrides/llvm.gni")
 
-import("//llvm/utils/TableGen/tablegen.gni")
+import("//${llvm_root}llvm/utils/TableGen/tablegen.gni")
 
 # RISCV is the only target that has a "compress instr emitter", and it's
 # a bit strange in that it defines static functions depending on which
@@ -52,17 +52,17 @@ static_library("LLVMRISCVCodeGen") {
     "AsmParser:RISCVGenAsmMatcher",
     "MCTargetDesc",
     "TargetInfo",
-    "//llvm/include/llvm/Config:llvm-config",
-    "//llvm/lib/CodeGen",
-    "//llvm/lib/CodeGen/AsmPrinter",
-    "//llvm/lib/CodeGen/GlobalISel",
-    "//llvm/lib/CodeGen/SelectionDAG",
-    "//llvm/lib/IR",
-    "//llvm/lib/MC",
-    "//llvm/lib/Support",
-    "//llvm/lib/Target",
-    "//llvm/lib/TargetParser",
-    "//llvm/lib/Transforms/IPO",
+    "//${llvm_root}llvm/include/llvm/Config:llvm-config",
+    "//${llvm_root}llvm/lib/CodeGen",
+    "//${llvm_root}llvm/lib/CodeGen/AsmPrinter",
+    "//${llvm_root}llvm/lib/CodeGen/GlobalISel",
+    "//${llvm_root}llvm/lib/CodeGen/SelectionDAG",
+    "//${llvm_root}llvm/lib/IR",
+    "//${llvm_root}llvm/lib/MC",
+    "//${llvm_root}llvm/lib/Support",
+    "//${llvm_root}llvm/lib/Target",
+    "//${llvm_root}llvm/lib/TargetParser",
+    "//${llvm_root}llvm/lib/Transforms/IPO",
   ]
   include_dirs = [ "." ]
   sources = [
@@ -99,10 +99,10 @@ static_library("LLVMRISCVCodeGen") {
 }
 
 # This is a bit different from most build files: Due to this group
-# having the directory's name, "//llvm/lib/Target/RISCV" will refer to this
+# having the directory's name, "//${llvm_root}llvm/lib/Target/RISCV" will refer to this
 # target, which pulls in the code in this directory *and all subdirectories*.
-# For most other directories, "//llvm/lib/Foo" only pulls in the code directly
-# in "llvm/lib/Foo". The forwarding targets in //llvm/lib/Target expect this
+# For most other directories, "//${llvm_root}llvm/lib/Foo" only pulls in the code directly
+# in "llvm/lib/Foo". The forwarding targets in //${llvm_root}llvm/lib/Target expect this
 # different behavior.
 group("RISCV") {
   deps = [

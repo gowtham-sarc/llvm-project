@@ -4,8 +4,8 @@ static_library("Symtab") {
   output_name = "lldbPluginSymbolFileSymtab"
   configs += [ "//${llvm_build_root}build:lldb_code" ]
   deps = [
-    "//lldb/source/Core",
-    "//lldb/source/Symbol",
+    "//${llvm_root}lldb/source/Core",
+    "//${llvm_root}lldb/source/Symbol",
   ]
   sources = [ "SymbolFileSymtab.cpp" ]
 }

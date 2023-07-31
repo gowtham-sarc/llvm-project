@@ -5,15 +5,15 @@ import("//third-party/unittest/unittest.gni")
 unittest("ClangCodeGenTests") {
   configs += [ "//${llvm_build_root}build:clang_code" ]
   deps = [
-    "//clang/lib/AST",
-    "//clang/lib/Basic",
-    "//clang/lib/CodeGen",
-    "//clang/lib/Frontend",
-    "//clang/lib/Lex",
-    "//clang/lib/Parse",
-    "//llvm/lib/IR",
-    "//llvm/lib/Support",
-    "//llvm/lib/TargetParser",
+    "//${llvm_root}clang/lib/AST",
+    "//${llvm_root}clang/lib/Basic",
+    "//${llvm_root}clang/lib/CodeGen",
+    "//${llvm_root}clang/lib/Frontend",
+    "//${llvm_root}clang/lib/Lex",
+    "//${llvm_root}clang/lib/Parse",
+    "//${llvm_root}llvm/lib/IR",
+    "//${llvm_root}llvm/lib/Support",
+    "//${llvm_root}llvm/lib/TargetParser",
   ]
   sources = [
     "BufferSourceTest.cpp",

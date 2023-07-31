@@ -6,7 +6,7 @@ static_library("support") {
   output_name = "clangdSupport"
   configs += [ "//${llvm_build_root}build:clang_code" ]
   deps = [
-    "//llvm/lib/Support",
+    "//${llvm_root}llvm/lib/Support",
     "//${llvm_build_root}build/libs/atomic",
   ]
   include_dirs = [ ".." ]

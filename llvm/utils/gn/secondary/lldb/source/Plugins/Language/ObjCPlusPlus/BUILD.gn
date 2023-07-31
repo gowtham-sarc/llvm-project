@@ -7,12 +7,12 @@ static_library("ObjCPlusPlus") {
     "//${llvm_build_root}build:lldb_code",
   ]
   deps = [
-    "//lldb/source/Core",
-    "//lldb/source/Plugins/Language/ClangCommon",
-    "//lldb/source/Target",
+    "//${llvm_root}lldb/source/Core",
+    "//${llvm_root}lldb/source/Plugins/Language/ClangCommon",
+    "//${llvm_root}lldb/source/Target",
   ]
 
   # Reaches into Plugins/Language/ClangCommon.
-  include_dirs = [ "//lldb/source" ]
+  include_dirs = [ "//${llvm_root}lldb/source" ]
   sources = [ "ObjCPlusPlusLanguage.cpp" ]
 }

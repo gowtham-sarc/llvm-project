@@ -4,11 +4,11 @@ static_library("objcxx") {
   output_name = "lldbHostMacOSXObjCXX"
   configs += [ "//${llvm_build_root}build:lldb_code" ]
   deps = [
-    "//lldb/source/Utility",
-    "//llvm/lib/Support",
-    "//llvm/lib/TargetParser",
+    "//${llvm_root}lldb/source/Utility",
+    "//${llvm_root}llvm/lib/Support",
+    "//${llvm_root}llvm/lib/TargetParser",
   ]
-  include_dirs = [ "//lldb/source" ]  # Includes internal headers from Utility.
+  include_dirs = [ "//${llvm_root}lldb/source" ]  # Includes internal headers from Utility.
   cflags_objcc = [ "-fno-objc-exceptions" ]
   sources = [
     "Host.mm",

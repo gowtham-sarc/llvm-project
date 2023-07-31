@@ -2,7 +2,7 @@ import("//build_overrides/llvm.gni")
 
 static_library("Shared") {
   output_name = "LLVMOrcShared"
-  deps = [ "//llvm/lib/Support" ]
+  deps = [ "//${llvm_root}llvm/lib/Support" ]
   sources = [
     "AllocationActions.cpp",
     "ObjectFormats.cpp",

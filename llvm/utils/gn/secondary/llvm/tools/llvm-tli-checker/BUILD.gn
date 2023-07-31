@@ -1,6 +1,6 @@
 import("//build_overrides/llvm.gni")
 
-import("//llvm/utils/TableGen/tablegen.gni")
+import("//${llvm_root}llvm/utils/TableGen/tablegen.gni")
 
 tablegen("Opts") {
   visibility = [ ":llvm-tli-checker" ]
@@ -10,20 +10,20 @@ tablegen("Opts") {
 executable("llvm-tli-checker") {
   deps = [
     ":Opts",
-    "//llvm/lib/Analysis",
-    "//llvm/lib/BinaryFormat",
-    "//llvm/lib/Bitcode/Reader",
-    "//llvm/lib/Bitstream/Reader",
-    "//llvm/lib/Demangle",
-    "//llvm/lib/IR",
-    "//llvm/lib/MC",
-    "//llvm/lib/MC/MCParser",
-    "//llvm/lib/Object",
-    "//llvm/lib/Option",
-    "//llvm/lib/Remarks",
-    "//llvm/lib/Support",
-    "//llvm/lib/TargetParser",
-    "//llvm/lib/TextAPI",
+    "//${llvm_root}llvm/lib/Analysis",
+    "//${llvm_root}llvm/lib/BinaryFormat",
+    "//${llvm_root}llvm/lib/Bitcode/Reader",
+    "//${llvm_root}llvm/lib/Bitstream/Reader",
+    "//${llvm_root}llvm/lib/Demangle",
+    "//${llvm_root}llvm/lib/IR",
+    "//${llvm_root}llvm/lib/MC",
+    "//${llvm_root}llvm/lib/MC/MCParser",
+    "//${llvm_root}llvm/lib/Object",
+    "//${llvm_root}llvm/lib/Option",
+    "//${llvm_root}llvm/lib/Remarks",
+    "//${llvm_root}llvm/lib/Support",
+    "//${llvm_root}llvm/lib/TargetParser",
+    "//${llvm_root}llvm/lib/TextAPI",
   ]
   sources = [ "llvm-tli-checker.cpp" ]
 }

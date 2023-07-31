@@ -4,8 +4,8 @@ static_library("Support") {
   output_name = "LLVMSupport"
   deps = [
     "BLAKE3",
-    "//llvm/include/llvm/Config:config",
-    "//llvm/lib/Demangle",
+    "//${llvm_root}llvm/include/llvm/Config:config",
+    "//${llvm_root}llvm/lib/Demangle",
     "//${llvm_build_root}build/libs/pthread",
     "//${llvm_build_root}build/libs/terminfo",
     "//${llvm_build_root}build/libs/zlib",
@@ -20,14 +20,14 @@ static_library("Support") {
     # no target in the gn build.  Since everything depends on Support, this
     # public_dep does double duty of abi-breaking.h uses in public headers of
     # both Support and ADT.
-    "//llvm/include/llvm/Config:abi-breaking",
-    "//llvm/include/llvm/Config:llvm-config",
+    "//${llvm_root}llvm/include/llvm/Config:abi-breaking",
+    "//${llvm_root}llvm/include/llvm/Config:llvm-config",
 
     # public_dep because public header TargetSelect.h includes these .def files.
-    "//llvm/include/llvm/Config:write_target_def_files",
+    "//${llvm_root}llvm/include/llvm/Config:write_target_def_files",
 
     # public_dep because random targets assume its output exists.
-    "//llvm/include/llvm/Support:write_extension_def",
+    "//${llvm_root}llvm/include/llvm/Support:write_extension_def",
   ]
   include_dirs = [
     "Unix",

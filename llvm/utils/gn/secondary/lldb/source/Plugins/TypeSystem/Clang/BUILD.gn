@@ -7,22 +7,22 @@ static_library("Clang") {
     "//${llvm_build_root}build:lldb_code",
   ]
   deps = [
-    "//clang/lib/AST",
-    "//clang/lib/Basic",
-    "//clang/lib/Frontend",
-    "//clang/lib/Sema",
-    "//lldb/source/Core",
-    "//lldb/source/Plugins/ExpressionParser/Clang",
-    "//lldb/source/Plugins/LanguageRuntime/ObjC",
-    "//lldb/source/Plugins/SymbolFile/DWARF",
-    "//lldb/source/Plugins/SymbolFile/PDB",
-    "//lldb/source/Symbol",
-    "//lldb/source/Target",
-    "//lldb/source/Utility",
-    "//llvm/lib/Support",
+    "//${llvm_root}clang/lib/AST",
+    "//${llvm_root}clang/lib/Basic",
+    "//${llvm_root}clang/lib/Frontend",
+    "//${llvm_root}clang/lib/Sema",
+    "//${llvm_root}lldb/source/Core",
+    "//${llvm_root}lldb/source/Plugins/ExpressionParser/Clang",
+    "//${llvm_root}lldb/source/Plugins/LanguageRuntime/ObjC",
+    "//${llvm_root}lldb/source/Plugins/SymbolFile/DWARF",
+    "//${llvm_root}lldb/source/Plugins/SymbolFile/PDB",
+    "//${llvm_root}lldb/source/Symbol",
+    "//${llvm_root}lldb/source/Target",
+    "//${llvm_root}lldb/source/Utility",
+    "//${llvm_root}llvm/lib/Support",
   ]
 
   # Reaches into Plugins/ExpressionParser/Clang.
-  include_dirs = [ "//lldb/source" ]
+  include_dirs = [ "//${llvm_root}lldb/source" ]
   sources = [ "TypeSystemClang.cpp" ]
 }

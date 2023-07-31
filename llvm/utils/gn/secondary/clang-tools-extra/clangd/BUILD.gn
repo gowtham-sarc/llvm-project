@@ -1,7 +1,7 @@
 import("//build_overrides/llvm.gni")
 
-import("//clang-tools-extra/clangd/quality/gen_decision_forest.gni")
-import("//clang-tools-extra/clangd/xpc/enable.gni")
+import("//${llvm_root}clang-tools-extra/clangd/quality/gen_decision_forest.gni")
+import("//${llvm_root}clang-tools-extra/clangd/xpc/enable.gni")
 import("//${llvm_build_root}build/write_cmake_config.gni")
 
 config("features_config") {
@@ -32,7 +32,7 @@ gen_decision_forest("CompletionModel") {
   model = "quality/model"
   filename = "CompletionModel"
   cpp_class = "clang::clangd::Example"
-  deps = [ "//clang/lib/Sema" ]
+  deps = [ "//${llvm_root}clang/lib/Sema" ]
 }
 
 static_library("clangd") {
@@ -41,41 +41,41 @@ static_library("clangd") {
   deps = [
     ":CompletionModel",
     ":features",
-    "//clang-tools-extra/clang-tidy",
-    "//clang-tools-extra/clang-tidy:all-checks",
-    "//clang-tools-extra/clang-tidy:clang-tidy-config",
-    "//clang-tools-extra/clangd/support",
-    "//clang-tools-extra/include-cleaner/lib",
-    "//clang-tools-extra/pseudo/lib",
-    "//clang/lib/AST",
-    "//clang/lib/ASTMatchers",
-    "//clang/lib/Basic",
-    "//clang/lib/Driver",
-    "//clang/lib/Format",
-    "//clang/lib/Frontend",
-    "//clang/lib/Index",
-    "//clang/lib/Lex",
-    "//clang/lib/Sema",
-    "//clang/lib/Serialization",
-    "//clang/lib/Tooling",
-    "//clang/lib/Tooling/Core",
-    "//clang/lib/Tooling/Inclusions",
-    "//clang/lib/Tooling/Inclusions/Stdlib",
-    "//clang/lib/Tooling/Refactoring",
-    "//clang/lib/Tooling/Syntax",
-    "//llvm/lib/Support",
-    "//llvm/lib/Target:AllTargetsInfos",
-    "//llvm/lib/TargetParser",
+    "//${llvm_root}clang-tools-extra/clang-tidy",
+    "//${llvm_root}clang-tools-extra/clang-tidy:all-checks",
+    "//${llvm_root}clang-tools-extra/clang-tidy:clang-tidy-config",
+    "//${llvm_root}clang-tools-extra/clangd/support",
+    "//${llvm_root}clang-tools-extra/include-cleaner/lib",
+    "//${llvm_root}clang-tools-extra/pseudo/lib",
+    "//${llvm_root}clang/lib/AST",
+    "//${llvm_root}clang/lib/ASTMatchers",
+    "//${llvm_root}clang/lib/Basic",
+    "//${llvm_root}clang/lib/Driver",
+    "//${llvm_root}clang/lib/Format",
+    "//${llvm_root}clang/lib/Frontend",
+    "//${llvm_root}clang/lib/Index",
+    "//${llvm_root}clang/lib/Lex",
+    "//${llvm_root}clang/lib/Sema",
+    "//${llvm_root}clang/lib/Serialization",
+    "//${llvm_root}clang/lib/Tooling",
+    "//${llvm_root}clang/lib/Tooling/Core",
+    "//${llvm_root}clang/lib/Tooling/Inclusions",
+    "//${llvm_root}clang/lib/Tooling/Inclusions/Stdlib",
+    "//${llvm_root}clang/lib/Tooling/Refactoring",
+    "//${llvm_root}clang/lib/Tooling/Syntax",
+    "//${llvm_root}llvm/lib/Support",
+    "//${llvm_root}llvm/lib/Target:AllTargetsInfos",
+    "//${llvm_root}llvm/lib/TargetParser",
     "//${llvm_build_root}build/libs/pthread",
   ]
   include_dirs = [
     ".",
 
     # For "clang-include-cleaner/..." includes.
-    "//clang-tools-extra/include-cleaner/include",
+    "//${llvm_root}clang-tools-extra/include-cleaner/include",
 
     # For "clang-pseudo/..." includes.
-    "//clang-tools-extra/pseudo/include",
+    "//${llvm_root}clang-tools-extra/pseudo/include",
 
     # To pick up the generated inc files.
     "$target_gen_dir/tool",

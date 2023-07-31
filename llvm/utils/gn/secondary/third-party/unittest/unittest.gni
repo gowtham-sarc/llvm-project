@@ -39,7 +39,7 @@ template("unittest") {
     # constraints that test binaries of different projects should go in
     # different folders, and that it's not too difficult to manually
     # run the unit test binary if necessary. Using target_out_dir here
-    # means that //clang/unittests/Format gets its binary in
+    # means that //${llvm_root}clang/unittests/Format gets its binary in
     # out/gn/obj/clang/unittests/Format/FormatTests, which seems fine.
     #
     # If you change output_dir here, look through

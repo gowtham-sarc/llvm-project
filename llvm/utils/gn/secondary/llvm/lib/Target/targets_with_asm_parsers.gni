@@ -1,6 +1,6 @@
 import("//build_overrides/llvm.gni")
 
-import("//llvm/lib/Target/targets.gni")
+import("//${llvm_root}llvm/lib/Target/targets.gni")
 
 targets_with_asm_parsers = []
 foreach(target, llvm_targets_to_build) {

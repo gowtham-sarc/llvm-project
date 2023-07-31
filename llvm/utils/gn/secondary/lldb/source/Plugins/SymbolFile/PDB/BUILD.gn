@@ -7,20 +7,20 @@ static_library("PDB") {
     "//${llvm_build_root}build:lldb_code",
   ]
   deps = [
-    "//clang/lib/AST",
-    "//clang/lib/Lex",
-    "//lldb/source/Core",
-    "//lldb/source/Plugins/SymbolFile/NativePDB",
-    "//lldb/source/Symbol",
-    "//lldb/source/Utility",
+    "//${llvm_root}clang/lib/AST",
+    "//${llvm_root}clang/lib/Lex",
+    "//${llvm_root}lldb/source/Core",
+    "//${llvm_root}lldb/source/Plugins/SymbolFile/NativePDB",
+    "//${llvm_root}lldb/source/Symbol",
+    "//${llvm_root}lldb/source/Utility",
 
-    #"//lldb/source/Plugins/TypeSystem/Clang", # Dependency cycle.
-    "//llvm/lib/DebugInfo/PDB",
-    "//llvm/lib/Support",
+    #"//${llvm_root}lldb/source/Plugins/TypeSystem/Clang", # Dependency cycle.
+    "//${llvm_root}llvm/lib/DebugInfo/PDB",
+    "//${llvm_root}llvm/lib/Support",
   ]
 
   # Reaches into Plugins/ExpressionParser/Clang.
-  include_dirs = [ "//lldb/source" ]
+  include_dirs = [ "//${llvm_root}lldb/source" ]
   sources = [
     "PDBASTParser.cpp",
     "PDBLocationToDWARFExpression.cpp",

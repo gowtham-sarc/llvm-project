@@ -7,14 +7,14 @@ static_library("Windows") {
     "//${llvm_build_root}build:lldb_code",
   ]
   deps = [
-    "//lldb/source/Breakpoint",
-    "//lldb/source/Core",
-    "//lldb/source/Host",
-    "//lldb/source/Plugins/Platform/gdb-server",
-    "//lldb/source/Target",
+    "//${llvm_root}lldb/source/Breakpoint",
+    "//${llvm_root}lldb/source/Core",
+    "//${llvm_root}lldb/source/Host",
+    "//${llvm_root}lldb/source/Plugins/Platform/gdb-server",
+    "//${llvm_root}lldb/source/Target",
   ]
 
   # Reaches into Plugins/TypeSystem/Clang.
-  include_dirs = [ "//lldb/source" ]
+  include_dirs = [ "//${llvm_root}lldb/source" ]
   sources = [ "PlatformWindows.cpp" ]
 }

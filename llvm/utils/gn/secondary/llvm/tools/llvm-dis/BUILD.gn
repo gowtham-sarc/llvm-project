@@ -2,9 +2,9 @@ import("//build_overrides/llvm.gni")
 
 executable("llvm-dis") {
   deps = [
-    "//llvm/lib/Bitcode/Reader",
-    "//llvm/lib/IR",
-    "//llvm/lib/Support",
+    "//${llvm_root}llvm/lib/Bitcode/Reader",
+    "//${llvm_root}llvm/lib/IR",
+    "//${llvm_root}llvm/lib/Support",
   ]
   sources = [ "llvm-dis.cpp" ]
 }

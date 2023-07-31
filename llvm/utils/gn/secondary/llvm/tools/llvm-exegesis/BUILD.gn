@@ -1,23 +1,23 @@
 import("//build_overrides/llvm.gni")
 
-import("//llvm/lib/Target/targets.gni")
+import("//${llvm_root}llvm/lib/Target/targets.gni")
 
 executable("llvm-exegesis") {
   deps = [
     "lib",
-    "//llvm/lib/CodeGen",
-    "//llvm/lib/CodeGen",
-    "//llvm/lib/ExecutionEngine",
-    "//llvm/lib/ExecutionEngine/MCJIT",
-    "//llvm/lib/MC",
-    "//llvm/lib/Object",
-    "//llvm/lib/Support",
-    "//llvm/lib/Target:AllTargetsAsmParsers",
-    "//llvm/lib/Target:AllTargetsCodeGens",
-    "//llvm/lib/Target:AllTargetsDescs",
-    "//llvm/lib/Target:AllTargetsDisassemblers",
-    "//llvm/lib/Target:AllTargetsInfos",
-    "//llvm/lib/TargetParser",
+    "//${llvm_root}llvm/lib/CodeGen",
+    "//${llvm_root}llvm/lib/CodeGen",
+    "//${llvm_root}llvm/lib/ExecutionEngine",
+    "//${llvm_root}llvm/lib/ExecutionEngine/MCJIT",
+    "//${llvm_root}llvm/lib/MC",
+    "//${llvm_root}llvm/lib/Object",
+    "//${llvm_root}llvm/lib/Support",
+    "//${llvm_root}llvm/lib/Target:AllTargetsAsmParsers",
+    "//${llvm_root}llvm/lib/Target:AllTargetsCodeGens",
+    "//${llvm_root}llvm/lib/Target:AllTargetsDescs",
+    "//${llvm_root}llvm/lib/Target:AllTargetsDisassemblers",
+    "//${llvm_root}llvm/lib/Target:AllTargetsInfos",
+    "//${llvm_root}llvm/lib/TargetParser",
   ]
   sources = [ "llvm-exegesis.cpp" ]
 }

@@ -1,6 +1,6 @@
 import("//build_overrides/llvm.gni")
 
-import("//compiler-rt/target.gni")
+import("//${llvm_root}compiler-rt/target.gni")
 
 source_set("cxx_sources") {
   configs -= [ "//${llvm_build_root}build:llvm_code" ]
@@ -27,9 +27,9 @@ target(tsan_target_type, "rtl") {
   }
 
   deps = [
-    "//compiler-rt/lib/interception:sources",
-    "//compiler-rt/lib/sanitizer_common:sources",
-    "//compiler-rt/lib/ubsan:sources",
+    "//${llvm_root}compiler-rt/lib/interception:sources",
+    "//${llvm_root}compiler-rt/lib/sanitizer_common:sources",
+    "//${llvm_root}compiler-rt/lib/ubsan:sources",
   ]
 
   if (tsan_target_type == "static_library") {
@@ -39,7 +39,7 @@ target(tsan_target_type, "rtl") {
   } else {
     deps += [
       ":cxx_sources",
-      "//compiler-rt/lib/ubsan:cxx_sources",
+      "//${llvm_root}compiler-rt/lib/ubsan:cxx_sources",
     ]
   }
 
@@ -175,7 +175,7 @@ if (tsan_target_type == "static_library") {
     configs -= [ "//${llvm_build_root}build:thin_archive" ]
     deps = [
       ":cxx_sources",
-      "//compiler-rt/lib/ubsan:cxx_sources",
+      "//${llvm_root}compiler-rt/lib/ubsan:cxx_sources",
     ]
   }
 }

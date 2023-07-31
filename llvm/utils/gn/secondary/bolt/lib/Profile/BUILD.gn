@@ -4,10 +4,10 @@ static_library("Profile") {
   output_name = "LLVMBOLTProfile"
   configs += [ "//${llvm_build_root}build:bolt_code" ]
   deps = [
-    "//bolt/lib/Core",
-    "//bolt/lib/Passes",
-    "//bolt/lib/Utils",
-    "//llvm/lib/Support",
+    "//${llvm_root}bolt/lib/Core",
+    "//${llvm_root}bolt/lib/Passes",
+    "//${llvm_root}bolt/lib/Utils",
+    "//${llvm_root}llvm/lib/Support",
   ]
   sources = [
     "BoltAddressTranslation.cpp",

@@ -1,6 +1,6 @@
 import("//build_overrides/llvm.gni")
 
-import("//lldb/utils/TableGen/lldb_tablegen.gni")
+import("//${llvm_root}lldb/utils/TableGen/lldb_tablegen.gni")
 
 lldb_tablegen("JITLoaderGDBProperties") {
   args = [ "-gen-lldb-property-defs" ]
@@ -17,17 +17,17 @@ static_library("GDB") {
   deps = [
     ":JITLoaderGDBProperties",
     ":JITLoaderGDBPropertiesEnum",
-    "//lldb/source/Breakpoint",
-    "//lldb/source/Core",
-    "//lldb/source/Interpreter",
-    "//lldb/source/Plugins/ObjectFile/Mach-O",
-    "//lldb/source/Symbol",
-    "//lldb/source/Target",
-    "//lldb/source/Utility",
-    "//llvm/lib/Support",
+    "//${llvm_root}lldb/source/Breakpoint",
+    "//${llvm_root}lldb/source/Core",
+    "//${llvm_root}lldb/source/Interpreter",
+    "//${llvm_root}lldb/source/Plugins/ObjectFile/Mach-O",
+    "//${llvm_root}lldb/source/Symbol",
+    "//${llvm_root}lldb/source/Target",
+    "//${llvm_root}lldb/source/Utility",
+    "//${llvm_root}llvm/lib/Support",
   ]
 
   # Reaches into Plugins/ObjectFile/Mach-O.
-  include_dirs = [ "//lldb/source" ]
+  include_dirs = [ "//${llvm_root}lldb/source" ]
   sources = [ "JITLoaderGDB.cpp" ]
 }

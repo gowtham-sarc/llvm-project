@@ -4,9 +4,9 @@ import("//third-party/unittest/unittest.gni")
 
 unittest("LLVMProfdataTests") {
   deps = [
-    "//llvm/lib/ProfileData",
-    "//llvm/lib/Support",
-    "//llvm/lib/Testing/Support",
+    "//${llvm_root}llvm/lib/ProfileData",
+    "//${llvm_root}llvm/lib/Support",
+    "//${llvm_root}llvm/lib/Testing/Support",
   ]
   sources = [ "OutputSizeLimitTest.cpp" ]
 }

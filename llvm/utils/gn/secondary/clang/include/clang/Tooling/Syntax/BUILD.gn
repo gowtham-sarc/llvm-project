@@ -1,6 +1,6 @@
 import("//build_overrides/llvm.gni")
 
-import("//clang/utils/TableGen/clang_tablegen.gni")
+import("//${llvm_root}clang/utils/TableGen/clang_tablegen.gni")
 
 clang_tablegen("Nodes") {
   args = [ "-gen-clang-syntax-node-list" ]

@@ -1,6 +1,6 @@
 import("//build_overrides/llvm.gni")
 
-import("//compiler-rt/target.gni")
+import("//${llvm_root}compiler-rt/target.gni")
 import("//${llvm_build_root}build/buildflags.gni")
 
 declare_args() {

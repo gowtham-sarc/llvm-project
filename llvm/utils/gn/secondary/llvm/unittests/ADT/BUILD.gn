@@ -3,14 +3,14 @@ import("//build_overrides/llvm.gni")
 import("//third-party/unittest/unittest.gni")
 
 unittest("ADTTests") {
-  # ADT is a headers-only library so there's no //llvm/lib/ADT to depend on.
-  # Also see note in //llvm/lib/Support/BUILD.gn.
+  # ADT is a headers-only library so there's no //${llvm_root}llvm/lib/ADT to depend on.
+  # Also see note in //${llvm_root}llvm/lib/Support/BUILD.gn.
   deps = [
     # Some tests include files from IR, but there's no library dependency.
-    "//llvm/include/llvm/IR:public_tablegen",
-    "//llvm/lib/Support",
-    "//llvm/lib/TargetParser",
-    "//llvm/lib/Testing/Support",
+    "//${llvm_root}llvm/include/llvm/IR:public_tablegen",
+    "//${llvm_root}llvm/lib/Support",
+    "//${llvm_root}llvm/lib/TargetParser",
+    "//${llvm_root}llvm/lib/Testing/Support",
   ]
   sources = [
     "APFixedPointTest.cpp",

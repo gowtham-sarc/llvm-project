@@ -11,7 +11,7 @@ template("gen_decision_forest") {
   }
 
   action("${target_name}Cpp") {
-    script = "//clang-tools-extra/clangd/quality/CompletionModelCodegen.py"
+    script = "//${llvm_root}clang-tools-extra/clangd/quality/CompletionModelCodegen.py"
     outputs = [
       "$target_gen_dir/$filename.cpp",
       "$target_gen_dir/$filename.h",
