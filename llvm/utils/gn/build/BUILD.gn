@@ -466,7 +466,7 @@ config("thin_archive") {
 config("llvm_code") {
   include_dirs = [
     "//${llvm_root}llvm/include",
-    "$root_gen_dir/llvm/include",
+    "$root_gen_dir/${llvm_root}/llvm/include",
   ]
   if (current_os != "win") {
     cflags = [ "-fPIC" ]
@@ -476,7 +476,7 @@ config("llvm_code") {
 config("lld_code") {
   include_dirs = [
     "//${llvm_root}lld/include",
-    "$root_gen_dir/lld/include",
+    "$root_gen_dir/${llvm_root}/lld/include",
   ]
 }
 
@@ -486,14 +486,14 @@ config("clang_code") {
   }
   include_dirs = [
     "//${llvm_root}clang/include",
-    "$root_gen_dir/clang/include",
+    "$root_gen_dir/${llvm_root}/clang/include",
   ]
 }
 
 config("bolt_code") {
   include_dirs = [
     "//${llvm_root}bolt/include",
-    "$root_gen_dir/bolt/include",
+    "$root_gen_dir/${llvm_root}/bolt/include",
   ]
 }
 
@@ -531,7 +531,7 @@ config("lldb_code") {
   }
   include_dirs = [
     "//${llvm_root}lldb/include",
-    "$root_gen_dir/lldb/include",
+    "$root_gen_dir/${llvm_root}/lldb/include",
   ]
 }
 

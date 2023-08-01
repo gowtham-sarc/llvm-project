@@ -1,4 +1,4 @@
 import("//build_overrides/llvm.gni")
 
-bolt_lit_site_cfg_file = "$root_gen_dir/bolt/test/lit.site.cfg.py"
-bolt_lit_unit_site_cfg_file = "$root_gen_dir/bolt/test/Unit/lit.site.cfg.py"
+bolt_lit_site_cfg_file = "$root_gen_dir/${llvm_root}/bolt/test/lit.site.cfg.py"
+bolt_lit_unit_site_cfg_file = "$root_gen_dir/${llvm_root}/bolt/test/Unit/lit.site.cfg.py"

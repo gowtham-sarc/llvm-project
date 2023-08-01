@@ -234,7 +234,7 @@ config("AllLldbPlugins_config") {
   visibility = [ ":LldbAllPlugins" ]
 
   # To pick up Plugins.def.
-  include_dirs = [ "$root_gen_dir/lldb/source" ]
+  include_dirs = [ "$root_gen_dir/${llvm_root}/lldb/source" ]
 }
 
 group("LldbAllPlugins") {

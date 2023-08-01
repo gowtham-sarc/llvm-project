@@ -1,6 +1,6 @@
 import("//build_overrides/llvm.gni")
 
 clangd_lit_site_cfg_file =
-    "$root_gen_dir/clang-tools-extra/clangd/test/lit.site.cfg.py"
+    "$root_gen_dir/${llvm_root}/clang-tools-extra/clangd/test/lit.site.cfg.py"
 clangd_lit_unit_site_cfg_file =
-    "$root_gen_dir/clang-tools-extra/clangd/unittests/lit.site.cfg.py"
+    "$root_gen_dir/${llvm_root}/clang-tools-extra/clangd/unittests/lit.site.cfg.py"
