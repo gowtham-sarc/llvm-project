@@ -30,6 +30,23 @@ set_defaults("source_set") {
   configs = shared_binary_target_configs
 }
 
+# BUILD FLAGS
+declare_args() {
+  # Build for debugging. Equivalent to is_optimized=false symbol_level=2.
+  is_debug = false
+}
+
+# args that depend on other args must live in a later declare_args() block.
+declare_args() {
+  if (is_debug) {
+    # Debug info symbol level. 0: No symbols; 1: Line numbers; 2: Full symbols.
+    symbol_level = 2
+  } else {
+    # Debug info symbol level. 0: No symbols; 1: Line numbers; 2: Full symbols.
+    symbol_level = 0
+  }
+}
+
 if (target_os == "") {
   target_os = host_os
 }

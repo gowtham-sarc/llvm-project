@@ -1,9 +1,6 @@
 import("//build_overrides/llvm.gni")
 
 declare_args() {
-  # Build for debugging. Equivalent to is_optimized=false symbol_level=2.
-  is_debug = false
-
   # Whether to build with tsan.
   use_tsan = false
 
@@ -30,12 +27,4 @@ declare_args() {
 declare_args() {
   # Whether to build with optimizations.
   is_optimized = !is_debug
-
-  if (is_debug) {
-    # Debug info symbol level. 0: No symbols; 1: Line numbers; 2: Full symbols.
-    symbol_level = 2
-  } else {
-    # Debug info symbol level. 0: No symbols; 1: Line numbers; 2: Full symbols.
-    symbol_level = 0
-  }
 }
