@@ -1,6 +1,6 @@
 import("//build_overrides/llvm.gni")
 
-import("//third-party/unittest/unittest.gni")
+import("//${llvm_root}third-party/unittest/unittest.gni")
 
 unittest("ClangApplyReplacementsTests") {
   configs += [ "//${llvm_build_root}build:clang_code" ]
@@ -10,6 +10,7 @@ unittest("ClangApplyReplacementsTests") {
     "//${llvm_root}clang/lib/Tooling/Core",
     "//${llvm_root}clang/lib/Tooling/Refactoring",
   ]
-  include_dirs = [ "//${llvm_root}clang-tools-extra/clang-apply-replacements/include" ]
+  include_dirs =
+      [ "//${llvm_root}clang-tools-extra/clang-apply-replacements/include" ]
   sources = [ "ApplyReplacementsTest.cpp" ]
 }

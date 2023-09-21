@@ -1,6 +1,6 @@
 import("//build_overrides/llvm.gni")
 
-import("//third-party/unittest/unittest.gni")
+import("//${llvm_root}third-party/unittest/unittest.gni")
 
 unittest("IRTests") {
   deps = [
@@ -40,8 +40,8 @@ unittest("IRTests") {
     "PassBuilderCallbacksTest.cpp",
     "PassManagerTest.cpp",
     "PatternMatch.cpp",
-    "StructuralHashTest.cpp",
     "ShuffleVectorInstTest.cpp",
+    "StructuralHashTest.cpp",
     "TimePassesTest.cpp",
     "TypesTest.cpp",
     "UseTest.cpp",

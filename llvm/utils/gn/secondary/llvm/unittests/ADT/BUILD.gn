@@ -1,6 +1,6 @@
 import("//build_overrides/llvm.gni")
 
-import("//third-party/unittest/unittest.gni")
+import("//${llvm_root}third-party/unittest/unittest.gni")
 
 unittest("ADTTests") {
   # ADT is a headers-only library so there's no //${llvm_root}llvm/lib/ADT to depend on.

@@ -1,6 +1,6 @@
 import("//build_overrides/llvm.gni")
 
-import("//third-party/unittest/unittest.gni")
+import("//${llvm_root}third-party/unittest/unittest.gni")
 
 # This test is currently not referenced by anything, it only exists
 # to make sync_source_lists_from_cmake.py happy.
