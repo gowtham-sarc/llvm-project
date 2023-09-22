@@ -1,8 +1,8 @@
 import("//build_overrides/llvm.gni")
 
+import("//${llvm_build_root}build/toolchain/compiler.gni")
 import("//${llvm_root}clang/lib/ARCMigrate/enable.gni")
 import("//${llvm_root}clang/lib/StaticAnalyzer/Frontend/enable.gni")
-import("//${llvm_build_root}build/toolchain/compiler.gni")
 
 group("default") {
   deps = [
@@ -24,12 +24,12 @@ group("default") {
       "//${llvm_root}libcxxabi",
     ]
   }
-  if (current_os == "linux" || current_os == "win" || current_os=="mac") {
+  if (current_os == "linux" || current_os == "win" || current_os == "mac") {
     deps += [ "//${llvm_root}compiler-rt/test/asan" ]
   }
 
   if (current_os == "linux" || current_os == "mac") {
-    deps += [ "//${llvm_root}compiler-rt/test/lsan"]
+    deps += [ "//${llvm_root}compiler-rt/test/lsan" ]
   }
 
   if (current_os == "linux" || current_os == "android") {
