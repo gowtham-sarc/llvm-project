@@ -3,9 +3,9 @@ import("//build_overrides/llvm.gni")
 static_library("Debuginfod") {
   output_name = "LLVMDebuginfod"
   deps = [
+    "//${llvm_build_root}build/libs/curl",
     "//${llvm_root}llvm/lib/DebugInfo/Symbolize",
     "//${llvm_root}llvm/lib/Support",
-    "//${llvm_build_root}build/libs/curl",
   ]
   sources = [
     "BuildIDFetcher.cpp",
@@ -13,4 +13,6 @@ static_library("Debuginfod") {
     "HTTPClient.cpp",
     "HTTPServer.cpp",
   ]
+  configs += llvm_code_override_configs_append
+  configs -= llvm_code_override_configs_remove
 }

@@ -165,6 +165,8 @@ static_library("LLVMAArch64CodeGen") {
     "SMEABIPass.cpp",
     "SVEIntrinsicOpts.cpp",
   ]
+  configs += llvm_code_override_configs_append
+  configs -= llvm_code_override_configs_remove
 }
 
 # This is a bit different from most build files: Due to this group

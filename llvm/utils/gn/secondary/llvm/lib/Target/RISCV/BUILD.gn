@@ -96,6 +96,8 @@ static_library("LLVMRISCVCodeGen") {
     "RISCVTargetObjectFile.cpp",
     "RISCVTargetTransformInfo.cpp",
   ]
+  configs += llvm_code_override_configs_append
+  configs -= llvm_code_override_configs_remove
 }
 
 # This is a bit different from most build files: Due to this group

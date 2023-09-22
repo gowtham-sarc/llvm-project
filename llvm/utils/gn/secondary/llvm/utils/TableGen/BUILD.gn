@@ -12,6 +12,8 @@ source_set("llvm-min-tblgen-sources") {
     "VTEmitter.cpp",
   ]
   deps = [ "//${llvm_root}llvm/lib/Support" ]
+  configs += llvm_code_override_configs_append
+  configs -= llvm_code_override_configs_remove
 }
 
 executable("llvm-min-tblgen") {
@@ -19,6 +21,8 @@ executable("llvm-min-tblgen") {
     ":llvm-min-tblgen-sources",
     "//${llvm_root}llvm/lib/TableGen",
   ]
+  configs += llvm_code_override_configs_append
+  configs -= llvm_code_override_configs_remove
 }
 
 executable("llvm-tblgen") {
@@ -59,9 +63,9 @@ executable("llvm-tblgen") {
     "ExegesisEmitter.cpp",
     "FastISelEmitter.cpp",
     "GICombinerEmitter.cpp",
+    "GlobalISelCombinerMatchTableEmitter.cpp",
     "GlobalISelEmitter.cpp",
     "GlobalISelMatchTable.cpp",
-    "GlobalISelCombinerMatchTableEmitter.cpp",
     "GlobalISelMatchTableExecutorEmitter.cpp",
     "InfoByHwMode.cpp",
     "InstrDocsEmitter.cpp",
@@ -86,4 +90,6 @@ executable("llvm-tblgen") {
     "X86ModRMFilters.cpp",
     "X86RecognizableInstr.cpp",
   ]
+  configs += llvm_code_override_configs_append
+  configs -= llvm_code_override_configs_remove
 }

@@ -24,4 +24,6 @@ static_library("Disassembler") {
     "AArch64Disassembler.cpp",
     "AArch64ExternalSymbolizer.cpp",
   ]
+  configs += llvm_code_override_configs_append
+  configs -= llvm_code_override_configs_remove
 }

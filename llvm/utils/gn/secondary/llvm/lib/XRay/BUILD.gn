@@ -23,4 +23,6 @@ static_library("XRay") {
     "RecordPrinter.cpp",
     "Trace.cpp",
   ]
+  configs += llvm_code_override_configs_append
+  configs -= llvm_code_override_configs_remove
 }

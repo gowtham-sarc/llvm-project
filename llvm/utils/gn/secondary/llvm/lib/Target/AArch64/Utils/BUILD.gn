@@ -26,4 +26,6 @@ static_library("Utils") {
     "AArch64BaseInfo.cpp",
     "AArch64SMEAttributes.cpp",
   ]
+  configs += llvm_code_override_configs_append
+  configs -= llvm_code_override_configs_remove
 }

@@ -4,4 +4,6 @@ static_library("FileCheck") {
   output_name = "LLVMFileCheck"
   deps = [ "//${llvm_root}llvm/lib/Support" ]
   sources = [ "FileCheck.cpp" ]
+  configs += llvm_code_override_configs_append
+  configs -= llvm_code_override_configs_remove
 }

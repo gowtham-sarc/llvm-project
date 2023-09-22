@@ -25,4 +25,6 @@ static_library("InstCombine") {
     "InstCombineVectorOps.cpp",
     "InstructionCombining.cpp",
   ]
+  configs += llvm_code_override_configs_append
+  configs -= llvm_code_override_configs_remove
 }

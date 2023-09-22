@@ -20,4 +20,6 @@ static_library("GSYM") {
     "LookupResult.cpp",
     "ObjectFileTransformer.cpp",
   ]
+  configs += llvm_code_override_configs_append
+  configs -= llvm_code_override_configs_remove
 }

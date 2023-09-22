@@ -34,4 +34,6 @@ static_library("MCA") {
     "Support.cpp",
     "View.cpp",
   ]
+  configs += llvm_code_override_configs_append
+  configs -= llvm_code_override_configs_remove
 }

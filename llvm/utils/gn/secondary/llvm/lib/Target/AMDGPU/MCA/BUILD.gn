@@ -10,4 +10,6 @@ static_library("MCA") {
   ]
   include_dirs = [ ".." ]
   sources = [ "AMDGPUCustomBehaviour.cpp" ]
+  configs += llvm_code_override_configs_append
+  configs -= llvm_code_override_configs_remove
 }

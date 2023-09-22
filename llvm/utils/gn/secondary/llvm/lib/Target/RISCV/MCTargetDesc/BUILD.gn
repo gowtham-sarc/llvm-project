@@ -77,4 +77,6 @@ static_library("MCTargetDesc") {
     "RISCVMatInt.cpp",
     "RISCVTargetStreamer.cpp",
   ]
+  configs += llvm_code_override_configs_append
+  configs -= llvm_code_override_configs_remove
 }

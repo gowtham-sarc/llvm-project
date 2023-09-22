@@ -138,6 +138,8 @@ static_library("LLVMX86CodeGen") {
     "X86VZeroUpper.cpp",
     "X86WinEHState.cpp",
   ]
+  configs += llvm_code_override_configs_append
+  configs -= llvm_code_override_configs_remove
 }
 
 # This is a bit different from most build files: Due to this group

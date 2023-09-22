@@ -20,4 +20,6 @@ static_library("Coroutines") {
     "CoroSplit.cpp",
     "Coroutines.cpp",
   ]
+  configs += llvm_code_override_configs_append
+  configs -= llvm_code_override_configs_remove
 }

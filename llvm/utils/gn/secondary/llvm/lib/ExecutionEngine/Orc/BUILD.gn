@@ -59,4 +59,6 @@ static_library("Orc") {
     "TaskDispatch.cpp",
     "ThreadSafeModule.cpp",
   ]
+  configs += llvm_code_override_configs_append
+  configs -= llvm_code_override_configs_remove
 }

@@ -24,4 +24,6 @@ static_library("Utils") {
   # https://reviews.llvm.org/D35209#1075113 :-/
   include_dirs = [ ".." ]
   sources = [ "ARMBaseInfo.cpp" ]
+  configs += llvm_code_override_configs_append
+  configs -= llvm_code_override_configs_remove
 }

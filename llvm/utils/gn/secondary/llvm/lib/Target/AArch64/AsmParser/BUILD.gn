@@ -26,4 +26,6 @@ static_library("AsmParser") {
   ]
   include_dirs = [ ".." ]
   sources = [ "AArch64AsmParser.cpp" ]
+  configs += llvm_code_override_configs_append
+  configs -= llvm_code_override_configs_remove
 }

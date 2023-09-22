@@ -52,4 +52,6 @@ static_library("Object") {
     "WindowsResource.cpp",
     "XCOFFObjectFile.cpp",
   ]
+  configs += llvm_code_override_configs_append
+  configs -= llvm_code_override_configs_remove
 }

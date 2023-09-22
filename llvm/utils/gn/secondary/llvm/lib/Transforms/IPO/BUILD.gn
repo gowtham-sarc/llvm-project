@@ -66,4 +66,6 @@ static_library("IPO") {
     "ThinLTOBitcodeWriter.cpp",
     "WholeProgramDevirt.cpp",
   ]
+  configs += llvm_code_override_configs_append
+  configs -= llvm_code_override_configs_remove
 }

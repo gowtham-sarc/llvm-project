@@ -18,4 +18,6 @@ static_library("Disassembler") {
   ]
   include_dirs = [ ".." ]
   sources = [ "RISCVDisassembler.cpp" ]
+  configs += llvm_code_override_configs_append
+  configs -= llvm_code_override_configs_remove
 }

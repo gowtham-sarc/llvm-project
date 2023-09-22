@@ -16,4 +16,6 @@ static_library("MIRParser") {
     "MIParser.cpp",
     "MIRParser.cpp",
   ]
+  configs += llvm_code_override_configs_append
+  configs -= llvm_code_override_configs_remove
 }

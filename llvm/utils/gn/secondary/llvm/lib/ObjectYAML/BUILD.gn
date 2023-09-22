@@ -38,4 +38,6 @@ static_library("ObjectYAML") {
     "YAML.cpp",
     "yaml2obj.cpp",
   ]
+  configs += llvm_code_override_configs_append
+  configs -= llvm_code_override_configs_remove
 }

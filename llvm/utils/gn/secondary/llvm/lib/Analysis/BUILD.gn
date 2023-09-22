@@ -1,6 +1,8 @@
 import("//build_overrides/llvm.gni")
 
 static_library("Analysis") {
+  configs += llvm_code_override_configs_append
+  configs -= llvm_code_override_configs_remove
   output_name = "LLVMAnalysis"
   public_deps = [
     # Must be a public_dep because Analysis's headers include llvm-config.h.

@@ -19,4 +19,6 @@ static_library("RuntimeDyld") {
     "RuntimeDyldMachO.cpp",
     "Targets/RuntimeDyldELFMips.cpp",
   ]
+  configs += llvm_code_override_configs_append
+  configs -= llvm_code_override_configs_remove
 }

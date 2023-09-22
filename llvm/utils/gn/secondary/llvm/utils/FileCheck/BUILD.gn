@@ -6,4 +6,6 @@ executable("FileCheck") {
     "//${llvm_root}llvm/lib/Support",
   ]
   sources = [ "FileCheck.cpp" ]
+  configs += llvm_code_override_configs_append
+  configs -= llvm_code_override_configs_remove
 }

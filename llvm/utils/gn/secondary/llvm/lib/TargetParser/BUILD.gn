@@ -21,4 +21,6 @@ static_library("TargetParser") {
     "Triple.cpp",
     "X86TargetParser.cpp",
   ]
+  configs += llvm_code_override_configs_append
+  configs -= llvm_code_override_configs_remove
 }

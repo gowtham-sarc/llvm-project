@@ -5,4 +5,6 @@ static_library("TargetInfo") {
   deps = [ "//${llvm_root}llvm/lib/Support" ]
   include_dirs = [ ".." ]
   sources = [ "RISCVTargetInfo.cpp" ]
+  configs += llvm_code_override_configs_append
+  configs -= llvm_code_override_configs_remove
 }

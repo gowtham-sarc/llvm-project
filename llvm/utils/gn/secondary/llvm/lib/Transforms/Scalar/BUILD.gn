@@ -92,4 +92,6 @@ static_library("Scalar") {
     "TailRecursionElimination.cpp",
     "WarnMissedTransforms.cpp",
   ]
+  configs += llvm_code_override_configs_append
+  configs -= llvm_code_override_configs_remove
 }

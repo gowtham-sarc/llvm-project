@@ -50,4 +50,6 @@ static_library("JITLink") {
     "riscv.cpp",
     "x86_64.cpp",
   ]
+  configs += llvm_code_override_configs_append
+  configs -= llvm_code_override_configs_remove
 }

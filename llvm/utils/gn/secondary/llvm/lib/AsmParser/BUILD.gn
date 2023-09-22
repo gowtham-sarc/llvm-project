@@ -12,4 +12,6 @@ static_library("AsmParser") {
     "LLParser.cpp",
     "Parser.cpp",
   ]
+  configs += llvm_code_override_configs_append
+  configs -= llvm_code_override_configs_remove
 }

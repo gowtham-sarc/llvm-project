@@ -27,4 +27,6 @@ static_library("Passes") {
     "PassPlugin.cpp",
     "StandardInstrumentations.cpp",
   ]
+  configs += llvm_code_override_configs_append
+  configs -= llvm_code_override_configs_remove
 }

@@ -10,9 +10,9 @@ static_library("CodeGenTypes") {
     "//${llvm_root}llvm/include/llvm/CodeGen:GenVT",
     "//${llvm_root}llvm/lib/Support",
   ]
-  sources = [
-    "LowLevelType.cpp"
-  ]
+  sources = [ "LowLevelType.cpp" ]
+  configs += llvm_code_override_configs_append
+  configs -= llvm_code_override_configs_remove
 }
 
 static_library("CodeGen") {
@@ -261,4 +261,6 @@ static_library("CodeGen") {
     "WinEHPrepare.cpp",
     "XRayInstrumentation.cpp",
   ]
+  configs += llvm_code_override_configs_append
+  configs -= llvm_code_override_configs_remove
 }

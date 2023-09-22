@@ -10,4 +10,6 @@ static_library("Shared") {
     "OrcRTBridge.cpp",
     "SimpleRemoteEPCUtils.cpp",
   ]
+  configs += llvm_code_override_configs_append
+  configs -= llvm_code_override_configs_remove
 }

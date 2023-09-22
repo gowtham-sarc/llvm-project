@@ -25,4 +25,6 @@ static_library("ProfileData") {
     "SampleProfWriter.cpp",
     "SymbolRemappingReader.cpp",
   ]
+  configs += llvm_code_override_configs_append
+  configs -= llvm_code_override_configs_remove
 }

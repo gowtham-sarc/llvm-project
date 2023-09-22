@@ -11,10 +11,13 @@ static_library("OpenMP") {
     "//${llvm_root}llvm/lib/Transforms/Scalar",
     "//${llvm_root}llvm/lib/Transforms/Utils",
   ]
-  public_deps = [ "//${llvm_root}llvm/include/llvm/Frontend/OpenMP:public_tablegen" ]
+  public_deps =
+      [ "//${llvm_root}llvm/include/llvm/Frontend/OpenMP:public_tablegen" ]
   sources = [
     "OMP.cpp",
     "OMPContext.cpp",
     "OMPIRBuilder.cpp",
   ]
+  configs += llvm_code_override_configs_append
+  configs -= llvm_code_override_configs_remove
 }
