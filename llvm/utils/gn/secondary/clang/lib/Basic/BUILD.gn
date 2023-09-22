@@ -21,6 +21,8 @@ write_vcsrevision("write_vcsversion") {
 static_library("Basic") {
   output_name = "clangBasic"
   configs += [ "//${llvm_build_root}build:clang_code" ]
+  configs += llvm_code_override_configs_append
+  configs -= llvm_code_override_configs_remove
   public_deps = [
     # public_dep because public header Version.h includes generated Version.inc.
     "//${llvm_root}clang/include/clang/Basic:AttrList",

@@ -3,6 +3,8 @@ import("//build_overrides/llvm.gni")
 static_library("Syntax") {
   output_name = "clangToolingSyntax"
   configs += [ "//${llvm_build_root}build:clang_code" ]
+  configs += llvm_code_override_configs_append
+  configs -= llvm_code_override_configs_remove
   deps = [
     "//${llvm_root}clang/include/clang/Tooling/Syntax:Nodes",
     "//${llvm_root}clang/lib/Basic",
@@ -10,7 +12,8 @@ static_library("Syntax") {
     "//${llvm_root}clang/lib/Lex",
     "//${llvm_root}llvm/lib/Support",
   ]
-  public_deps = [ "//${llvm_root}clang/include/clang/Tooling/Syntax:NodeClasses" ]
+  public_deps =
+      [ "//${llvm_root}clang/include/clang/Tooling/Syntax:NodeClasses" ]
   sources = [
     "BuildTree.cpp",
     "ComputeReplacements.cpp",

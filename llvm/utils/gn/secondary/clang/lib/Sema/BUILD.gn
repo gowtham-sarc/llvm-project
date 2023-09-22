@@ -9,6 +9,8 @@ clang_tablegen("OpenCLBuiltins") {
 static_library("Sema") {
   output_name = "clangSema"
   configs += [ "//${llvm_build_root}build:clang_code" ]
+  configs += llvm_code_override_configs_append
+  configs -= llvm_code_override_configs_remove
   deps = [
     ":OpenCLBuiltins",
     "//${llvm_root}clang/include/clang/Basic:arm_cde_builtin_aliases",

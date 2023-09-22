@@ -9,6 +9,8 @@ assert(clang_enable_static_analyzer || !clang_enable_arcmt,
 static_library("FrontendTool") {
   output_name = "clangFrontendTool"
   configs += [ "//${llvm_build_root}build:clang_code" ]
+  configs += llvm_code_override_configs_append
+  configs -= llvm_code_override_configs_remove
   deps = [
     "//${llvm_root}clang/include/clang/Config",
     "//${llvm_root}clang/lib/Basic",

@@ -3,6 +3,8 @@ import("//build_overrides/llvm.gni")
 static_library("CodeGen") {
   output_name = "clangCodeGen"
   configs += [ "//${llvm_build_root}build:clang_code" ]
+  configs += llvm_code_override_configs_append
+  configs -= llvm_code_override_configs_remove
   deps = [
     "//${llvm_root}clang/include/clang/Basic:arm_cde_builtin_cg",
     "//${llvm_root}clang/include/clang/Basic:arm_mve_builtin_cg",
