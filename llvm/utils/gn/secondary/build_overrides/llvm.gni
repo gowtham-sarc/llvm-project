@@ -6,3 +6,11 @@ llvm_root = ""
 llvm_build_root = "llvm/utils/gn/"
 
 llvm_third_party_build = false
+
+# Configs to be appended and removed based on top level build
+llvm_code_override_configs_remove = []
+llvm_code_override_configs_append = []
+
+# FIXME: There should be a way to query the output_dir of a target
+# as set in toolchain/BUILD.gn
+llvm_tblgen_output_dir_suffix = "/bin"
