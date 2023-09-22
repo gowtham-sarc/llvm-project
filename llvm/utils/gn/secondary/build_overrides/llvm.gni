@@ -4,3 +4,5 @@
 # Path with trailing /
 llvm_root = ""
 llvm_build_root = "llvm/utils/gn/"
+
+llvm_third_party_build = false

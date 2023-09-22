@@ -1,6 +1,10 @@
 import("//build_overrides/llvm.gni")
 
-declare_args() {
-  # Path of sysroot to use.
-  sysroot = ""
+# in the case of third_party build this comes from top-level project build
+# folder
+if (!llvm_third_party_build) {
+  declare_args() {
+    # Path of sysroot to use.
+    sysroot = ""
+  }
 }

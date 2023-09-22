@@ -2,10 +2,12 @@ import("//build_overrides/llvm.gni")
 
 import("//${llvm_build_root}build/toolchain/compiler.gni")
 
-declare_args() {
-  # If is_goma is true, the location of the goma client install.
-  # Set this to the output of `goma_ctl goma_dir`.
-  goma_dir = ""
+if (!llvm_third_party_build) {
+  declare_args() {
+    # If is_goma is true, the location of the goma client install.
+    # Set this to the output of `goma_ctl goma_dir`.
+    goma_dir = ""
+  }
 }
 
 assert(!use_goma || goma_dir != "",
